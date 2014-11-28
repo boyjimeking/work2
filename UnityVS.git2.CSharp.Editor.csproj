@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DADC078A-CF97-7AE0-EB11-4518BCCEB172}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace></RootNamespace>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="Poly2Tri">
+      <HintPath>Assets\lib\Exploder\Exploder\3rd\Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="JMOAssets">
+      <HintPath>Assets\lib\IGSoft_Resources\aFX_Bao\JMO Assets01\Editor\JMOAssets.dll</HintPath>
+    </Reference>
+    <Reference Include="uSequencerEditor">
+      <HintPath>Assets\lib\USequencer\Sequencer\Editor\uSequencerEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="uSequencerRuntime">
+      <HintPath>Assets\lib\USequencer\Sequencer\uSequencerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviourMachineRuntime">
+      <HintPath>Assets\Plugins\BehaviourMachine\BehaviourMachineRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviourMachineEditor">
+      <HintPath>Assets\Plugins\Editor\BehaviourMachineEditor\BehaviourMachineEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
+      <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityVS.VersionSpecific">
+      <HintPath>Assets\UnityVS\Editor\UnityVS.VersionSpecific.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="UnityVS.git2.CSharp.csproj">
+      <Project>{841F8F8A-1160-02CE-7AEA-96E72A38DBC1}</Project>
+      <Name>UnityVS.git2.CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityVS.git2.CSharp.Editor.Plugins.csproj">
+      <Project>{DBAB51BA-AD04-1C64-366F-F91F289AA784}</Project>
+      <Name>UnityVS.git2.CSharp.Editor.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityVS.git2.CSharp.Plugins.csproj">
+      <Project>{6A630A29-3911-1FFC-F1E9-58B4AED1B315}</Project>
+      <Name>UnityVS.git2.CSharp.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Editor\DataReadBundle.cs" />
+    <Compile Include="Assets\Editor\ExportAssetBundles.cs" />
+    <Compile Include="Assets\Resources\Remote\ActionEffects\Effect\Plugin\Editor\ParticleAndAnimationInspector.cs" />
+    <Compile Include="Assets\Resources\Remote\ActionEffects\Effect\Plugin\XWeaponTrail\Editor\XWeaponTrailEditor.cs" />
+    <Compile Include="Assets\echoLogin\Editor\EchoCoreManagerEditorSetup.cs" />
+    <Compile Include="Assets\lib\AssetBundleCreator\Scripts\Editor\AssetBundleContent.cs" />
+    <Compile Include="Assets\lib\AssetBundleCreator\Scripts\Editor\AssetBundleWindow.cs" />
+    <Compile Include="Assets\lib\AssetBundleCreator\Scripts\Editor\ClearCache.cs" />
+    <Compile Include="Assets\lib\AssetBundleCreator\Scripts\Editor\CreateAssetBundles.cs" />
+    <Compile Include="Assets\lib\AssetBundleCreator\Scripts\Editor\UndoManager\HOEditorUndoManager.cs" />
+    <Compile Include="Assets\lib\EasyTouch\Plugins\Editor\GUIEasyButtonCallBack.cs" />
+    <Compile Include="Assets\lib\EasyTouch\Plugins\Editor\GUIEasyButtonInspector.cs" />
+    <Compile Include="Assets\lib\EasyTouch\Plugins\Editor\GUIEasyJoystickCallBack.cs" />
+    <Compile Include="Assets\lib\EasyTouch\Plugins\Editor\GUIEasyJoystickInspector.cs" />
+    <Compile Include="Assets\lib\EasyTouch\Plugins\Editor\GUIEasyTouchInspector.cs" />
+    <Compile Include="Assets\lib\EasyTouch\Plugins\Editor\GUIEasyTouchMenu.cs" />
+    <Compile Include="Assets\lib\EasyTouch\Plugins\Editor\GUIEasytouchCallBack.cs" />
+    <Compile Include="Assets\lib\EasyTouch\Plugins\Editor\HTGUILayout.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\Ian&apos;s Fire Pack\Scripts\Editor\ScaleEditor.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\JMO Assets01\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\JMO Assets01\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\WarFX\Editor\WFX_ParticleMeshBillboardEditor.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\Xffect_free\Editor\EffectLayerCustom.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\Xffect_free\Editor\Patch\XffectPatch300.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\Xffect_free\Editor\Patch\XffectPatch400.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\Xffect_free\Editor\XEditorTool.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\Xffect_free\Editor\XGradientEditor.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\Xffect_free\Editor\XffectComponentCustom.cs" />
+    <Compile Include="Assets\lib\IGSoft_Resources\aFX_Bao\Xffect_free\Editor\XffectEventCustom.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\BMFontReader.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\ComponentSelector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\EventDelegateDrawer.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\EventDelegateEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\FreeType.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUIContextMenu.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUIEditorExtensions.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUIEditorTools.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUIHandles.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUIHelp.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUIJson.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUIMenu.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUISelectionTools.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUISettings.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUISnap.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\NGUITransformInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\PropertyBindingEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\PropertyReferenceDrawer.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\SpriteSelector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenAlphaEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenColorEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenFOVEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenHeightEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenOrthoSizeEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenPositionEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenRotationEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenScaleEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenTransformEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenVolumeEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\TweenWidthEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UI2DSpriteEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIAnchorEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIAtlasInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIAtlasMaker.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIBasicSpriteEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIButtonColorEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIButtonEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIButtonKeysEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIButtonMessageEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UICameraEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UICameraTool.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UICreateNewUIWizard.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UICreateWidgetWizard.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIDragObjectEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIDrawCallInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIDrawCallViewer.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIEventTriggerEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIFontInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIFontMaker.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIForwardEventsEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIGridEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIImageButtonInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIInputEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIKeyNavigationEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UILabelInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UILocalizeEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIPanelInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIPanelTool.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIPlayAnimationEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIPlayTweenEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIPopupListInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIPrefabTool.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIProgressBarEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIRectEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIRootEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIScrollBarEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIScrollViewEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UISliderEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UISnapshotPointEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UISpriteAnimationInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UISpriteInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIStretchEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UITableEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UITextureInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UITexturePacker.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIToggleInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UITweenerEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
+    <Compile Include="Assets\lib\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
+    <Compile Include="Assets\lib\Shadow Softener\Scripts\Editor\ShadowSoftenerConverter.cs" />
+    <Compile Include="Assets\lib\Shadow Softener\Scripts\Editor\ShadowSoftenerUpdate.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USApplyForceEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USAttachToParentEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USDisplayImageEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USEnableObjectEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USFadeScreenEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USLookAtObjectEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USMatchObjectEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USMessageEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USPauseResumeAudioEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USPlayAdvancedAnimEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USPlayAnimEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USPlayAudioEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USSetPlaybackRateEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USSpawnPrefabEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USTimeScaleEventEditor.cs" />
+    <Compile Include="Assets\lib\USequencer\Sequencer Events\Editor\USWarpToObjectEditor.cs" />
+    <Compile Include="Assets\lib\effects\WallVisionOutlineEffect\Editor\CustomFields.cs" />
+    <Compile Include="Assets\lib\effects\WallVisionOutlineEffect\Editor\WallVisionOutlineEffectEditor.cs" />
+    <Compile Include="Assets\tools\Editor\sunny\RemoveAnimationEvents.cs" />
+    <Compile Include="Assets\tools\Editor\sunny\SceneBuilder.cs" />
+    <None Include="Assets\Code\doc\bundle.txt" />
+    <None Include="Assets\echoLogin\Shaders\Additive\echoLogin-additive-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Additive\echoLogin-additive-20-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Additive\echoLogin-additive-21-color-multiply.shader" />
+    <None Include="Assets\echoLogin\Shaders\Additive\echoLogin-additive-fx-fusionfx.shader" />
+    <None Include="Assets\echoLogin\Shaders\Additive\echoLogin-additive-fx-rimlit.shader" />
+    <None Include="Assets\echoLogin\Shaders\Additive\echoLogin-additive-fx-rimlit-1color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Additive\echoLogin-additive-fx-shield-detail.shader" />
+    <None Include="Assets\echoLogin\Shaders\Additive\echoLogin-additive-fx-shield-simple.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-00-solid.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-20-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-30-skybox.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-31-skybox-2tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-layers-2layer-1tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-layers-3layer-1tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-layers-clouds.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-layers-clouds-2layer-2tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Background\echoLogin-background-layers-mix2tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\GUI\echoLogin-gui-transparent.shader" />
+    <None Include="Assets\echoLogin\Shaders\GUI\echoLogin-gui-unlit.shader" />
+    <None Include="Assets\echoLogin\Shaders\Include\EchoLogin.cginc" />
+    <None Include="Assets\echoLogin\Shaders\Include\EchoLogin-Light.cginc" />
+    <None Include="Assets\echoLogin\Shaders\Light\echologin_litbumpmap.cginc" />
+    <None Include="Assets\echoLogin\Shaders\Light\echologin_litvertexshader.cginc" />
+    <None Include="Assets\echoLogin\Shaders\Light\echologin_ramp.cginc" />
+    <None Include="Assets\echoLogin\Shaders\Light\echologin_shaderoptions.cginc" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-20-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-25-lightmap.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-30-specular.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-31-specular-lightmap.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-40-dissolve-togrey.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-40-vertex-terrain-1tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-41-vertex-terrain-2tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-45-control-terrain-2tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-bumpmap-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-bumpmap-20-lightmap.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-bumpmap-30-specular.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-fx-flag.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echologin-light-fx-flashlight.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-fx-planet-clouds.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-fx-planet-rimlit.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-fx-planet-rimlit-atmosphere.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-ramp-00-solid-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-ramp-10-solid-color-bumpmap.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-ramp-20-1tex-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-ramp-30-1tex-color-bumpmap.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-reflective-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-reflective-20-2Layer-1Tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-reflective-20-2Layer-2Tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-reflective-20-2Layer-2Tex-bumpmap.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-reflective-21-2Layer-2Tex-mix.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-solid-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-05-additive.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-20-cutout.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-21-cutout-zwrite.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-22-cutout-discard.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-30-dissolve.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-31-dissolve-zwrite.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-32-dissolve-discard.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-40-dissolve-burn.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-41-dissolve-burn-zwrite.shader" />
+    <None Include="Assets\echoLogin\Shaders\Light\echoLogin-light-transparent-42-dissolve-burn-discard.shader" />
+    <None Include="Assets\echoLogin\Shaders\Projector\echoLogin-projector-additive.shader" />
+    <None Include="Assets\echoLogin\Shaders\Projector\echoLogin-projector-multiply.shader" />
+    <None Include="Assets\echoLogin\Shaders\Self-Illumin\echoLogin-self-illum-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Self-Illumin\echoLogin-self-illum-20-lightmapped.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-20-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-21-color-zwrite.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-cutout-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-cutout-11-zwrite.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-cutout-12-discard.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-dissolve-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-dissolve-20-burn.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-fx-ripple.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-fx-water.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-solid-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Transparent\echoLogin-transparent-solid-20-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-20-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-cutout-discard.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-dissolve-00-togrey.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-dissolve-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-dissolve-11-zwrite.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-dissolve-12-discard.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-dissolve-20-burn.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-dissolve-21-burn-zwrite.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-dissolve-22-burn-discard.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-fx-cellblend.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-fx-flag.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-fx-ripple.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-fx-sun.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-fx-water-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-layers-2layer-1tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-layers-2layer-2tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-layers-3layer-1tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-reflective-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-reflective-2layer-1tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-reflective-2layer-2tex.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-solid-10-fastest.shader" />
+    <None Include="Assets\echoLogin\Shaders\Unlit\echoLogin-unlit-solid-20-color.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-corepass.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-flame.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-glow1.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-glow2.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-overlay-glow.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-overlay-rimlit.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-overlay-ripple.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-overlay-ripplealpha.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-overlay-static.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-solid1.shader" />
+    <None Include="Assets\echoLogin\Shaders\xcorepass\echoLogin-xcorepass-outline-solid2.shader" />
+    <None Include="Assets\lib\effects\50+ Weapon Effects FX\ReadMe.txt" />
+    <None Include="Assets\lib\effects\WallVisionOutlineEffect\readme.txt" />
+    <None Include="Assets\lib\effects\WallVisionOutlineEffect\WallVisionOutlineEffectCombine.shader" />
+    <None Include="Assets\lib\effects\WallVisionOutlineEffect\WallVisionOutlineEffectOccluder.shader" />
+    <None Include="Assets\lib\Exploder\Demo\Shaders\VertexColor.shader" />
+    <None Include="Assets\lib\Exploder\Demo\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+    <None Include="Assets\lib\IGSoft_Resources\aFX_Bao\Ian&apos;s Fire Pack\Shaders\Add_Layer.shader" />
+    <None Include="Assets\lib\IGSoft_Resources\aFX_Bao\Ian&apos;s Fire Pack\Shaders\Add_Layer1.shader" />
+    <None Include="Assets\lib\IGSoft_Resources\aFX_Bao\JMO Assets01\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
+    <None Include="Assets\lib\IGSoft_Resources\aFX_Bao\ShurikenMagic\Shaders\SM_TransparentRim.shader" />
+    <None Include="Assets\lib\IGSoft_Resources\aFX_Bao\Xffect_free\Resources\Shaders\AdvanceShader\xft_displacement_screen.shader" />
+    <None Include="Assets\lib\IGSoft_Resources\ToolResources\EffectShader\FXMaker_Mask Additive Tint.shader" />
+    <None Include="Assets\lib\IGSoft_Resources\ToolResources\EffectShader\FXMaker_Mask Alpha Blended Tint.shader" />
+    <None Include="Assets\lib\NGUI\ReadMe - 3.6.7.txt" />
+    <None Include="Assets\lib\NGUI\ReadMe - 3.7.0.txt" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Text.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+    <None Include="Assets\lib\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\lib\Shadow Softener\Sample Scene\Shaders\Built-In Diffuse (Full Forward).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Deferred\Resources\Internal-PrePassCollectShadows.shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Deferred\Resources\Internal-PrePassCollectShadows-35.cginc" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Deferred\Resources\Internal-PrePassCollectShadows-40.cginc" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Deferred\Resources\Internal-PrePassLighting.shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Deferred\Resources\Internal-PrePassLighting-35.cginc" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Deferred\Resources\Internal-PrePassLighting-40.cginc" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Deferred\Resources\ShadowSoftenerConfig.cginc" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Forward\Samples\Normal-Diffuse (Custom Filter).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Forward\Samples\Normal-Diffuse (PCF 2x2).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Forward\Samples\Normal-Diffuse (PCF 3x3).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Forward\Samples\Normal-Diffuse (PCF 4x4).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Forward\Samples\Normal-Diffuse (PCF 5x5).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Forward\Samples\Normal-Diffuse (PCF 6x6).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Forward\Samples\Normal-Diffuse (PCF 7x7).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Forward\Samples\Normal-Diffuse (PCF 8x8) (Full Forward).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\Forward\Samples\Normal-Diffuse (PCF 8x8).shader" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\ShadowSoftener.cginc" />
+    <None Include="Assets\lib\Shadow Softener\Shaders\ShadowSoftener.shader" />
+    <None Include="Assets\lib\Standard Assets (Mobile)\Shaders\xf_heat_distortion.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\DLAA.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAA2.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAA3Console.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset2.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset3.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\NFAA.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\SSAA.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\Blend.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MobileBloom.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MobileBlur.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\VignetteShader.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\Bokeh34.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfField34.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableBlur.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\TiltShift.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlendModesOverlay.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlurEffectConeTaps.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CameraMotionBlur.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CameraMotionBlurDX11.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ChromaticAberrationShader.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrection3DLut.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionCurves.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionCurvesSimple.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionEffect.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionSelective.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Adaptation.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Apply.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Luminance.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\MinMaxReduction.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ContrastComposite.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ConvertDepth.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CreaseApply.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\EdgeDetectNormals.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\EdgeDetectX.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\FisheyeShader.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlobalFog.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GrayscaleEffect.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlur.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlurClear.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseAndGrain.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseAndGrainDX11.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderYUV.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\PrepareSunShaftsBlur.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\RadialBlur.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ScreenSpaceAmbientObscurance.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SepiaToneEffect.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SimpleClear.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SSAOShader.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SunShaftsComposite.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Tonemapper.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\TwirlEffect.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VignettingShader.shader" />
+    <None Include="Assets\lib\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VortexEffect.shader" />
+    <None Include="Assets\Output\log.txt" />
+    <None Include="Assets\Plugins\BehaviourMachine\Readme!!!.txt" />
+    <None Include="Assets\Resources\Local\data\bundle.xml" />
+    <None Include="Assets\Resources\Local\data\xml\battleConfig.xml" />
+    <None Include="Assets\Resources\Local\data\xml\char_anim.xml" />
+    <None Include="Assets\Resources\Local\data\xml\char_data.xml" />
+    <None Include="Assets\Resources\Local\data\xml\char_template.xml" />
+    <None Include="Assets\Resources\Local\data\xml\common.xml" />
+    <None Include="Assets\Resources\Local\data\xml\dungeon_template.xml" />
+    <None Include="Assets\Resources\Local\data\xml\scene.xml" />
+    <None Include="Assets\Resources\Local\data\xml\scripts.xml" />
+    <None Include="Assets\Resources\Local\data\xml\skill.xml" />
+    <None Include="Assets\Resources\Local\data\xml\skill_effect.xml" />
+    <None Include="Assets\Resources\Local\Shader\AlphaSelfIllum.shader" />
+    <None Include="Assets\Resources\Local\Shader\Backface Rendered Bumped Diffuse.shader" />
+    <None Include="Assets\Resources\Local\Shader\BehindWall.shader" />
+    <None Include="Assets\Resources\Local\Shader\BehindWall2 - 副本.shader" />
+    <None Include="Assets\Resources\Local\Shader\BehindWall2.shader" />
+    <None Include="Assets\Resources\Local\Shader\BeHit2.shader" />
+    <None Include="Assets\Resources\Local\Shader\BeHitEffect.shader" />
+    <None Include="Assets\Resources\Local\Shader\BumpedOutlined.shader" />
+    <None Include="Assets\Resources\Local\Shader\DiffuseWithRimLightSpace.shader" />
+    <None Include="Assets\Resources\Local\Shader\Dissolve.shader" />
+    <None Include="Assets\Resources\Local\Shader\GlobalFog.shader" />
+    <None Include="Assets\Resources\Local\Shader\grayscale.shader" />
+    <None Include="Assets\Resources\Local\Shader\GrayShader.shader" />
+    <None Include="Assets\Resources\Local\Shader\Highlight.shader" />
+    <None Include="Assets\Resources\Local\Shader\Mobile-Particle-Add-Overlay.shader" />
+    <None Include="Assets\Resources\Local\Shader\MobileXrayEffect.shader" />
+    <None Include="Assets\Resources\Local\Shader\Particle Add-Overlay.shader" />
+    <None Include="Assets\Resources\Local\Shader\Particle AddTest.shader" />
+    <None Include="Assets\Resources\Local\Shader\Particle Alpha Blend-Overlay.shader" />
+    <None Include="Assets\Resources\Local\Shader\particleDepth.shader" />
+    <None Include="Assets\Resources\Local\Shader\RimLightSpce.shader" />
+    <None Include="Assets\Resources\Local\Shader\RimLightSpceWithTransparentCutout.shader" />
+    <None Include="Assets\Resources\Local\Shader\SilhouettedOutlined.shader" />
+    <None Include="Assets\Resources\Remote\ActionEffects\Effect\Plugin\DissolveShader\Readme.txt" />
+    <None Include="Assets\Resources\Remote\ActionEffects\Effect\Plugin\DissolveShader\Shader\Dissolve_TexturCoords.shader" />
+    <None Include="Assets\Resources\Remote\ActionEffects\Effect\Plugin\DissolveShader\Shader\Dissolve_WorldCoords.shader" />
+    <None Include="Assets\Resources\Remote\ActionEffects\Effect\Plugin\XWeaponTrail\Model\readme.txt" />
+    <None Include="Assets\Resources\Remote\ActionEffects\Effect\Plugin\XWeaponTrail\readme_chinese.txt" />
+    <None Include="Assets\Resources\Remote\ActionEffects\Effect\Plugin\XWeaponTrail\readme_english.txt" />
+    <None Include="Assets\Resources\Remote\ActionEffects\Effect\Plugin\XWeaponTrail\Shader\xft_displacement_screen.shader" />
+    <None Include="Assets\Resources\Remote\ActionEffects\Effect\Shader\effect_distortadd.shader" />
+    <None Include="Assets\Resources\Remote\ActionEffects\Effect\Shader\xf_heat_distortion.shader" />
+    <None Include="Assets\Scene\Map01\Particle Alpha Blend_sky.shader" />
+    <None Include="Assets\lib\IGSoft_Resources\aFX_Bao\JMO Assets01\Editor\JMOAssets.dll" />
+    <None Include="Assets\lib\USequencer\Sequencer\Editor\uSequencerEditor.dll" />
+    <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll" />
+    <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll" />
+    <None Include="Assets\UnityVS\Editor\UnityVS.VersionSpecific.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2012\UnityVS.CSharp.targets" />
+</Project>
