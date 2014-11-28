@@ -1,0 +1,126 @@
+fileFormatVersion: 2
+guid: e97d9d28300e2514abecfef086056aa3
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: break01
+    100002: break02
+    100004: break03
+    100006: break_Bone001
+    100008: break_Bone003
+    100010: break_Bone005
+    100012: break_Bone007
+    100014: //RootNode
+    400000: break01
+    400002: break02
+    400004: break03
+    400006: break_Bone001
+    400008: break_Bone003
+    400010: break_Bone005
+    400012: break_Bone007
+    400014: //RootNode
+    4300000: break03
+    4300002: break01
+    4300004: break02
+    7400000: Break
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: break01
+    13700002: break02
+    13700004: break03
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Break
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: break01
+        weight: 1
+      - path: break02
+        weight: 1
+      - path: break03
+        weight: 1
+      - path: break_Bone001
+        weight: 1
+      - path: break_Bone003
+        weight: 1
+      - path: break_Bone005
+        weight: 1
+      - path: break_Bone007
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

@@ -1,0 +1,8 @@
+0 layers
+	a. there are must be two layers for wall vision effect: Walls,Avatars.
+	b. avatar prefab layer must be set to Avatars, since dynamically change layer doesnt work.
+	c. 所有需要透视效果的墙体必须设置为Walls层
+
+1 avatar
+
+	1.1 remove avatar animator's controller before building bundle.

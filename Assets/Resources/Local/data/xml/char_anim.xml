@@ -1,0 +1,53 @@
+<!--char attack animation config-->
+<!-- blend, animation blend mode,blend or add,optional-->
+
+<animations>
+	<!--jianshi-->
+	<character id="1">
+		<anim name="atk1_start"/>
+		<anim name="atk1_end"/>
+		<anim name="atk2_start"/>
+		<anim name="atk2_end"/>
+		<anim name="atk3_start"/>
+		<anim name="atk3_end"/>
+
+	</character>
+	
+
+
+	<!--gongjian-->
+	<character id="2">
+		<anim name="attack1"/>
+		<anim name="skill_bingshuang" />
+		
+	</character>
+
+	<!--pets-->
+	<character id="5000">
+		<anim name="attack1"/>
+		<anim name="skill_bingshuang"/>
+	</character>
+	<character id="5001">
+		<anim name="atk1_start"/>
+		<anim name="atk1_end"/>
+		<anim name="atk2_start"/>
+		<anim name="atk2_end"/>
+		<anim name="atk3"/>
+		
+	</character>
+
+	<!--monsters-->
+	<character id="10000"  minAnimSpeed="0.25" maxAnimSpeed="0.25">
+		<anim name="attack1" />
+		<anim name="hurt" speed="3"/>
+	</character>
+	<character id="10001" minAnimSpeed="0.25" maxAnimSpeed="0.25">
+		<anim name="attack1" />
+		<anim name="skill1" />
+		<anim name="skill2" />
+	</character>
+	<character id="10002" >
+		<anim name="attack1" />
+		<anim name="run"/>
+	</character>
+</animations>

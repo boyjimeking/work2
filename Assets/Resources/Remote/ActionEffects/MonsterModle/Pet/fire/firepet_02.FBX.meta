@@ -1,0 +1,1073 @@
+fileFormatVersion: 2
+guid: 9e436cfabcb24be4eab9f7e9c5f664f0
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Bip01
+    100002: Bip01 Footsteps
+    100004: Bip01 Head
+    100006: Bip01 HeadNub
+    100008: Bip01 L Calf
+    100010: Bip01 L Clavicle
+    100012: Bip01 L Finger0
+    100014: Bip01 L Finger01
+    100016: Bip01 L Finger02
+    100018: Bip01 L Finger0Nub
+    100020: Bip01 L Finger1
+    100022: Bip01 L Finger11
+    100024: Bip01 L Finger12
+    100026: Bip01 L Finger1Nub
+    100028: Bip01 L Finger2
+    100030: Bip01 L Finger21
+    100032: Bip01 L Finger22
+    100034: Bip01 L Finger2Nub
+    100036: Bip01 L Foot
+    100038: Bip01 L Forearm
+    100040: Bip01 L Hand
+    100042: Bip01 L Thigh
+    100044: Bip01 L Toe0
+    100046: Bip01 L Toe01
+    100048: Bip01 L Toe02
+    100050: Bip01 L Toe0Nub
+    100052: Bip01 L UpperArm
+    100054: Bip01 Neck
+    100056: Bip01 Pelvis
+    100058: Bip01 R Calf
+    100060: Bip01 R Clavicle
+    100062: Bip01 R Finger0
+    100064: Bip01 R Finger01
+    100066: Bip01 R Finger02
+    100068: Bip01 R Finger0Nub
+    100070: Bip01 R Finger1
+    100072: Bip01 R Finger11
+    100074: Bip01 R Finger12
+    100076: Bip01 R Finger1Nub
+    100078: Bip01 R Finger2
+    100080: Bip01 R Finger21
+    100082: Bip01 R Finger22
+    100084: Bip01 R Finger2Nub
+    100086: Bip01 R Foot
+    100088: Bip01 R Forearm
+    100090: Bip01 R Hand
+    100092: Bip01 R Thigh
+    100094: Bip01 R Toe0
+    100096: Bip01 R Toe01
+    100098: Bip01 R Toe02
+    100100: Bip01 R Toe0Nub
+    100102: Bip01 R UpperArm
+    100104: Bip01 Spine
+    100106: Bip01 Spine1
+    100108: Bone01
+    100110: Bone02
+    100112: Bone03
+    100114: Bone03(mirrored)
+    100116: Bone04
+    100118: Bone04(mirrored)
+    100120: Bone05
+    100122: Bone05(mirrored)
+    100124: Bone06
+    100126: Bone06(mirrored)
+    100128: Bone07
+    100130: Bone07(mirrored)
+    100132: Bone08
+    100134: Bone08(mirrored)
+    100136: Bone09
+    100138: Bone09(mirrored)
+    100140: Bone10
+    100142: Bone10(mirrored)
+    100144: Bone11
+    100146: Bone11(mirrored)
+    100148: Bone12
+    100150: Bone12(mirrored)
+    100152: Bone13
+    100154: Bone13(mirrored)
+    100156: Bone14
+    100158: Bone14(mirrored)
+    100160: Bone15
+    100162: Bone15(mirrored)
+    100164: Bone16
+    100166: Bone16(mirrored)
+    100168: Bone17
+    100170: Bone17(mirrored)
+    100172: Bone18
+    100174: Bone18(mirrored)
+    100176: Bone19
+    100178: Bone19(mirrored)
+    100180: Bone20
+    100182: Bone20(mirrored)
+    100184: Bone21
+    100186: Bone21(mirrored)
+    100188: Bone22
+    100190: Bone23
+    100192: Bone24
+    100194: Bone25
+    100196: Bone26
+    100198: Bone27
+    100200: Bone28
+    100202: Bone29
+    100204: Bone30
+    100206: Bone30(mirrored)
+    100208: Bone31
+    100210: Bone31(mirrored)
+    100212: Bone32
+    100214: Bone32(mirrored)
+    100216: Bone33
+    100218: Bone33(mirrored)
+    100220: Bone34
+    100222: Bone34(mirrored)
+    100224: Bone35
+    100226: Bone35(mirrored)
+    100228: Bone36
+    100230: Bone36(mirrored)
+    100232: Bone37
+    100234: Bone37(mirrored)
+    100236: Bone38
+    100238: Bone38(mirrored)
+    100240: Bone39
+    100242: Bone39(mirrored)
+    100244: Bone40
+    100246: Bone40(mirrored)
+    100248: Bone41
+    100250: Bone41(mirrored)
+    100252: Bone42
+    100254: Bone42(mirrored)
+    100256: Bone43
+    100258: Bone43(mirrored)
+    100260: Bone44
+    100262: Bone44(mirrored)
+    100264: Bone45
+    100266: Bone45(mirrored)
+    100268: Bone46
+    100270: Bone46(mirrored)
+    100272: Bone47
+    100274: Bone47(mirrored)
+    100276: Bone48
+    100278: Bone49
+    100280: Bone50
+    100282: Bone51
+    100284: Bone52
+    100286: Bone53
+    100288: Bone54
+    100290: Bone55
+    100292: Bone56
+    100294: Bone57
+    100296: Bone58
+    100298: Bone59
+    100300: Bone59(mirrored)
+    100302: Bone60
+    100304: Bone60(mirrored)
+    100306: Bone61
+    100308: Bone61(mirrored)
+    100310: Bone62
+    100312: Bone62(mirrored)
+    100314: Bone63
+    100316: Bone63(mirrored)
+    100318: Bone64
+    100320: Bone64(mirrored)
+    100322: Bone65
+    100324: Bone65(mirrored)
+    100326: Bone66
+    100328: Bone66(mirrored)
+    100330: Bone67
+    100332: Bone67(mirrored)
+    100334: Bone68
+    100336: Bone68(mirrored)
+    100338: Bone69
+    100340: Bone69(mirrored)
+    100342: Bone70
+    100344: Bone70(mirrored)
+    100346: Bone71
+    100348: Bone71(mirrored)
+    100350: Bone72
+    100352: Bone72(mirrored)
+    100354: Bone73
+    100356: Bone73(mirrored)
+    100358: Bone74
+    100360: Bone74(mirrored)
+    100362: Bone75
+    100364: Bone75(mirrored)
+    100366: Bone76
+    100368: Bone76(mirrored)
+    100370: Bone77
+    100372: Bone77(mirrored)
+    100374: Bone78
+    100376: Bone78(mirrored)
+    100378: Bone79
+    100380: Bone79(mirrored)
+    100382: Bone80
+    100384: Bone80(mirrored)
+    100386: Bone81
+    100388: Bone81(mirrored)
+    100390: Bone82
+    100392: Bone83
+    100394: Bone84
+    100396: Bone85
+    100398: Bone86
+    100400: Bone87
+    100402: Bone87(mirrored)
+    100404: Bone88
+    100406: Bone88(mirrored)
+    100408: Bone89
+    100410: Bone89(mirrored)
+    100412: Bone90
+    100414: Bone90(mirrored)
+    100416: Bone91
+    100418: Bone91(mirrored)
+    100420: Bone92
+    100422: Bone92(mirrored)
+    100424: Bone93
+    100426: Bone93(mirrored)
+    100428: Bone94
+    100430: Bone94(mirrored)
+    100432: Bone95
+    100434: Bone95(mirrored)
+    100436: Bone96
+    100438: Bone96(mirrored)
+    100440: Bone97
+    100442: Bone97(mirrored)
+    100444: Bone98
+    100446: Bone98(mirrored)
+    100448: Bone99
+    100450: Bone99(mirrored)
+    100452: //RootNode
+    100454: objpolySurface792
+    400000: Bip01
+    400002: Bip01 Footsteps
+    400004: Bip01 Head
+    400006: Bip01 HeadNub
+    400008: Bip01 L Calf
+    400010: Bip01 L Clavicle
+    400012: Bip01 L Finger0
+    400014: Bip01 L Finger01
+    400016: Bip01 L Finger02
+    400018: Bip01 L Finger0Nub
+    400020: Bip01 L Finger1
+    400022: Bip01 L Finger11
+    400024: Bip01 L Finger12
+    400026: Bip01 L Finger1Nub
+    400028: Bip01 L Finger2
+    400030: Bip01 L Finger21
+    400032: Bip01 L Finger22
+    400034: Bip01 L Finger2Nub
+    400036: Bip01 L Foot
+    400038: Bip01 L Forearm
+    400040: Bip01 L Hand
+    400042: Bip01 L Thigh
+    400044: Bip01 L Toe0
+    400046: Bip01 L Toe01
+    400048: Bip01 L Toe02
+    400050: Bip01 L Toe0Nub
+    400052: Bip01 L UpperArm
+    400054: Bip01 Neck
+    400056: Bip01 Pelvis
+    400058: Bip01 R Calf
+    400060: Bip01 R Clavicle
+    400062: Bip01 R Finger0
+    400064: Bip01 R Finger01
+    400066: Bip01 R Finger02
+    400068: Bip01 R Finger0Nub
+    400070: Bip01 R Finger1
+    400072: Bip01 R Finger11
+    400074: Bip01 R Finger12
+    400076: Bip01 R Finger1Nub
+    400078: Bip01 R Finger2
+    400080: Bip01 R Finger21
+    400082: Bip01 R Finger22
+    400084: Bip01 R Finger2Nub
+    400086: Bip01 R Foot
+    400088: Bip01 R Forearm
+    400090: Bip01 R Hand
+    400092: Bip01 R Thigh
+    400094: Bip01 R Toe0
+    400096: Bip01 R Toe01
+    400098: Bip01 R Toe02
+    400100: Bip01 R Toe0Nub
+    400102: Bip01 R UpperArm
+    400104: Bip01 Spine
+    400106: Bip01 Spine1
+    400108: Bone01
+    400110: Bone02
+    400112: Bone03
+    400114: Bone03(mirrored)
+    400116: Bone04
+    400118: Bone04(mirrored)
+    400120: Bone05
+    400122: Bone05(mirrored)
+    400124: Bone06
+    400126: Bone06(mirrored)
+    400128: Bone07
+    400130: Bone07(mirrored)
+    400132: Bone08
+    400134: Bone08(mirrored)
+    400136: Bone09
+    400138: Bone09(mirrored)
+    400140: Bone10
+    400142: Bone10(mirrored)
+    400144: Bone11
+    400146: Bone11(mirrored)
+    400148: Bone12
+    400150: Bone12(mirrored)
+    400152: Bone13
+    400154: Bone13(mirrored)
+    400156: Bone14
+    400158: Bone14(mirrored)
+    400160: Bone15
+    400162: Bone15(mirrored)
+    400164: Bone16
+    400166: Bone16(mirrored)
+    400168: Bone17
+    400170: Bone17(mirrored)
+    400172: Bone18
+    400174: Bone18(mirrored)
+    400176: Bone19
+    400178: Bone19(mirrored)
+    400180: Bone20
+    400182: Bone20(mirrored)
+    400184: Bone21
+    400186: Bone21(mirrored)
+    400188: Bone22
+    400190: Bone23
+    400192: Bone24
+    400194: Bone25
+    400196: Bone26
+    400198: Bone27
+    400200: Bone28
+    400202: Bone29
+    400204: Bone30
+    400206: Bone30(mirrored)
+    400208: Bone31
+    400210: Bone31(mirrored)
+    400212: Bone32
+    400214: Bone32(mirrored)
+    400216: Bone33
+    400218: Bone33(mirrored)
+    400220: Bone34
+    400222: Bone34(mirrored)
+    400224: Bone35
+    400226: Bone35(mirrored)
+    400228: Bone36
+    400230: Bone36(mirrored)
+    400232: Bone37
+    400234: Bone37(mirrored)
+    400236: Bone38
+    400238: Bone38(mirrored)
+    400240: Bone39
+    400242: Bone39(mirrored)
+    400244: Bone40
+    400246: Bone40(mirrored)
+    400248: Bone41
+    400250: Bone41(mirrored)
+    400252: Bone42
+    400254: Bone42(mirrored)
+    400256: Bone43
+    400258: Bone43(mirrored)
+    400260: Bone44
+    400262: Bone44(mirrored)
+    400264: Bone45
+    400266: Bone45(mirrored)
+    400268: Bone46
+    400270: Bone46(mirrored)
+    400272: Bone47
+    400274: Bone47(mirrored)
+    400276: Bone48
+    400278: Bone49
+    400280: Bone50
+    400282: Bone51
+    400284: Bone52
+    400286: Bone53
+    400288: Bone54
+    400290: Bone55
+    400292: Bone56
+    400294: Bone57
+    400296: Bone58
+    400298: Bone59
+    400300: Bone59(mirrored)
+    400302: Bone60
+    400304: Bone60(mirrored)
+    400306: Bone61
+    400308: Bone61(mirrored)
+    400310: Bone62
+    400312: Bone62(mirrored)
+    400314: Bone63
+    400316: Bone63(mirrored)
+    400318: Bone64
+    400320: Bone64(mirrored)
+    400322: Bone65
+    400324: Bone65(mirrored)
+    400326: Bone66
+    400328: Bone66(mirrored)
+    400330: Bone67
+    400332: Bone67(mirrored)
+    400334: Bone68
+    400336: Bone68(mirrored)
+    400338: Bone69
+    400340: Bone69(mirrored)
+    400342: Bone70
+    400344: Bone70(mirrored)
+    400346: Bone71
+    400348: Bone71(mirrored)
+    400350: Bone72
+    400352: Bone72(mirrored)
+    400354: Bone73
+    400356: Bone73(mirrored)
+    400358: Bone74
+    400360: Bone74(mirrored)
+    400362: Bone75
+    400364: Bone75(mirrored)
+    400366: Bone76
+    400368: Bone76(mirrored)
+    400370: Bone77
+    400372: Bone77(mirrored)
+    400374: Bone78
+    400376: Bone78(mirrored)
+    400378: Bone79
+    400380: Bone79(mirrored)
+    400382: Bone80
+    400384: Bone80(mirrored)
+    400386: Bone81
+    400388: Bone81(mirrored)
+    400390: Bone82
+    400392: Bone83
+    400394: Bone84
+    400396: Bone85
+    400398: Bone86
+    400400: Bone87
+    400402: Bone87(mirrored)
+    400404: Bone88
+    400406: Bone88(mirrored)
+    400408: Bone89
+    400410: Bone89(mirrored)
+    400412: Bone90
+    400414: Bone90(mirrored)
+    400416: Bone91
+    400418: Bone91(mirrored)
+    400420: Bone92
+    400422: Bone92(mirrored)
+    400424: Bone93
+    400426: Bone93(mirrored)
+    400428: Bone94
+    400430: Bone94(mirrored)
+    400432: Bone95
+    400434: Bone95(mirrored)
+    400436: Bone96
+    400438: Bone96(mirrored)
+    400440: Bone97
+    400442: Bone97(mirrored)
+    400444: Bone98
+    400446: Bone98(mirrored)
+    400448: Bone99
+    400450: Bone99(mirrored)
+    400452: //RootNode
+    400454: objpolySurface792
+    4300000: objpolySurface792
+    7400000: summonatk
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: objpolySurface792
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: summonatk
+      takeName: Take 001
+      firstFrame: 240
+      lastFrame: 397
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bip01
+        weight: 1
+      - path: Bip01/Bip01 Footsteps
+        weight: 1
+      - path: Bip01/Bip01 Pelvis
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 L Thigh
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 L Thigh/Bip01 L Calf
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 L Thigh/Bip01 L Calf/Bip01 L Foot
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 L Thigh/Bip01 L Calf/Bip01 L Foot/Bip01
+          L Toe0
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 L Thigh/Bip01 L Calf/Bip01 L Foot/Bip01
+          L Toe0/Bip01 L Toe01
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 L Thigh/Bip01 L Calf/Bip01 L Foot/Bip01
+          L Toe0/Bip01 L Toe01/Bip01 L Toe02
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 L Thigh/Bip01 L Calf/Bip01 L Foot/Bip01
+          L Toe0/Bip01 L Toe01/Bip01 L Toe02/Bip01 L Toe0Nub
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 R Thigh
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 R Thigh/Bip01 R Calf
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 R Thigh/Bip01 R Calf/Bip01 R Foot
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 R Thigh/Bip01 R Calf/Bip01 R Foot/Bip01
+          R Toe0
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 R Thigh/Bip01 R Calf/Bip01 R Foot/Bip01
+          R Toe0/Bip01 R Toe01
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 R Thigh/Bip01 R Calf/Bip01 R Foot/Bip01
+          R Toe0/Bip01 R Toe01/Bip01 R Toe02
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 R Thigh/Bip01 R Calf/Bip01 R Foot/Bip01
+          R Toe0/Bip01 R Toe01/Bip01 R Toe02/Bip01 R Toe0Nub
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bip01
+          HeadNub
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone57
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone57/Bone58
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone82
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone82/Bone83
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone82/Bone83/Bone84
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone85
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone85/Bone86
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87/Bone88
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87/Bone88/Bone89
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87/Bone88/Bone89/Bone90
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87/Bone88/Bone89/Bone90/Bone91
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87/Bone88/Bone89/Bone90/Bone91/Bone92
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87(mirrored)/Bone88(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87(mirrored)/Bone88(mirrored)/Bone89(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87(mirrored)/Bone88(mirrored)/Bone89(mirrored)/Bone90(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87(mirrored)/Bone88(mirrored)/Bone89(mirrored)/Bone90(mirrored)/Bone91(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone87(mirrored)/Bone88(mirrored)/Bone89(mirrored)/Bone90(mirrored)/Bone91(mirrored)/Bone92(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone93
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone93/Bone94
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone93/Bone94/Bone95
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone93/Bone94/Bone95/Bone96
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone93(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone93(mirrored)/Bone94(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone93(mirrored)/Bone94(mirrored)/Bone95(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone93(mirrored)/Bone94(mirrored)/Bone95(mirrored)/Bone96(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone97
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone97/Bone98
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone97/Bone98/Bone99
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone97(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone97(mirrored)/Bone98(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Bone97(mirrored)/Bone98(mirrored)/Bone99(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger0
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger0/Bip01 L Finger01
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger0/Bip01 L Finger01/Bip01
+          L Finger02
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger0/Bip01 L Finger01/Bip01
+          L Finger02/Bip01 L Finger0Nub
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger1
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger1/Bip01 L Finger11
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger1/Bip01 L Finger11/Bip01
+          L Finger12
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger1/Bip01 L Finger11/Bip01
+          L Finger12/Bip01 L Finger1Nub
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger2
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger2/Bip01 L Finger21
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger2/Bip01 L Finger21/Bip01
+          L Finger22
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bip01 L Hand/Bip01 L Finger2/Bip01 L Finger21/Bip01
+          L Finger22/Bip01 L Finger2Nub
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bone67
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bone67/Bone68
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bone67/Bone68/Bone69
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bip01 L Forearm/Bone67/Bone68/Bone69/Bone70
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bone71
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bone71/Bone72
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bone71/Bone72/Bone73
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bone71/Bone72/Bone73/Bone74
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bone71/Bone72/Bone73/Bone74/Bone75
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bip01
+          L UpperArm/Bone71/Bone72/Bone73/Bone74/Bone75/Bone76
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bone77
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bone77/Bone78
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bone77/Bone78/Bone79
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bone77/Bone78/Bone79/Bone80
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 L Clavicle/Bone77/Bone78/Bone79/Bone80/Bone81
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger0
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger0/Bip01 R Finger01
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger0/Bip01 R Finger01/Bip01
+          R Finger02
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger0/Bip01 R Finger01/Bip01
+          R Finger02/Bip01 R Finger0Nub
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger1
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger1/Bip01 R Finger11
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger1/Bip01 R Finger11/Bip01
+          R Finger12
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger1/Bip01 R Finger11/Bip01
+          R Finger12/Bip01 R Finger1Nub
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger2
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger2/Bip01 R Finger21
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger2/Bip01 R Finger21/Bip01
+          R Finger22
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger2/Bip01 R Finger21/Bip01
+          R Finger22/Bip01 R Finger2Nub
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bone67(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bone67(mirrored)/Bone68(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bone67(mirrored)/Bone68(mirrored)/Bone69(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bip01 R Forearm/Bone67(mirrored)/Bone68(mirrored)/Bone69(mirrored)/Bone70(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bone71(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bone71(mirrored)/Bone72(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bone71(mirrored)/Bone72(mirrored)/Bone73(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bone71(mirrored)/Bone72(mirrored)/Bone73(mirrored)/Bone74(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bone71(mirrored)/Bone72(mirrored)/Bone73(mirrored)/Bone74(mirrored)/Bone75(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
+          R UpperArm/Bone71(mirrored)/Bone72(mirrored)/Bone73(mirrored)/Bone74(mirrored)/Bone75(mirrored)/Bone76(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bone77(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bone77(mirrored)/Bone78(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bone77(mirrored)/Bone78(mirrored)/Bone79(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bone77(mirrored)/Bone78(mirrored)/Bone79(mirrored)/Bone80(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bone77(mirrored)/Bone78(mirrored)/Bone79(mirrored)/Bone80(mirrored)/Bone81(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03/Bone04
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03/Bone04/Bone05
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03/Bone04/Bone05/Bone06
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03/Bone04/Bone05/Bone06/Bone07
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03/Bone04/Bone05/Bone06/Bone07/Bone08
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03(mirrored)/Bone04(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03(mirrored)/Bone04(mirrored)/Bone05(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03(mirrored)/Bone04(mirrored)/Bone05(mirrored)/Bone06(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03(mirrored)/Bone04(mirrored)/Bone05(mirrored)/Bone06(mirrored)/Bone07(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone03(mirrored)/Bone04(mirrored)/Bone05(mirrored)/Bone06(mirrored)/Bone07(mirrored)/Bone08(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09/Bone10
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09/Bone10/Bone11
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09/Bone10/Bone11/Bone12
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09/Bone10/Bone11/Bone12/Bone13
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09/Bone10/Bone11/Bone12/Bone13/Bone14
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09/Bone10/Bone11/Bone12/Bone13/Bone14/Bone59
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09(mirrored)/Bone10(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09(mirrored)/Bone10(mirrored)/Bone11(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09(mirrored)/Bone10(mirrored)/Bone11(mirrored)/Bone12(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09(mirrored)/Bone10(mirrored)/Bone11(mirrored)/Bone12(mirrored)/Bone13(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09(mirrored)/Bone10(mirrored)/Bone11(mirrored)/Bone12(mirrored)/Bone13(mirrored)/Bone14(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone09(mirrored)/Bone10(mirrored)/Bone11(mirrored)/Bone12(mirrored)/Bone13(mirrored)/Bone14(mirrored)/Bone59(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone22
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone22/Bone23
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone22/Bone23/Bone24
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone22/Bone23/Bone24/Bone25
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone22/Bone23/Bone24/Bone25/Bone26
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone22/Bone23/Bone24/Bone25/Bone26/Bone27
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone22/Bone23/Bone24/Bone25/Bone26/Bone27/Bone28
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone22/Bone23/Bone24/Bone25/Bone26/Bone27/Bone28/Bone29
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30/Bone31
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30/Bone31/Bone32
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30/Bone31/Bone32/Bone33
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30/Bone31/Bone32/Bone33/Bone34
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30/Bone31/Bone32/Bone33/Bone34/Bone35
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30/Bone31/Bone32/Bone33/Bone34/Bone35/Bone36
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30/Bone31/Bone32/Bone33/Bone34/Bone35/Bone36/Bone37
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30/Bone31/Bone32/Bone33/Bone34/Bone35/Bone36/Bone37/Bone38
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30(mirrored)/Bone31(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30(mirrored)/Bone31(mirrored)/Bone32(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30(mirrored)/Bone31(mirrored)/Bone32(mirrored)/Bone33(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30(mirrored)/Bone31(mirrored)/Bone32(mirrored)/Bone33(mirrored)/Bone34(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30(mirrored)/Bone31(mirrored)/Bone32(mirrored)/Bone33(mirrored)/Bone34(mirrored)/Bone35(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30(mirrored)/Bone31(mirrored)/Bone32(mirrored)/Bone33(mirrored)/Bone34(mirrored)/Bone35(mirrored)/Bone36(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30(mirrored)/Bone31(mirrored)/Bone32(mirrored)/Bone33(mirrored)/Bone34(mirrored)/Bone35(mirrored)/Bone36(mirrored)/Bone37(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone30(mirrored)/Bone31(mirrored)/Bone32(mirrored)/Bone33(mirrored)/Bone34(mirrored)/Bone35(mirrored)/Bone36(mirrored)/Bone37(mirrored)/Bone38(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39/Bone40
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39/Bone40/Bone41
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39/Bone40/Bone41/Bone42
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39/Bone40/Bone41/Bone42/Bone43
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39/Bone40/Bone41/Bone42/Bone43/Bone44
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39/Bone40/Bone41/Bone42/Bone43/Bone44/Bone45
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39/Bone40/Bone41/Bone42/Bone43/Bone44/Bone45/Bone46
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39/Bone40/Bone41/Bone42/Bone43/Bone44/Bone45/Bone46/Bone47
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39(mirrored)/Bone40(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39(mirrored)/Bone40(mirrored)/Bone41(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39(mirrored)/Bone40(mirrored)/Bone41(mirrored)/Bone42(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39(mirrored)/Bone40(mirrored)/Bone41(mirrored)/Bone42(mirrored)/Bone43(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39(mirrored)/Bone40(mirrored)/Bone41(mirrored)/Bone42(mirrored)/Bone43(mirrored)/Bone44(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39(mirrored)/Bone40(mirrored)/Bone41(mirrored)/Bone42(mirrored)/Bone43(mirrored)/Bone44(mirrored)/Bone45(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39(mirrored)/Bone40(mirrored)/Bone41(mirrored)/Bone42(mirrored)/Bone43(mirrored)/Bone44(mirrored)/Bone45(mirrored)/Bone46(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone39(mirrored)/Bone40(mirrored)/Bone41(mirrored)/Bone42(mirrored)/Bone43(mirrored)/Bone44(mirrored)/Bone45(mirrored)/Bone46(mirrored)/Bone47(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone48
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone48/Bone49
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone48/Bone49/Bone50
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone48/Bone49/Bone50/Bone51
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone48/Bone49/Bone50/Bone51/Bone52
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone48/Bone49/Bone50/Bone51/Bone52/Bone53
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone48/Bone49/Bone50/Bone51/Bone52/Bone53/Bone54
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone48/Bone49/Bone50/Bone51/Bone52/Bone53/Bone54/Bone55
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone48/Bone49/Bone50/Bone51/Bone52/Bone53/Bone54/Bone55/Bone56
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60/Bone61
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60/Bone61/Bone62
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60/Bone61/Bone62/Bone63
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60/Bone61/Bone62/Bone63/Bone64
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60/Bone61/Bone62/Bone63/Bone64/Bone65
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60/Bone61/Bone62/Bone63/Bone64/Bone65/Bone66
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60(mirrored)/Bone61(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60(mirrored)/Bone61(mirrored)/Bone62(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60(mirrored)/Bone61(mirrored)/Bone62(mirrored)/Bone63(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60(mirrored)/Bone61(mirrored)/Bone62(mirrored)/Bone63(mirrored)/Bone64(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60(mirrored)/Bone61(mirrored)/Bone62(mirrored)/Bone63(mirrored)/Bone64(mirrored)/Bone65(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone02/Bone60(mirrored)/Bone61(mirrored)/Bone62(mirrored)/Bone63(mirrored)/Bone64(mirrored)/Bone65(mirrored)/Bone66(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone18
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone18/Bone19
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone18/Bone19/Bone20
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone18/Bone19/Bone20/Bone21
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone18(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone18(mirrored)/Bone19(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone18(mirrored)/Bone19(mirrored)/Bone20(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone01/Bone18(mirrored)/Bone19(mirrored)/Bone20(mirrored)/Bone21(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone15
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone15/Bone16
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone15/Bone16/Bone17
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone15(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone15(mirrored)/Bone16(mirrored)
+        weight: 1
+      - path: Bip01/Bip01 Pelvis/Bone15(mirrored)/Bone16(mirrored)/Bone17(mirrored)
+        weight: 1
+      - path: objpolySurface792
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
