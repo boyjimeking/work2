@@ -18,15 +18,21 @@ public class PetHead
     private UISprite hp, down, die;
     public PetState pState;
     private PetData _data;
+    public int sortIndex;//排序
+    public float oldlocaly;
+    private Vector3 v3 = new Vector3();
 
     public void init(Transform petHead,int index)
     {
         this.petHead = petHead;
         this.index = index;
+        sortIndex = index;
         icon = petHead.gameObject.getChild("icon").GetComponent<UITexture>();
         hp = petHead.gameObject.getChild("up").GetComponent<UISprite>();
         down = petHead.gameObject.getChild("down").GetComponent<UISprite>();
         die = petHead.gameObject.getChild("die").GetComponent<UISprite>();
+        oldlocaly = petHead.localPosition.y;
+
         hp.gameObject.addOnce<ChangeHp>();
         Click.set(petHead.gameObject, onHeadClick);
         //setState(PetState.rest);
@@ -45,6 +51,9 @@ public class PetHead
             hp.spriteName = "pethp1";
             hp.fillAmount = 1f;
         }
+        v3.Set(petHead.gameObject.transform.localPosition.x, oldlocaly, 0);
+        sortIndex = index;
+        petHead.transform.localPosition = v3;
         setState(PetState.rest);
     }
     public void setState(PetState pstate)
@@ -54,14 +63,19 @@ public class PetHead
             petHead.transform.localScale = Vector3.one;
             icon.shader = null;
             die.gameObject.SetActive(false);
+            down.spriteName = "petkuang";
+            PetHeads.instance.playHead(this);
         }else if(pstate==PetState.rest){
             petHead.transform.localScale = Vector3.one * 0.8f;
             icon.shader = null;
             die.gameObject.SetActive(false);
+            down.spriteName = "petkuang1";
         }else if(pstate==PetState.die){
             petHead.transform.localScale = Vector3.one;
             icon.shader = App.res.loadObject("Local/Shader/GrayShader") as Shader;
             die.gameObject.SetActive(true);
+            down.spriteName = "petkuang";
+            PetHeads.instance.playHead(this);
         }
     }
     public void setValue(float v)
@@ -147,5 +161,35 @@ public class PetHeads {
     public void setActive(bool value)
     {
         headContainer.SetActive(value);
+    }
+
+    public void playHead(PetHead head)
+    {
+        int changeIndex = head.sortIndex;
+
+        List<PetHead> changes = new List<PetHead>();
+        foreach (PetHead h in heads)
+        {
+            if (head.sortIndex > h.sortIndex)
+            {
+                if ((head.pState == PetHead.PetState.fight && h.pState == PetHead.PetState.rest) || (head.pState == PetHead.PetState.die && h.pState != PetHead.PetState.die))
+                {
+                    changes.Add(h);
+                    if (changeIndex > h.sortIndex) changeIndex = h.sortIndex;
+                }
+            }
+        }
+        if (changes.Count > 0)
+        {
+            head.sortIndex = changeIndex;
+            Hashtable ht = iTween.Hash("y", heads[head.sortIndex].oldlocaly, "islocal", true, "easetype", iTween.EaseType.easeInExpo, "time", 0.3f);
+            iTween.MoveTo(head.petHead.gameObject, ht);
+            foreach (PetHead h in changes)
+            {
+                h.sortIndex++;
+                Hashtable ht2 = iTween.Hash("y", heads[h.sortIndex].oldlocaly, "islocal", true, "easetype", iTween.EaseType.easeInExpo, "time", 0.3f, "delay", 0.2f);
+                iTween.MoveTo(h.petHead.gameObject, ht2);
+            }
+        }
     }
 }

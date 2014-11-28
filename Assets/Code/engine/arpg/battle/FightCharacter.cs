@@ -24,6 +24,7 @@ namespace engine {
         public FightCharacter attacker;//remember who is attacking me.
         public float dietime;
         public bool disappear;
+        private bool isDizzy = false;
         public GameObject effectBySelf;
 
         public void clear()
@@ -439,7 +440,7 @@ namespace engine {
             }
             this.attacker = attacker;
             if(!isDead()) afterAttacked();
-            Debug.Log(attackResult.state + "----" + attackResult.damage);
+
         }
         //escape ai, currently only pet
         protected virtual void afterAttacked() {
@@ -500,23 +501,24 @@ namespace engine {
             }
             Transform trans = getTagPoint("help_hp");
             string afterPath = null;
-            if (dizzyPath == null)
-                dizzyPath = "Local/prefab/effect/xuanyun";
-            else
-                afterPath = "Local/prefab/effect/stop_end";
-            GameObject dizzyObj = App.res.createSingle(dizzyPath);
             Vector3 vec = new Vector3(0f, 1.4f, 0f);
             if (trans != null)
                 vec = trans.localPosition;
             vec.y = vec.y - 0.3f;
-            if (dizzyPath != null)
+            if (dizzyPath == null)
+                dizzyPath = "Local/prefab/effect/xuanyun";
+            else {
+                afterPath = "Local/prefab/effect/stop_end";
                 vec = Vector3.zero;
+            }
+            GameObject dizzyObj = App.res.createSingle(dizzyPath);           
             dizzyObj.transform.parent = trans.parent;
             dizzyObj.transform.localPosition = vec;
             suspendAI = true;
             //agent.enabled = false;
             animator.SetBool(Hash.runBool, false);
-            animator.Play(Hash.idleState);      
+            animator.Play(Hash.idleState);
+            isDizzy = true;
             App.coroutine.StartCoroutine(clearDizzy(dizzyTime, dizzyObj, afterPath));
         }
 
@@ -529,6 +531,7 @@ namespace engine {
             if(isPlayer())
                 Player.instance.resetAuto(true, true);
             suspendAI = false;
+            isDizzy = false;
             //agent.enabled = true;
             Object.Destroy(dizzyObj);
             if (afterPath != null) {
@@ -584,7 +587,7 @@ namespace engine {
                 updateDead();
             } else {
                 //make sure ai update is executed after animator update.
-                if (ai != null && !suspendAI) {
+                if (ai != null && !suspendAI && !isDizzy) {
                     ai.update();
                 }
                 

@@ -22,6 +22,7 @@ namespace engine {
         public float angularSpeed;
         public float weaponRange=1f;
         public float moveRange = 3f;//if any target is within moveRange,try to move to the target.
+        public int summonSkill;
 
         public int[] skills;//monster available skills
 
@@ -66,6 +67,7 @@ namespace engine {
             moveRange = Utility.toFloat(e.GetAttribute("moveRange"));
             if (moveRange == 0) moveRange = 5f;
             if (weaponRange > moveRange) weaponRange = moveRange;
+            summonSkill = Utility.toInt(e.GetAttribute("summonSkill"));
         }
 
         public float randomizeAnimSpeed() {

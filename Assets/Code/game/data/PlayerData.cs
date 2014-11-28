@@ -36,11 +36,13 @@ public class PlayerData : BasePlayerData {
         data.moveSpeed = template.moveSpeed;
         data.moveRanage = template.moveRange;
         data.weaponRange = template.weaponRange;
+        data.summonSkill = template.summonSkill;
 
         data.charTemplate = App.template.getTemp<CharTemplate>(templateId);
         data.charDataTemplate = App.template.getTemp<CharDataTemplate>(templateId);
         data.hp = data.maxhp = data.charDataTemplate.HP;
         data.team = this.team.clone();
+        
         return data;
     }
 }

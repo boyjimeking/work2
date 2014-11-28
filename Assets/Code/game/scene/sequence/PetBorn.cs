@@ -8,15 +8,22 @@ public class PetBorn {
     private GameObject newCamera;
     private Vector3 origRotate;
     private GameObject summonEffect;
+    private ParticleSystem[] allParticles;
+    private ParticleSystem specialParticle;
+    private Animation[] anims;
+    private Animator[] animators;
+    private Pet pet;
+    private WallVisionOutlineEffect wallEffect;
 
     public void beginBorn(int index, PetData data) {
-        Pet pet = CharFactory.createPet(data, (PetPosition)index, Player.instance.agent.walkableMask);
+        pet = CharFactory.createPet(data, (PetPosition)index, Player.instance.agent.walkableMask);
         pet.transform.position = Player.instance.Position;
         pet.agent.walkableMask = Player.instance.agent.walkableMask;
         pet.uiIndex = index;
         BattleEngine.scene.addFriend(pet);
-        pet.playSummon();
-        BattleEngine.scene.pause(true);
+        pet.model.SetActive(false);
+        pet.prepareSkill(data.summonSkill);
+        Player.instance.animator.SetBool(Hash.summonBool, true);
         UIManager.Instance.Enable = false;
         Time.timeScale = CommonTemp.petScale;
         summonEffect = Engine.res.createObj("Local/prefab/effect/" + data.charTemplate.summonEffect, pet.Position);
@@ -25,13 +32,24 @@ public class PetBorn {
             Binding b = trans.gameObject.AddComponent<Binding>();
             b.data = pet;
         }
+        Transform t = summonEffect.T("tishi");
+        if (t == null) {
+            Debug.LogError("summon effect not have tishi, error!!!!");
+            return;
+        }
+        specialParticle = t.GetComponent<ParticleSystem>();
+        anims = summonEffect.GetComponentsInChildren<Animation>();
+        animators = summonEffect.GetComponentsInChildren<Animator>();
+        allParticles = summonEffect.GetComponentsInChildren<ParticleSystem>();
         CameraManager.setLayerRecursively(summonEffect, summonEffect.layer = LayerMask.NameToLayer("Special"));
         CameraManager.setLayerRecursively(Player.instance.model, Player.instance.model.layer = LayerMask.NameToLayer("Special"));
         if (CommonTemp.rotates[index])
             summonEffect.transform.rotation = Player.instance.transform.rotation;
         createNewCam();
+        wallEffect = CameraManager.Main.GetComponent<WallVisionOutlineEffect>();
+        wallEffect.enabled = false;
         App.coroutine.StartCoroutine(blackSceen(CommonTemp.blackTimes[index]));
-        App.coroutine.StartCoroutine(playEffect(CommonTemp.effectTimes[index], CommonTemp.effectPrefabs[index]));
+        App.coroutine.StartCoroutine(playEffect(specialParticle.startDelay, specialParticle.startLifetime));
         App.coroutine.StartCoroutine(beginResolve(CommonTemp.bornTimes[index], pet));
         foreach (FightCharacter c in BattleEngine.scene.getFriends()) {
             c.HpBar.setVisible(false, true);
@@ -60,6 +78,7 @@ public class PetBorn {
 
     private IEnumerator blackSceen(float time) {
         yield return new WaitForSeconds(time);
+        BattleEngine.scene.pause(true);
         blackObj = new GameObject("black");
         float alpha = CommonTemp.blackAlpha;
         if (Application.platform == RuntimePlatform.IPhonePlayer)
@@ -70,19 +89,36 @@ public class PetBorn {
         blackObj.guiTexture.color = new Color(.5f, .5f, .5f, alpha);
     }
 
-    private IEnumerator playEffect(float time, string path) {
-        yield return new WaitForSeconds(time); 
-        if (!string.IsNullOrEmpty(path)) {
-            GameObject effect = App.res.createSingle(path);
-            effect.transform.position = summonEffect.transform.position;
-            if (effect != null) {}
-        }
-        App.coroutine.StartCoroutine(removePause(0.2f));
+    private IEnumerator playEffect(float time, float pauseTime) {
+        yield return new WaitForSeconds(time);
+        //foreach (ParticleSystem s in allParticles) {
+        //    if (s != specialParticle) {
+        //        s.Pause();
+        //    }
+        //}
+        //foreach (Animation a in anims) {
+        //    a.Stop();
+        //}
+        //foreach (Animator a in animators) {
+        //    a.enabled = false;
+        //}
+        App.coroutine.StartCoroutine(removePause(pauseTime));
     }
 
     public IEnumerator removePause(float time) {
-        yield return new WaitForSeconds(time); 
+        yield return new WaitForSeconds(time);
         Time.timeScale = 1f;
+        //foreach (ParticleSystem s in allParticles) {
+        //    if (s != specialParticle) {
+        //        s.Play();
+        //    }
+        //}
+        //foreach (Animation a in anims) {
+        //    a.Play();
+        //}
+        //foreach (Animator a in animators) {
+        //    a.enabled = true;
+        //}
         if (blackObj)
             Object.Destroy(blackObj);
         if (summonEffect != null)
@@ -97,12 +133,17 @@ public class PetBorn {
         foreach (FightCharacter c in BattleEngine.scene.getEnemies()) {
             c.HpBar.setVisible(true);
         }
+        Player.instance.animator.SetBool(Hash.summonBool, false);
     }
 
     private IEnumerator beginResolve(float time, Pet pet) {
         yield return new WaitForSeconds(time);
+        pet.model.SetActive(true);
+        pet.playSummon();
         pet.startReverseDissolve();
         if (summonEffect)
             Object.Destroy(summonEffect, 3f);
+        yield return new WaitForSeconds(3f);
+        wallEffect.enabled = true;
     }
 }

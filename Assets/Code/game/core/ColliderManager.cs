@@ -34,6 +34,14 @@ public class ColliderManager : IColliderManager {
                 if (owner != Player.instance) return;
                 BoomBoxManager.instance.destroy((BoomBox)A.data);
             }
+            else if (A.data is ExploderManager.ExploderOptions) {
+                FightCharacter owner = null;
+                if (B.data is engine.Bullet) owner = (B.data as engine.Bullet).owner;
+                else if (B.data is Weapon) owner = (B.data as Weapon).owner;
+                else if (B.data is ColliderObject) owner = (B.data as ColliderObject).owner;
+                if (owner != Player.instance) return;
+                ExploderManager.instance.exploder(A.gameObject, A.data as ExploderManager.ExploderOptions);
+            }
             return;
         } 
         

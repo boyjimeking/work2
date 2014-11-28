@@ -13,6 +13,7 @@ namespace engine {
         public UISprite backGround;
         public UISprite topForeGround;
         public UISprite foreGround;
+        public UISprite topHuaWen;
 
         private int _maxHp;
         private int _currentHp;
@@ -29,11 +30,13 @@ namespace engine {
                 topForeGround.alpha = 1;
                 foreGround.alpha = 1;
                 backGround.alpha = 1;
+                topHuaWen.alpha = 1;
             }
             else {
                 topForeGround.alpha = 0;
                 foreGround.alpha = 0;
                 backGround.alpha = 0;
+                topHuaWen.alpha = 0;
             }
         }
 
@@ -53,7 +56,7 @@ namespace engine {
                 setVisible(false);
                 return;
             }
-            if(_owner == null || _owner.model == null) {
+            if(_owner == null || _owner.model == null ||_owner.isBoss()) {
                 Destroy(Parent);
                 return;
             }
@@ -166,8 +169,18 @@ namespace engine {
                 _yOffset = trans != null ? trans.localPosition.y / trans.localScale.y : 1.4f;
                 _currentHp = _owner.data.hp;
                 _maxHp = _owner.data.maxhp; 
-                if (_owner.isHero() || _owner.isPlayer())
-                    topForeGround.spriteName = "HP_hero";
+                if( _owner.isPlayer())topForeGround.spriteName = "HP_player";
+                else if (_owner.isHero()) topForeGround.spriteName = "HP_hero";
+                else {
+                    foreGround.spriteName = "HP_monster";
+                    topForeGround.spriteName = "HP_monster1";
+                    topHuaWen.gameObject.SetActive(false);
+                    transform.localScale = new Vector3(54f/86f,6f/10f,1);
+                    if (_owner.isBoss())
+                    {
+                        Parent.SetActive(false);
+                    }
+                }   
             }
         }
 

@@ -1013,24 +1013,10 @@ ModelImporter:
       events:
       - time: 0
         functionName: NewEvent
-        data: firepet_skillstart,5
+        data: firepet_atk,5
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 1
-        messageOptions: 0
-      - time: .0140056051
-        functionName: NewEvent
-        data: firepet_skill,5
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: .711441398
-        functionName: NewEvent
-        data: 1001
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 112
         messageOptions: 0
       - time: .520661175
         functionName: NewEvent
@@ -1038,6 +1024,13 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 3
+        messageOptions: 0
+      - time: .549416065
+        functionName: NewEvent
+        data: 1000
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 112
         messageOptions: 0
       transformMask:
       - path: 
@@ -1568,7 +1561,7 @@ ModelImporter:
         messageOptions: 0
       - time: 0
         functionName: NewEvent
-        data: firepet_atk
+        data: fireskill_start,5
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 1
@@ -1579,6 +1572,13 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 3
+        messageOptions: 0
+      - time: .578454316
+        functionName: NewEvent
+        data: 1001
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 112
         messageOptions: 0
       transformMask:
       - path: 
