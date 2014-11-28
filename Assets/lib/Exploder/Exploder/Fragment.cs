@@ -382,7 +382,8 @@ namespace Exploder
 
                 if (visibilityCheckTimer < 0.0f)
                 {
-                    var viewportPoint = UnityEngine.Camera.main.WorldToViewportPoint(transform.position);
+                    var viewportPoint = CameraManager.Main.WorldToViewportPoint(transform.position);
+                    //var viewportPoint = UnityEngine.Camera.main.WorldToViewportPoint(transform.position);
 
                     if (viewportPoint.z < 0 || viewportPoint.x < 0 || viewportPoint.y < 0 ||
                         viewportPoint.x > 1 || viewportPoint.y > 1)
