@@ -1,0 +1,23 @@
+
+<!--HP:生命；ATT:攻击；DEF:防御；EVA:闪避率；CRI:暴击率；BeatBack:击退率（百分比）；BackDistance:击退距离；BeHit:受击率（百分比）；BeDown击倒率（百分比）-->
+<!--DEMO公式：基础伤害=Max(Int(（攻击方攻击-防御方防御）*Random(0.95,1.05)),1)  暴击伤害=基础伤害*2 -->
+
+ <!--人物类型 type:player 0, hero 1, monster 2, otherPlayer 3, boss 4-->
+
+<data>
+	<!--role-->
+	<char id="1"  type='0' name="剑士" HP="50000" ATT="1200" DEF="300" EVA="0.15" CRI="0.3" BeHit="00" BeDown="0"/>
+  <char id="2" type='0' name="弓箭手" HP="10000" ATT="1200" DEF="300" EVA="0.5" CRI="0.5" BeHit="30" BeDown="30"/>
+
+
+	<!--pet-->
+  <char id="5000" type='1' name="petfire" HP="10000" ATT="700" DEF="200" EVA="0.5" CRI="0.75" BeHit="30" BeDown="30"/>
+  <char id="5001"  type='1' name="petthunder" HP="15000" ATT="550" DEF="450" EVA="0.5" CRI="0.75" BeHit="30" BeDown="30"/>
+
+
+	<!--monsters-->
+  <char id="10000"  type='4' name="蜘蛛_boss" HP="25000" ATT="1350" DEF="500" EVA="0.2" CRI="0.2" BeatBack="0" BackDistance="0.5" BeHit="60" BeDown="50"/>
+  <char id="10001"  type='2' name="虫" HP="10000" ATT="600" DEF="250" EVA="0" CRI="0.4" BeatBack="0" BackDistance="1" BeHit="0" BeDown="0"/>
+  <char id="10002"  type='2' name="哥布林" HP="8000" ATT="500" DEF="350" EVA="0" CRI="0.5" BeatBack="0" BackDistance="1" BeHit="100" BeDown="0"/>
+
+</data>

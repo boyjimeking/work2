@@ -1,0 +1,21 @@
+<!--
+	bundleName: 对应的bundle名称
+	sceneName:实际的场景名称
+	displayName:显示给玩家的名称
+	type:场景类型(0:主城,1:副本,3:精英副本,4:爬塔,5:竞技场.....)
+	chapter:所属章节
+	icon:场景对应的ICON
+	iconPos:场景ICON位置
+	initPos:场景动画初始位置
+	finalPos:场景动画结束后最终位置
+	playerRotate:最终位置的人物朝向
+	initView:刚进入场景的初始视角
+	finalView:相机最终的视角
+	transitTime:过渡主相机的时间
+	moveTime:刚进入场景的到主相机的时间
+	slowScale:相机变慢的倍率
+-->
+<RECORDS>
+	<RECORD id="1" bundleName="tiankongzhicheng" sceneName="tiankongzhicheng_01" displayName="天空之城" type="1" chapter="0" icon="" iconPos="0,0,0" initPos="14,3,2.9" 
+	finalPos="14,3,-1" initView="37" finalView="60" transitTime="1" moveTime="2" slowScale="0.6"/>
+</RECORDS>

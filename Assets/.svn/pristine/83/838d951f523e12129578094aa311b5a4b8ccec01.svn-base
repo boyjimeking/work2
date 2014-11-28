@@ -1,0 +1,14 @@
+<common>
+	<!--门镜头动画相关参数,toDoorTime：主相机移动到门时间，doorOffset：相机到门的距离，doorCameraY：相机对门位置相对高度，fromDoorTime：移动回正常人视野时间-->
+	<config id="1" toDoorTime="1" doorOffset="3" doorCameraY="2.5" fromDoorTime="1"/>
+	<!--boss出生动画,xDelta:开始隐藏UI的X偏移,yDelta:开始隐藏UI的Y偏移,initAlpha:初始UI透明度,tweenT:上下UI的Tween时间,alphaT:UI透明度渐变为1的Tween时间，nameT：名字UI的Tween时间，
+	finalT：隐藏UI的tween时间,bossOffset：boss离相机的偏移,bossHeight：相机相对Boss的高度,bossLookY：跟随boss的位置,bossScale：切换到boss的变慢倍率-->
+	<config id="100" xDelta="420" yDelta="120" initAlpha="0.2" tweenT="0.1" alphaT="1" nameT="0.2" finalT="0.1" bossOffset="8" bossHeight="2" bossLookY="1.45" bossScale="0.25" />
+	<!--宠物降临动画,petScale:相机的变慢速度,blackAlpa:黑屏的透明度,blackAlphaIOS:黑屏在IOS上透明度,tweenPetTime:到宠物视角时间,petView:视野相对原来相机的偏移，tweenNormalTime：到正常相机的时间 -->
+	<config id="200" petScale="1" blackAlpha="0.35" blackAlphaIOS="0.25" tweenPetTime="0.5" petView="20" tweenNormalTime="0.5"/>
+	<!--降临新动画,blackTime:黑屏时间,effectTime:播放特定特效时间,effectPrefab:播放的特效 bornTime:宠物出生时间,rotate：是否跟随玩家旋转（1是）,eventName:挂在事件的名称 -->
+	<config id="201" blackTime="0.3" effectTime="1" effectPrefab="" bornTime="4" rotate="1" eventName="summonatk"/>
+	<config id="202" blackTime="0.3" effectTime="3" effectPrefab="" bornTime="4" rotate="0" eventName="thunderpet_summonatk"/>	
+	<!--战斗胜利动画,winOffset:摄像机相对人物的距离,winHeight:相机的高度,winView:相机的视野,winLookY:看齐的人物点,petPosOffset:宠物相对人物的X、Z偏移,showwindelay:显示顺利界面的延迟-->
+	<config id="300" winOffset="2.5" winHeight="1.2" winView="46" winLookY="0.5" petPosOffset="1,1" bossDieScale="0.05" bossScaleTime="0.16" showwindelay="5.0"/>
+</common>

@@ -1,0 +1,55 @@
+
+<!--
+monsterTestNum;     //怪物测试数量
+viewRange;          //视野范围
+attackRange;        //攻击范围
+sprintRange;        //冲刺范围
+hitEffectTime;      //闪白时间
+sprintSpeed;        //冲刺速度
+sprintShadowTime;   //残影时间
+monsterShakeRange;  //怪物震屏幅度
+monsterShakeNum		//怪物震屏数量
+shakeMFrequency 	//震屏的速率，频率
+farNearRange;       //相机远近振幅
+leftRightRange;     //相机左右振幅
+upDownRange;        //相机上下振幅
+frontBackRange;     //相机前后振幅
+radiusRange;        //相机半径振幅
+zoomSpeed;          //增进速度
+zoomToBoss;         //boss拉近时间
+zommOutBoss;        //boss拉远时间   
+cameraNearType;     //相机拉近的曲线类型
+cameraNearTime;     //拉近的时间
+cameraFarType;      //拉远的曲线类型
+cameraFarTime;      //拉远的时间
+maxFieldOfView;     //最大的振幅
+
+slowTimeScale: 放慢倍率
+slowDuration: 放慢时间
+slowCD: 放慢特效cd
+
+  //pet askhelp/flee speed
+    float petFleeSpeedRate=1f;宠物逃跑速度调整
+    float petHelpSpeedRate = 1f; 宠物协助速度调整
+    float petFleeCD = 5;  宠物距离上一次逃跑CD
+   float petTryHelpTime = 10;  宠物试图协助其他宠物最大尝试时间,currently not very useful
+   float petFleeDistance=10;  宠物逃跑距离
+   float petFriendNumberRate 宠物友方人数调整系数
+   float fleeSuccessStayTime 逃跑成功后最大停留时间
+
+
+ //怪物当前攻击目标不是攻击自身目标，受到多少次攻击后改变攻击目标
+   int monsterChangeTargetThreshhold = 3;
+-->
+<CommonConfig>
+	<common ID="1000000" monsterTestNum="6" viewRange="150" attackRange="2.5" sprintRange="5" minSprintRange="2" sprintCameraDelay="0.5"/>
+	<common ID="1000100" hitEffectTime="0.18" sprintSpeed="24" sprintShadowTime="2" resolveTime="1.5" />
+	<common ID="1000200" upDownRange="0.2" leftRightRange="0.2" frontBackRange="0.2" radiusRange="0.2" zoomSpeed="0.2" zoomToBoss="0.5" zommOutBoss="0.5"/>
+	<common ID="1000300" cameraShakeTime1="0.01" cameraShakeTime2="0.01" cameraShakePoint1="2.5" cameraShakePoint2="0" cameraShakePoint3="2"  cameraNearType="1" cameraNearTime="0.04" cameraFarType="30" cameraFarTime="0.15" farNearRange="2.5" maxFieldOfView="10"/>
+	<common ID="1000400" monsterShakeRange="0.045" monsterShakeNum="0" shakeMFrequency="0.013" hitBackTime="0.14" hitBackType="24" slowTimeScale="0.5" slowDuration="0.03" slowCD="0.04" />
+  <common ID="1000500" hitBackTime1="0.03" hitBackTime2="0.03" hitBackPoint1="1.25" hitBackPoint2="1" hitBackPoint3="1.25"/>
+  <common ID="2000000" petPos="2,2" winView="46" winHeight="1" lookPos="1"/>
+  <!--pet askhelp/flee-->
+  <common ID="2000001" fleeSuccessStayTime="5" petFriendNumberRate="1" petFleeSpeedRate="1" petHelpSpeedRate="1" petFleeCD="5" petTryHelpTime="10" petFleeDistance="10"/>
+  <common ID="2000002" monsterChangeTargetThreshhold="5"/>
+</CommonConfig>

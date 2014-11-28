@@ -1,0 +1,42 @@
+<!--triggers type:1 door  
+room 一个关卡有几个房间
+box 可摧毁障碍物，如宝箱，pos为刷新的位置
+monster pos 怪刷新的位置  radius怪刷新的范围 monster所刷的怪物
+type="0" 门
+type="1" 怪
+effect 门的特效 
+MonsterTrigger1 怪的碰撞盒
+
+-->
+<dungeons>
+	<dungeon id="1" name="时空之城" sound="FB" triggerPrefab="Local/prefab/scene/TriggerPrefab1">
+		<box id="20001" name="Box1" appRate="0" wait="stone_break_01" preTrigger="1"/>
+		<box id="20002" name="Box2" appRate="0" wait="stone_break_01" preTrigger="1"/>
+		<box id="20003" name="Box3" appRate="0" wait="stone_break_01" preTrigger="1"/>
+		<box id="20004" name="Box4" appRate="0" wait="stone_break_01" preTrigger="1"/>
+		<box id="20005" name="Box5" appRate="0" wait="stone_break_01" preTrigger="1"/>
+		<box id="20006" name="Box6" appRate="0" wait="stone_break_01" preTrigger="1"/>
+		<box id="20007" name="Box7" appRate="0" wait="stone_break_01" preTrigger="1"/>
+
+		<room id="1">
+			<monster pos="9,0,-13" radius="4" monster="10001:3,10002:2"/>
+			<monster pos="18.5,0,-8" radius="3" monster="10001:3,10002:3"/>
+			<triggers>
+				<trigger name="door1" state="open" enterRoom="enter1" type="0" animation="" effect="" sequence="1"/>
+			</triggers>
+		</room>
+		<room id="2 ">
+			<monster pos="22,-3,14.5" radius="3" monster="10001:4,10002:2"/>
+			<monster pos="28.6,-3,24" radius="3" monster="10001:4,10002:3"/>
+			<triggers>
+				<trigger name="door2" state="close" enterRoom="enter2" type="0" animation="" effect="" sequence="2"/>
+			</triggers>
+		</room>
+		<room id="3">
+			<monster pos="60,3,16" radius="5.5" monster="10000:1,10001:5,10002:3" bossID="10000" bossPos="60,3,16"/>
+            <triggers>
+				<trigger name="door3" state="close" enterRoom="enter3" type="0" animation="" effect="" sequence="3"/>
+			</triggers>
+		</room>
+	</dungeon>
+</dungeons>

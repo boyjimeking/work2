@@ -1,0 +1,42 @@
+<!--剧情配置
+    script   单个剧情
+             id:剧情ID
+             desc:剧情描述 预置
+    step     剧情中单个镜头
+             charId 剧情说话者原形ID  0表示人物角色
+             prefab 镜头动画预制键名
+    single   镜头中的一次说话
+-->
+<scripts>
+	<script id="1" >
+		<step charId="0" prefab="script11">
+			<single talk="泰坦遗址…囚禁潘多拉的禁地就是这个样子…" ></single>
+			<single talk="想不到伟大的时空城，就是为了看守这地方而建，真是讽刺…" ></single>
+			<single talk="警报没有出错，封印已经松动了…" ></single>
+			<single talk="…以圣堂猎手之名，宣布此处彻底沦陷，准许执行净化，露亚！" ></single>
+		</step>
+	</script>
+
+  <script id="2" >
+  <step charId="10000" prefab="script13">
+      <single talk="是谁阻挠主人越狱？嘶！" ></single>
+    </step>
+  
+    <step charId="0" prefab="script12">
+      <single talk="灵力制作的恶魔投影？难道泰坦魔神潘多拉…醒了？" ></single>
+      <single talk="这可是大事件！得尽快回报给时空城！" ></single>
+    </step>
+
+  <step charId="10000" prefab="script13">
+      <single talk="嘶！我要把你们…一网打尽！" ></single>
+    </step>
+  
+   <step charId="0" prefab="script12">
+      <single talk="可恶的畜生！以圣堂猎手之名，赐尔等净化，露亚！" ></single>
+    </step>
+	
+    <step charId="10000" prefab="script13">
+      <single talk="嘶！！！" ></single>
+    </step>
+  </script>
+</scripts>

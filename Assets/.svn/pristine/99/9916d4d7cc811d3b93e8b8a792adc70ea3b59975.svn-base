@@ -1,0 +1,33 @@
+
+<skills>
+	<skill id='1' name="剑士普攻1" icon="skill1" ></skill>
+	<skill id='2' name="剑士普攻2" icon="zhanshi_xuanfengzhan"></skill>
+	<skill id='3' name="剑士普攻3" icon="zhanshi_zhongzhan" ></skill>
+	<skill id='4' name="剑士普攻4" icon="zhanshi_zhongzhan" ></skill>
+
+	<skill id="50" name="拉怪" icon="skill1" cd="1"  ></skill>
+
+    <!-- 火BB 普攻-->
+	<skill id="1000" cd="2" animatorTrigger="AttackTrigger" atkRange="5" moveRange="10"/>
+	
+    <!-- 火BB 技能-->
+    <skill id="1001" cd="6" animatorTrigger="Skill1Trigger" atkRange="5" moveRange="10"/>
+	<skill id="1002" cd="6" animatorTrigger="SummonTrigger" atkRange="5" moveRange="10"/>
+    
+    <!-- 雷BB 普攻-->
+    <skill id="1010" cd="2" animatorTrigger="AttackTrigger" atkRange="0.5" moveRange="10"/>
+    
+    <!-- 雷BB 技能-->   
+    <skill id="1011" cd="8" animatorTrigger="Skill1Trigger" atkRange="5" moveRange="10"/>
+    <skill id="1012" cd="8" animatorTrigger="SummonTrigger" atkRange="5" moveRange="10"/>
+	
+	<!--monster skils-->
+	<skill id="10000" name="怪物通用普攻"/>
+	<!-- monster 1-->
+	<skill id="10001" animatorTrigger="AttackTrigger" name="虫子"/>
+	<skill id="10002" animatorTrigger="AttackTrigger" name="火球"/>
+	<!--boss_wolf-->
+	<skill id="20001" animatorTrigger="AttackTrigger" name="BOSS普攻"/>
+	<skill id="20002" animatorTrigger="Skill1Trigger" name="BOSS技能" cd="5"/>
+	<skill id="20003" animatorTrigger="Skill2Trigger" name="BOSS技能2" cd="7"/>
+</skills>

@@ -1,0 +1,63 @@
+<!-- id,对应技能id-->
+<!--anim,模型动作名称-->
+<!-- launchSounds,发动技能声音，optional-->
+<!-- bullet, 子弹资源名称，飞行距离，飞行速度，飞行高度-->
+<!--collider,碰撞盒资源名称-->
+<!--colliderType, 碰撞类型， -1: none,0: 播放特效 1:collider prefab 2:子弹, 3: 圆形范围，4：扇形范围伤害, 5:在目标身上播的collider-->
+<!--colliderLife,  碰撞盒存在时间，the time collider or effect exists-->
+<!--knockback,击退概率和速度-->
+<!--knockdown,击飞概率和速度-->
+<!--radius,范围半径（圆心都在发起者）-->
+<!--angle,扇形角度-->
+<!--lastTime,持续时间-->
+<!--hurtNum,伤害次数-->
+<!--buff,对应的buff(1、眩晕，2、震屏，3、boss蛛网效果等）-->
+<!--buffTime,buff持续的时间-->
+
+<skillEffects>
+	<!-- 剑士 基本动作-->
+	<effect id="-1" anim="atk1"  />
+	<effect id="-2" anim="atk1_end" />
+	<effect id="-3" anim="atk2"  />
+	<effect id="-4" anim="atk2_end"  />
+	<effect id="-5" anim="atk3" />
+	<effect id="-6" anim="atk3_end"  />
+	<effect id="-7" anim="atk4" />
+	<effect id="-8" anim="atk4_end"  />
+	
+	
+	<!-- 剑士 普攻-->
+	<effect id="1" subeffects="-1,-2" knockback="100,0.8" knockdown="0" playHit="0" hitEffect=""/>
+	<effect id="2" subeffects="-3,-4" knockback="100,0.7" knockdown="0" playHit="0"  hitEffect=""/>
+	<effect id="3" subeffects="-5,-6" knockback="100,0.5" knockdown="0" playHit="30"  hitEffect=""/>
+	<effect id="4" subeffects="-7,-8" knockback="100,1" knockdown="30" playHit="15"  hitEffect=""/>
+	
+
+	<!-- 剑士 技能-->
+	<effect id="50" animatorTrigger="Skill1Trigger"  colliderLife="3" knockback="0,0" knockdown="0" playHit="100" colliderType="1" hitEffect="skill04_hurt" buff="1" buffTime="2"/>
+	
+	
+
+    <!-- 火BB 普攻-->
+	<effect id="1000" animatorTrigger="AttackTrigger" colliderType="2" bullet="huo_atk1,15,10,0" hitEffect="firehurt"  bulletmode="1"/>
+	
+    <!-- 火BB 技能-->
+    <effect id="1001" animatorTrigger="Skill1Trigger" bullet="huo_skill1,5,2,0" hitEffect="firehurt" colliderType="2" knockback="100,0.5" playHit="100" lastTime="3" hurtNum="15"/>
+	<effect id="1002" animatorTrigger="summonTrigger" bullet="huo_sommon,6,10,0" hitEffect="firehurt" colliderType="2" knockback="100,1" playHit="100" lastTime="0.6" hurtNum="6"/>
+    
+    <!-- 雷BB 普攻-->
+    <effect id="1010" animatorTrigger="AttackTrigger" hitEffect="thunder_hurt"/>
+    
+    <!-- 雷BB 技能-->   
+    <effect id="1011" animatorTrigger="Skill1Trigger" hitEffect="thunder_hurt" knockback="100,0.5" playHit="100" colliderType="4" radius="3" angle="100" lastTime="1" hurtNum="2"/>
+	<effect id="1012" animatorTrigger="summonTrigger" hitEffect="thunder_hurt" colliderType="3" radius="4" lastTime="2" hurtNum="2" buff="1,2" buffTime="3,0.5"/>
+    
+	<!--monsters-->
+	<effect id="10001" anim="attack1" hitEffect="monster_chong_hurt"/>	
+	<effect id="10002" anim="attack1" colliderType="2" bullet="gbl_atk,12,10,0" hitEffect="monster_magic_hurt" buff="" buffTime="" bulletmode="1"/>
+
+	<!--蜘蛛_wolf -->
+	<effect id="20001" animatorTrigger="AttackTrigger" hitEffect="boss_hurt"/>
+	<effect id="20002" animatorTrigger="Skill1Trigger" hitEffect="boss_hurt" colliderType="5" colliderLife="5" collider="spider_skill1" lastTime="5" hurtNum="1"  buff="3" buffTime="3"/>
+	<effect id="20003" animatorTrigger="Skill2Trigger" hitEffect="boss_hurt" colliderType="1" collider="spider_skill2" colliderLife="0.1" knockdown="999"/>
+</skillEffects>
