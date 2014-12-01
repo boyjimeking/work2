@@ -217,6 +217,7 @@
     <Compile Include="Assets\Code\game\scene\sequence\PlayerBorn.cs" />
     <Compile Include="Assets\Code\game\scene\triggers\Door.cs" />
     <Compile Include="Assets\Code\game\scene\triggers\EnterRoomTrigger.cs" />
+    <Compile Include="Assets\Code\game\scene\triggers\ExploderTrigger.cs" />
     <Compile Include="Assets\Code\game\scene\triggers\MonsterSpawnTrigger.cs" />
     <Compile Include="Assets\Code\game\scene\triggers\SceneTrigger.cs" />
     <Compile Include="Assets\Code\game\script\ScriptManager.cs" />
