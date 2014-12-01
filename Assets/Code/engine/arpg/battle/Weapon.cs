@@ -29,8 +29,14 @@ public class Weapon  {
                 c.enabled = false;
                 c.isTrigger = true;
                 c.gameObject.addOnce<Binding>().data = this;
+                
             }
+            // moving objects need rigidbody
+            Rigidbody body = model.addOnce<Rigidbody>();
+            body.useGravity = false;
+            body.isKinematic = true;
         }
+       
        
     }
     public void enableCollider(bool v) {

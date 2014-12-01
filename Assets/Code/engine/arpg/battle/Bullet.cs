@@ -78,6 +78,18 @@ namespace engine {
         public void destroy() {
           this.completed = true;
           GameObject.Destroy(go);
+            if (temp.nextEffect > 0) {
+                SkillEffectTemplate nextTemp = App.template.getTemp<SkillEffectTemplate>(temp.nextEffect);
+                if (nextTemp != null) {
+                    GameObject fxEff = App.res.createObj("Local/prefab/effect/" + nextTemp.collider, transform.position);
+                    if (fxEff == null) {
+                        Debug.LogError("can't load effect:" + nextTemp.collider);
+                        return;
+                    }
+                    Object.Destroy(fxEff, nextTemp.lastTime);
+                    App.animEventManager.calResult(nextTemp, owner.model.GetComponent<Binding>());
+                }
+            }
           // Engine.res.free(this);
         }
     }

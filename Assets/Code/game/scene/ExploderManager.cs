@@ -26,6 +26,7 @@ public class ExploderManager {
         public bool DestroyOriginalObject = true;
         //回调
         public ExploderObject.OnExplosion callback=null;
+
     }
 
     public static ExploderManager instance = new ExploderManager();

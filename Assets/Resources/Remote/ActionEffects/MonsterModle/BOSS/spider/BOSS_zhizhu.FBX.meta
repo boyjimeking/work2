@@ -2940,7 +2940,7 @@ ModelImporter:
       events:
       - time: 0
         functionName: NewEvent
-        data: BOSS_spider_skill02,8,1
+        data: BOSS_spider_skill02start,4,1
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 1
@@ -2965,6 +2965,13 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 3
+        messageOptions: 0
+      - time: .579439223
+        functionName: NewEvent
+        data: BOSS_spider_skill02start,4,1
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask:
       - path: 

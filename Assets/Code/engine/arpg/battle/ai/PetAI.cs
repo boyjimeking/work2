@@ -245,8 +245,8 @@ namespace engine {
             if (Vector3.SqrMagnitude(owner.transform.position - fleeAttacker.transform.position) < BattleConfig.petFleedDistanceSqr) {
                 
                 Vector3 fleePosition = owner.transform.position + (owner.transform.position - fleeAttacker.transform.position).normalized * 3;
-                owner.agent.speed *= BattleConfig.petFleeSpeedRate;
-                owner.animator.speed *= BattleConfig.petFleeSpeedRate;
+                owner.agent.speed = owner.data.moveSpeed * BattleConfig.petFleeSpeedRate;
+               // owner.animator.speed *= BattleConfig.petFleeSpeedRate;
 
                 owner.lookat(fleePosition);
                 owner.agentMoveTo(fleePosition);

@@ -241,7 +241,7 @@ public class AnimationManager : IAnimEventManager {
         m.cc.enabled = true;
     }
     //private void calResult(SkillEffectTemplate temp, Binding binding, float time, int num) {
-    private void calResult(SkillEffectTemplate temp, Binding binding) {
+    public void calResult(SkillEffectTemplate temp, Binding binding) {
         //for (int i = 0; i < num; i++) {
             FightCharacter owner = binding.data as FightCharacter;
             switch (temp.colliderType) {

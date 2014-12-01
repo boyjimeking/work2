@@ -99,7 +99,7 @@ public class DungeonScene : BattleScene {
 
     public override void reset(DungeonData data) {
         base.reset(data);
-        
+        specialMonsters.Clear();
         //loading scene trigger prefab
         GameObject prefab = Engine.res.loadPrefab(data.template.triggerPrefab);
         if (prefab != null) {
@@ -311,8 +311,10 @@ public class DungeonScene : BattleScene {
 
 
     protected override bool nextGroup() {
+        
         if (!base.nextGroup()) {
             if (dungeonData.hasNextRoom()) {
+                specialMonsters.Clear();
                 int roomIndex = dungeonData.currentRoomIndex + 1;
                 if (!dungeonData.roomStates[roomIndex].doorOpened) {
                     DungeonTemplate.DungeonRoom room = dungeonData.template.rooms[roomIndex];
@@ -327,7 +329,8 @@ public class DungeonScene : BattleScene {
                     }
                 }
             }
-            
+        } else {
+            foreach (Monster m in specialMonsters) enemies.Add(m);
         }
         return false;
     }
@@ -344,4 +347,29 @@ public class DungeonScene : BattleScene {
         Vector3 position = new Vector3(group.x, group.y, group.z);
         return position;
     }
+    private List<Monster> specialMonsters = new List<Monster>();
+    public void spawnSpecialMonster(int charTempalteId) {
+        CharTemplate template=App.template.getTemp<CharTemplate>(charTempalteId);
+        MonsterData data = MonsterData.create(App.template, charTempalteId);
+        Team team = new Team();
+        team.teamNo = Naming.TeamMonster;
+        data.team = team;
+        Monster c = CharFactory.createSpecialMonster(data);
+        c.deadable = false;
+        c.model.SetActive(true);
+      
+        DungeonTemplate.DungeonRoom room = dungeonData.template.rooms[dungeonData.currentRoomIndex];
+        DungeonTemplate.SpawnGroup group = room.groups[dungeonData.currentGroupIndex];
+        Vector2 random2d = Random.insideUnitCircle * group.radius;
+        Vector3 tempPosition = new Vector3(group.x + random2d.x, group.y, group.z + random2d.y);
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(tempPosition, out hit, 100, 1)) {
+            tempPosition = hit.position;
+        }
+        c.transform.position = tempPosition;
+        addEnemy(c);
+        specialMonsters.Add(c);
+        c.agent.walkableMask = Player.instance.agent.walkableMask;
+    }
+
 }

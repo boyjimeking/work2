@@ -17,6 +17,7 @@ namespace engine {
 
         private int _maxHp;
         private int _currentHp;
+        private bool _hpDirty = true;
         private Vector3 _scale;
         private float _maxWidth;
         private Character _owner;
@@ -45,11 +46,14 @@ namespace engine {
             _currentHp = 0;
             _maxHp = 0;
             _hitTime = 0;
+            _hpDirty = true;
             _maxWidth = topForeGround.width;
             updateHp();
         }
 
-        private void LateUpdate() {
+
+        private void LateUpdate()
+        {
             if (_stopUpdate)
                 return;
             if (Camera.main == null) {
@@ -64,33 +68,10 @@ namespace engine {
                 Parent.SetActive(false);
                 return;
             }
-            setVisible(true);
-            Transform trans = transform.parent;
-            trans.localScale = Vector3.one;
-            Vector3 uiPot =
-                Camera.main.WorldToScreenPoint(new Vector3(_owner.Position.x, _owner.Position.y + _yOffset,
-                    _owner.Position.z));
-            float fRatio = (float)(Screen.width) / (Screen.height);
-            if (fRatio > 1.0f) {
-                float bench = Screen.width / (float)Screen.height * 320.0f;
-                float diff = uiPot.x - (Screen.width * 0.5f);
-                float ratio = bench / (Screen.width * 0.5f);
-                float x = ratio * diff;
-                float diffy = uiPot.y - Screen.height * 0.5f;
-                float ratioy = 320.0f / (Screen.height * 0.5f);
-                float y = ratioy * diffy;
-                trans.localPosition = new Vector3(x, y, 0f);
-            }
-            else {
-                float benchy = Screen.height / (float)Screen.width * 480.0f;
-                float diffy = uiPot.y - (Screen.height * 0.5f);
-                float ratioy = benchy / (Screen.height * 0.5f);
-                float y = ratioy * diffy;
-                float diffx = uiPot.x - (Screen.width * 0.5f);
-                float ratiox = 480.0f / (Screen.width * 0.5f);
-                float x = ratiox * diffx;
-                trans.localPosition = new Vector3(x, y, 0f);
-            }          
+            //setVisible(true);
+            if(_hpDirty)
+                resetPos();
+         
             _hitTime += Time.deltaTime;
         }
 
@@ -186,7 +167,7 @@ namespace engine {
 
         public int CurrentHp {
             set {
-                
+                _hpDirty = true;
                 _currentHp = value;
                 _hitTime = 0f;
                 if (!Parent.activeSelf)
@@ -197,6 +178,57 @@ namespace engine {
 
         public GameObject Parent {
             get { return transform.parent.gameObject; }
+        }
+
+        public bool HPDirty
+        {
+            set
+            {
+                if (_hpDirty != value)
+                {
+                    _hpDirty = value;
+                    if (!_hpDirty)
+                        resetPos();  
+                }                           
+            }
+        }
+
+        public void resetPos()
+        {
+            if (Camera.main == null)
+            {
+                setVisible(false);
+                return;
+            }
+            setVisible(true);
+            Transform trans = transform.parent;
+            trans.localScale = Vector3.one;
+            Vector3 uiPot =
+                Camera.main.WorldToScreenPoint(new Vector3(_owner.Position.x, _owner.Position.y + _yOffset,
+                    _owner.Position.z));
+            float fRatio = (float)(Screen.width) / (Screen.height);
+            if (fRatio > 1.0f)
+            {
+                float bench = Screen.width / (float)Screen.height * 320.0f;
+                float diff = uiPot.x - (Screen.width * 0.5f);
+                float ratio = bench / (Screen.width * 0.5f);
+                float x = ratio * diff;
+                float diffy = uiPot.y - Screen.height * 0.5f;
+                float ratioy = 320.0f / (Screen.height * 0.5f);
+                float y = ratioy * diffy;
+                trans.localPosition = new Vector3(x, y, 0f);
+            }
+            else
+            {
+                float benchy = Screen.height / (float)Screen.width * 480.0f;
+                float diffy = uiPot.y - (Screen.height * 0.5f);
+                float ratioy = benchy / (Screen.height * 0.5f);
+                float y = ratioy * diffy;
+                float diffx = uiPot.x - (Screen.width * 0.5f);
+                float ratiox = 480.0f / (Screen.width * 0.5f);
+                float x = ratiox * diffx;
+                trans.localPosition = new Vector3(x, y, 0f);
+            } 
         }
     }
 }

@@ -8,6 +8,7 @@ namespace engine {
 
         protected List<Bullet> bullets = new List<Bullet>();
         protected List<Effect> effects = new List<Effect>();
+        protected List<HurtGround> grounds = new List<HurtGround>();
         protected List<FightCharacter> friends = new List<FightCharacter>();
         protected List<FightCharacter> enemies = new List<FightCharacter>();
         protected List<FightCharacter> deads = new List<FightCharacter>();
@@ -113,6 +114,12 @@ namespace engine {
                 effect.update();
                 if (effect.completed) effects.RemoveAt(i);
             }
+            for (int i = grounds.Count - 1; i > -1; i--)
+            {
+                HurtGround ground = grounds[i];
+                ground.update();
+                if (ground.completed) grounds.RemoveAt(i);
+            }
 
             for (int i = deads.Count - 1; i > -1; i--) {
                 if (deads[i].destroyed) deads.RemoveAt(i);
@@ -125,6 +132,7 @@ namespace engine {
                 bool allEnemyDead = true;
                 for (int i = enemies.Count - 1; i > -1; i--)
                 {
+                    if (!enemies[i].deadable) continue;
                     if (!enemies[i].isDead())
                     {
                         allEnemyDead = false;
@@ -157,6 +165,17 @@ namespace engine {
         }
         public void addEffect(Effect effect) {
             effects.Add(effect);
+        }
+        public void addGround(FightCharacter acter)
+        {
+            HurtGround ground = null;
+            if (grounds.Count >= CommonTemp.groundcount){
+                ground = grounds[0];
+                grounds.Remove(ground);
+            }
+            else ground = new HurtGround();
+            ground.reset(acter);
+            grounds.Add(ground);
         }
         /// <summary>
         /// when a monster is already within attack range,it's in obstacle mode,
@@ -288,7 +307,7 @@ namespace engine {
         }
         public bool isRoomCleared() {
             for (int i = 0, max = enemies.Count; i < max; i++) {
-                if (!enemies[i].isDead()) return false;
+                if (enemies[i].deadable&&!enemies[i].isDead()) return false;
             }
             return !dungeonData.hasNextGroup();
         }

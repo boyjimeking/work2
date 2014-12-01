@@ -92,6 +92,20 @@ public class CharFactory  {
         }
         return c;
     }
+    public static Monster createSpecialMonster(MonsterData data) {
+        GameObject model = App.res.createSingle("Local/prefab/avatar/" + data.charTemplate.model);// App.bundle.create("avatar/" + data.charTemplate.model + ".u3d", data.charTemplate.model);
+        Monster c = new SpecialMonster();
+        MonsterAI ai = new SpecialMonsterAI();
+        //        ai.path = "Local/ai2/monster";
+        c.reset(model, data, ai);
+
+        Renderer r = model.GetComponentInChildren<Renderer>();
+        if (r != null) {
+            RenderVisible renderVisible = r.gameObject.addOnce<RenderVisible>();
+            renderVisible.c = c;
+        }
+        return c;
+    }
     public static Pet createPet(PetData data,PetPosition position,int walkablemask) {
         Pet c = new Pet();
 

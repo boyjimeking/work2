@@ -77,13 +77,13 @@ namespace engine {
             agent.speed = data.moveSpeed;
             agent.acceleration = 100000;
             agent.angularSpeed = charTemplate.angularSpeed;
-            agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+            agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
             CapsuleCollider cc = model.GetComponent<CapsuleCollider>();
-            agent.stoppingDistance = cc.radius;
-            agent.radius = agent.stoppingDistance;
-            bodyRadius = agent.stoppingDistance;
+            agent.stoppingDistance = 0;// cc.radius;
+            agent.radius = cc.radius;// agent.stoppingDistance;
+            bodyRadius = cc.radius; //agent.stoppingDistance;
             agent.enabled = false;
-            agent.updateRotation = false;
+            
         }
 
         protected void resetRigidBody() {

@@ -19,5 +19,7 @@
   <char id="10000"  type='4' name="蜘蛛_boss" HP="25000" ATT="1350" DEF="500" EVA="0.2" CRI="0.2" BeatBack="0" BackDistance="0.5" BeHit="60" BeDown="50"/>
   <char id="10001"  type='2' name="虫" HP="10000" ATT="600" DEF="250" EVA="0" CRI="0.4" BeatBack="0" BackDistance="1" BeHit="0" BeDown="0"/>
   <char id="10002"  type='2' name="哥布林" HP="8000" ATT="500" DEF="350" EVA="0" CRI="0.5" BeatBack="0" BackDistance="1" BeHit="100" BeDown="0"/>
-
+  <!--demo special monster-->
+  <char id="10003"  type='5' name="哥布林5" HP="8000" ATT="500" DEF="350" EVA="0" CRI="0.5" BeatBack="0" BackDistance="1" BeHit="100" BeDown="0"/>
+  
 </data>

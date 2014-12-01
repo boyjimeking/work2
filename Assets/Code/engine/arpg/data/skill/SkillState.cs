@@ -18,11 +18,10 @@ namespace engine {
             attacker = a;
             owner = o;
             skillID = temp.id;
-            lastTime = Time.realtimeSinceStartup;
             hurtNum = 1;
             totalNum = temp.hurtNum;
-            lastTime = temp.lastTime;
-            everyTime = lastTime/totalNum;
+            lastTime = 0;
+            everyTime = temp.lastTime / totalNum;
         }
 
         public bool canHurt() {

@@ -3,10 +3,10 @@ using System.Collections;
 using engine;
 
 public class PetController : AvatarController {
-    protected FightCharacter f;
+    protected FightCharacter fc;
     public override void reset(Character f) {
         base.reset(f);
-        this.f = f as FightCharacter;
+        this.fc = f as FightCharacter;
     }
 
 
@@ -47,7 +47,7 @@ public class PetController : AvatarController {
                     //check attack direction,if not face to target,ajust angle
                     if (targetToAttack != null) {
                         if (!targetToAttack.isDead()) {
-                            if (!f.inMeleeAttackDirection(targetToAttack)) {
+                            if (!fc.inMeleeAttackDirection(targetToAttack)) {
                                 changeAttackAngle = true;
                                 transform.LookAt(targetToAttack.transform.position);
                             }
@@ -66,7 +66,7 @@ public class PetController : AvatarController {
                     //check attack direction,if not face to target,ajust angle
                     if (targetToAttack != null) {
                         if (!targetToAttack.isDead()) {
-                            if (!f.inMeleeAttackDirection(targetToAttack)) {
+                            if (!fc.inMeleeAttackDirection(targetToAttack)) {
                                 changeAttackAngle = true;
                                 transform.LookAt(targetToAttack.transform.position);
                             }
@@ -104,7 +104,7 @@ public class PetController : AvatarController {
             useAnimatorRotation = useAnimatorPosition = true;
         }
         if (!(state == Hash.atk1State || state == Hash.atk2State || state == Hash.atk3State)) {
-            f.enableWeaponCollider(false);
+            fc.enableWeaponCollider(false);
         }
 
     }
@@ -125,7 +125,7 @@ public class PetController : AvatarController {
             animator.SetBool(Hash.runBool, true);
             Vector3 targetPosition = Vector3.MoveTowards(transform.position, rushTarget.transform.position, rushDistance - 1f);
             transform.LookAt(rushTarget.transform.position);
-            iTween.MoveTo(f.model, iTween.Hash("x", targetPosition.x, "z", targetPosition.z, "easeType", iTween.EaseType.easeInExpo, "time", 0.1f));
+            iTween.MoveTo(fc.model, iTween.Hash("x", targetPosition.x, "z", targetPosition.z, "easeType", iTween.EaseType.easeInExpo, "time", 0.1f));
             rushingToTarget = true;
             rushTime = 0.1f;
             rushTimer = 0;
@@ -135,10 +135,10 @@ public class PetController : AvatarController {
     }
 
     private void checkRushTarget() {
-        FightCharacter enemy = BattleEngine.scene.findNearestTarget(f);
+        FightCharacter enemy = BattleEngine.scene.findNearestTarget(fc);
         if (enemy == null) return;
-        float distance = Vector3.Distance(f.transform.position, enemy.transform.position);
-        if (distance < f.getAttackRange() + 1f) {
+        float distance = Vector3.Distance(fc.transform.position, enemy.transform.position);
+        if (distance < fc.getAttackRange() + 1f) {
             targetToAttack = enemy;
             return;
         }

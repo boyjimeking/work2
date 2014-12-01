@@ -69,6 +69,7 @@ namespace engine {
         public static int atknextBool = Animator.StringToHash("AtkNextBool");
         public static int dieTrigger = Animator.StringToHash("DieTrigger");
         public static int summonTrigger = Animator.StringToHash("SummonTrigger");//宠物降临
+        public static int summonBool = Animator.StringToHash("summonBool");
         
       
         public static int skill1Trigger = Animator.StringToHash("Skill1Trigger");

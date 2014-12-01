@@ -8,15 +8,15 @@ public class FightSkill{
     public class FightSkillItem : AttackButton{
         public Transform trans;
         public UITexture icon;
-        public UISprite mask,bg;
+        public UISprite maskSprite,bg;
         public bool canClick = true;
         public void load(Transform _trans)
         {
             trans = _trans;
             bg = trans.FindChild("bg").GetComponent<UISprite>();
             icon = trans.FindChild("icon").GetComponent<UITexture>();
-            mask = trans.FindChild("mask").GetComponent<UISprite>();
-            init2(trans.gameObject,mask);
+            maskSprite = trans.FindChild("mask").GetComponent<UISprite>();
+            init2(trans.gameObject,maskSprite);
         }
 
         public override void onCdFinish()
@@ -28,10 +28,11 @@ public class FightSkill{
     }
 
     private GameObject go;
-    protected FightSkillItem[] skillitems;
+    public FightSkillItem[] skillitems;
     protected GameObject normalSkill;
     protected UISprite atkIcon;
     protected bool inited = false;
+    protected GameObject pressObj;
     public void init(){
         if (inited) return;
         go = Engine.res.createSingle("Local/prefab/battleui/fightskill");
@@ -67,6 +68,7 @@ public class FightSkill{
         {
             fsi.onCompleted();
         }
+        pressObj = null;
     }
     private void onAttackButtonPress(GameObject button, bool isPressed)
     {
@@ -79,15 +81,17 @@ public class FightSkill{
         {
             button.transform.localScale = Vector3.one;
             if (button == normalSkill) atkIcon.spriteName = "ptjn1";
+            pressObj = null;
         }
         else
         {
             button.transform.localScale = Vector3.one * 1.1f;
             if (button == normalSkill) atkIcon.spriteName = "ptjn2";
+            pressObj = button;
         }     
         
     }
-    private void onAttackButtonClick(GameObject button)
+    public void onAttackButtonClick(GameObject button)
     {
         if (!BattleUI.instance.enable || Player.instance.isDead()) return;
         foreach (FightSkillItem fsi in skillitems){
@@ -146,9 +150,29 @@ public class FightSkill{
    {
        if (!inited) return;
        foreach (FightSkillItem fsi in skillitems) fsi.update();
+       if (UIManager.Instance.Active && !BattleEngine.scene.pausing && UIManager.Instance.Enable)
+       {
+           if (normalSkill.gameObject == pressObj) Player.instance.attackx();
+       }
+       else
+       {
+           clearAtkState();
+       }
+      
    }
    public void setActive(bool value)
    {
        go.SetActive(value);
+       if (!value) pressObj = null;
+   }
+
+   public void clearAtkState()
+   {
+       if (pressObj != null)
+       {
+           pressObj.transform.localScale = Vector3.one;
+           if (pressObj == normalSkill) atkIcon.spriteName = "ptjn1";
+           pressObj = null;
+       }
    }
 }

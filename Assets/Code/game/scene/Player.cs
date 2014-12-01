@@ -23,11 +23,11 @@ public class Player : PlayerCharacter {
         return new HeroController();
     }
    
-    protected override void resetAgent() {
-        base.resetAgent();
-        agent.radius = 0.1f;
+   // protected override void resetAgent() {
+    //    base.resetAgent();
+        //agent.radius = 0.1f;
         //agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
-    }
+   // }
     public override void setObstacleMode(bool v) {
         agent.enabled = !v;
         agent.updatePosition = !v;

@@ -7,7 +7,6 @@ namespace engine {
 
     public class AnimConfig : BaseTemp{
        
-        public string name;
         public AnimationBlendMode blendMode = AnimationBlendMode.Blend;
         public float speedMulti;//anim speed adjust
         public float moveSpeed;//player move forward when playing animation

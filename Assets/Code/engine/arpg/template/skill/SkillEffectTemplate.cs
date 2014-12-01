@@ -8,7 +8,7 @@ namespace engine {
     }
 
     public enum BuffType {
-        none, dizzy, shakeCamera, netTarget
+        none, dizzy, shakeCamera, netTarget, fetter
     }
 
     //public enum EffectType {
@@ -40,6 +40,7 @@ namespace engine {
         public BuffType[] buffs;
         public float[] buffTimes;
         public int bulletmode;
+        public int nextEffect;
 
         public SkillEffectTemplate[] effects;//sub effects,when subEffectIds is null,use itself as sub effect.
         public int[] animNameHash;
@@ -93,7 +94,7 @@ namespace engine {
              
             string subeffects = e.GetAttribute("subeffects");
             subEffectIds = Utility.toIntArray(subeffects, ',');
-
+            nextEffect = Utility.toInt(e.GetAttribute("nextEffect"));
             bulletmode = Utility.toInt(e.GetAttribute("bulletmode"));
         }
         public void postRead(Templates manager) {

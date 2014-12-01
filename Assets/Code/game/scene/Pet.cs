@@ -48,8 +48,7 @@ public class Pet : PetCharacter {
             //currently dissolve material name is using model name.
             Material m = Engine.res.loadObject("Local/material/" + charTemplate.model) as Material;
             this.skinRenderer.material = m;
-            controller.setTrigger(Hash.summonTrigger);
-
+            //controller.setTrigger(Hash.summonTrigger);
            //startReverseDissolve();
            
         } else {
@@ -65,6 +64,19 @@ public class Pet : PetCharacter {
         timed.m_fTime = 1;
        
     }
+
+    //public bool Visible {
+    //    set {
+    //        getSkinnedMeshRenderer();
+    //        if (value) {
+    //            skinRenderer.enabled = true;
+    //        }
+    //        else {
+    //            skinRenderer.enabled = false;
+    //        }
+    //    }
+    //}
+
     public override void update() {
         //pet summon phase
         if (isInSummon) {
@@ -73,16 +85,17 @@ public class Pet : PetCharacter {
                 skinRenderer.gameObject.D<Timed>();
                 timed = null;
                 enableAI();
+                isInSummon = false;   
                 //CameraManager.removeFocus(model);
             }
-            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            int state = stateInfo.nameHash;
-            if (state == Hash.summonState) {
-                summonTriggered = true;
-            }
-            if (summonTriggered&&state == Hash.idleState) {
-                isInSummon = false;               
-            }
+            //AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            //int state = stateInfo.nameHash;
+            //if (state == Hash.summonState) {
+            //    summonTriggered = true;
+            //}
+            //if (summonTriggered&&state == Hash.idleState) {
+            //    isInSummon = false;               
+            //}
             return;
         }
        

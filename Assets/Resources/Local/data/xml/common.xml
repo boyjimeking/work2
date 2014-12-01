@@ -9,6 +9,6 @@
 	<!--降临新动画,blackTime:黑屏时间,effectTime:播放特定特效时间,effectPrefab:播放的特效 bornTime:宠物出生时间,rotate：是否跟随玩家旋转（1是）,eventName:挂在事件的名称 -->
 	<config id="201" blackTime="0.3" effectTime="1" effectPrefab="" bornTime="46" rotate="1" eventName="summonatk"/>
 	<config id="202" blackTime="0.3" effectTime="3" effectPrefab="" bornTime="4" rotate="0" eventName="thunderpet_summonatk"/>	
-	<!--战斗胜利动画,winOffset:摄像机相对人物的距离,winHeight:相机的高度,winView:相机的视野,winLookY:看齐的人物点,petPosOffset:宠物相对人物的X、Z偏移,showwindelay:显示顺利界面的延迟-->
-	<config id="300" winOffset="2.5" winHeight="1.2" winView="46" winLookY="0.5" petPosOffset="1,1" bossDieScale="0.05" bossScaleTime="0.16" showwindelay="5.0"/>
+	<!--战斗胜利动画,winOffset:摄像机相对人物的距离,winHeight:相机的高度,winView:相机的视野,winLookY:看齐的人物点,petPosOffset:宠物相对人物的X、Z偏移,showwindelay:显示顺利界面的延迟,groundcount:显示血残的数量-->
+	<config id="300" winOffset="2.5" winHeight="1.2" winView="46" winLookY="0.5" petPosOffset="1,1" bossDieScale="0.05" bossScaleTime="0.16" showwindelay="5.0" groundcount="5"/>
 </common>

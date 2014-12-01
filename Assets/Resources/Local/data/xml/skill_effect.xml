@@ -11,7 +11,7 @@
 <!--angle,扇形角度-->
 <!--lastTime,持续时间-->
 <!--hurtNum,伤害次数-->
-<!--buff,对应的buff(1、眩晕，2、震屏，3、boss蛛网效果等）-->
+<!--buff,对应的buff(1、眩晕，2、震屏，3、boss蛛网效果等 4、主角拉怪技能）-->
 <!--buffTime,buff持续的时间-->
 
 <skillEffects>
@@ -27,14 +27,14 @@
 	
 	
 	<!-- 剑士 普攻-->
-	<effect id="1" subeffects="-1,-2" knockback="100,0.7" knockdown="0" playHit="0" hitEffect=""/>
-	<effect id="2" subeffects="-3,-4" knockback="100,0.5" knockdown="0" playHit="0"  hitEffect=""/>
-	<effect id="3" subeffects="-5,-6" knockback="100,0.3" knockdown="0" playHit="30"  hitEffect=""/>
-	<effect id="4" subeffects="-7,-8" knockback="100,0.8" knockdown="30" playHit="15"  hitEffect=""/>
+	<effect id="1" subeffects="-1,-2" knockback="100,0.8" knockdown="0" playHit="0" hitEffect=""/>
+	<effect id="2" subeffects="-3,-4" knockback="100,0.7" knockdown="0" playHit="0"  hitEffect=""/>
+	<effect id="3" subeffects="-5,-6" knockback="100,0.5" knockdown="0" playHit="30"  hitEffect=""/>
+	<effect id="4" subeffects="-7,-8" knockback="100,1" knockdown="30" playHit="15"  hitEffect=""/>
 	
 
 	<!-- 剑士 技能-->
-	<effect id="50" animatorTrigger="Skill1Trigger"  colliderLife="3" knockback="0,0" knockdown="0" playHit="100" colliderType="1" hitEffect="skill04_hurt" buff="1" buffTime="2"/>
+	<effect id="50" animatorTrigger="Skill1Trigger"  colliderLife="3" knockback="0,0" knockdown="0" playHit="100" colliderType="1" hitEffect="skill04_hurt" buff="4" buffTime="2"/>
 	
 	
 
@@ -42,8 +42,9 @@
 	<effect id="1000" animatorTrigger="AttackTrigger" colliderType="2" bullet="huo_atk1,15,10,0" hitEffect="firehurt"  bulletmode="1"/>
 	
     <!-- 火BB 技能-->
-    <effect id="1001" animatorTrigger="Skill1Trigger" bullet="huo_skill1,5,10,0" hitEffect="firehurt" colliderType="2" knockback="100,0.5" playHit="100" lastTime="0.5" hurtNum="4"/>
+    <effect id="1001" animatorTrigger="Skill1Trigger" bullet="huo_skill1,5,2,0" hitEffect="firehurt" colliderType="2" knockback="100,0.5" playHit="100" lastTime="3" hurtNum="15" nextEffect="1003"/>
 	<effect id="1002" animatorTrigger="summonTrigger" bullet="huo_sommon,6,10,0" hitEffect="firehurt" colliderType="2" knockback="100,1" playHit="100" lastTime="0.6" hurtNum="6"/>
+	<effect id="1003" hitEffect="firehurt" colliderType="3" collider="fireskill_end" radius="3" lastTime="1" hurtNum="1" />
     
     <!-- 雷BB 普攻-->
     <effect id="1010" animatorTrigger="AttackTrigger" hitEffect="thunder_hurt"/>

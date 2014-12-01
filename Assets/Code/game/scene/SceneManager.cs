@@ -75,9 +75,13 @@ public class SceneManager  {
         if (firstEnterDungeon) {
             firstEnterDungeon = false;
             current.prepareRoom();
+           // current.spawnSpecialMonster(10003);
         } else {
             current.nextRoom();
             ArrawManager.instance.hideCopyArraw();
+            if (current.dungeonData.currentRoomIndex == 1) {
+                current.spawnSpecialMonster(10003);
+            }
         }
         current.checkMonsterGroup = true;
     }

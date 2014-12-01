@@ -79,21 +79,30 @@ public class HeroController : AvatarController {
     #endregion
 
     bool changeAttackAngle = false;
+    private void clearRush() {
+        rushingToTarget = false;
+        rushTarget = null;
+        animator.Play(Hash.atk1State, 0, 0);
+        preAtkState = 0;
+        animator.speed = 1;
+        requestAtk = false;
+    }
     public void update(ref AnimatorStateInfo currentState) {
         if (rushingToTarget) {
             rushTime -= Time.deltaTime;
             if (rushTime <= 0) {
-                rushingToTarget = false;
-                rushTarget = null;
-                animator.Play(Hash.atk1State, 0, 0);
-                preAtkState = 0;
-                animator.speed = 1;
-                requestAtk = false;
+                clearRush();
                 return;
             }
             else {
                 //do nothing when rushing.
                 animator.speed = 0;
+                //check remaining distance,if the target is already within attack range(target might be moving),stop tween
+                if (Vector3.Distance(player.transform.position, rushTarget.transform.position) < player.getAttackRange() + rushTarget.bodyRadius) {
+                    
+                    iTween.Stop(player.model);
+                    clearRush();
+                }
                 return;
             }
         }
@@ -116,6 +125,7 @@ public class HeroController : AvatarController {
             preAtkState = state;
 
             if (stateChange) {
+                Player.instance.HpBar.HPDirty = true;
                 startReceiveCombo = false;
                 requestedChangeAttackAngle = false;
                 requestAtk = false;
@@ -132,6 +142,7 @@ public class HeroController : AvatarController {
                     adjustAttackAngle();
                 }
             } else {
+                Player.instance.HpBar.HPDirty = false;
                 if (requestAtk) {
                     if (startReceiveCombo) {
                         setBool(Hash.atknextBool, true);
@@ -152,10 +163,7 @@ public class HeroController : AvatarController {
                         setTrigger(Hash.atkTrigger);
                     }
                 } else {
-                    FightCharacter fc = BattleEngine.scene.findNearestTarget(player);
-                    if (fc != null) {
-                        f.lookat(fc);
-                    }
+                    changeLookAt();
                 }
                 playSkill = false;
                 requestAtk = false;
@@ -172,10 +180,7 @@ public class HeroController : AvatarController {
                         setTrigger(Hash.atkTrigger);
                     }
                 } else {
-                    FightCharacter fc = BattleEngine.scene.findNearestTarget(player);
-                    if (fc != null) {
-                        f.lookat(fc);
-                    }
+                    changeLookAt();
                 }
                 playSkill = false;
                 requestAtk = false;
@@ -195,8 +200,16 @@ public class HeroController : AvatarController {
             }
         }
 
+        if (state == Hash.runState)
+        {
+            Player.instance.HpBar.HPDirty = false;
+        }
+        else
+        {
+            Player.instance.HpBar.HPDirty = true;
+        }
         bool inIdleRun = state == Hash.idleState || state == Hash.runState;
-        if (inIdleRun || stateChange || changeAttackAngle) {
+        if (inIdleRun || stateChange || changeAttackAngle) {            
             useAnimatorRotation = useAnimatorPosition = false;
         } else {
             useAnimatorRotation = useAnimatorPosition = true;
@@ -214,7 +227,11 @@ public class HeroController : AvatarController {
         }
 		targetToAttack = null;
     }
-
+    public void changeLookAt()
+    {
+        if (requestMove) joystickRotate();
+        else adjustAttackAngle();
+    }
     private void autoFight(int state) {
         bool haveTarget = true;
         if (targetToAttack == null || targetToAttack.isDead()) {
@@ -274,7 +291,6 @@ public class HeroController : AvatarController {
                     }
                 }
                 else {
-                    Debug.LogError("dddddddddddddddddddddd");
                     player.agent.Stop();
                     requestMove = false;
                 }           
@@ -290,7 +306,9 @@ public class HeroController : AvatarController {
         }
         if (targetToAttack != null) {
             if (!targetToAttack.isDead()) {
-                if (!player.inMeleeAttackDirection(targetToAttack)) {
+				//make sure changing attack angle only when the player is outside the target's body radius
+                if (Vector3.SqrMagnitude(player.transform.position - targetToAttack.transform.position) > targetToAttack.bodyRadius * targetToAttack.bodyRadius
+                    && !player.inMeleeAttackDirection(targetToAttack)) {
                     changeAttackAngle = true;
                     f.lookat(targetToAttack);
                 }
@@ -323,12 +341,10 @@ public class HeroController : AvatarController {
         if (rushTarget != null && rushTarget.transform != null) {
             oldAnimatorSpeed = animator.speed;
             animator.Play(Hash.atk1StartState,0,0);
-            Vector3 targetPosition = Vector3.MoveTowards(transform.position, rushTarget.transform.position, rushDistance - 1f);
+            Vector3 targetPosition = Vector3.MoveTowards(transform.position, rushTarget.transform.position, rushDistance - player.getAttackRange()-rushTarget.bodyRadius);
             transform.LookAt(rushTarget.transform.position);
             resetRushShadow();
-            float distance = Vector3.Distance(targetPosition, transform.position);
-            rushTime = distance / BattleConfig.sprintSpeed;
-
+            rushTime = rushDistance / BattleConfig.sprintSpeed;
             iTween.MoveTo(player.model, iTween.Hash("x", targetPosition.x, "z", targetPosition.z, "easeType", iTween.EaseType.easeInExpo, "time", rushTime));
             rushingToTarget = true;
 
@@ -363,6 +379,7 @@ public class HeroController : AvatarController {
             attackx();
         } else if (Input.GetKeyDown(KeyCode.A)) {
             //BattleUI.instance.summonPet(0);
+            //FightSkill.instance.onAttackButtonClick(FightSkill.instance.skillitems[0].go);
         }
     }
    

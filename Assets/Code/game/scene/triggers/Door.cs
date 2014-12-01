@@ -113,7 +113,8 @@ public class Door :SceneTrigger {
             "oncompletetarget", callBackObj);
         iTween.RotateTo(Camera.main.gameObject, ht1);
         Hashtable ht2 = iTween.Hash("position", callBackObj.transform.position, "easeType", iTween.EaseType.linear, "time", CommonTemp.toDoorTime);
-        iTween.MoveTo(Camera.main.gameObject, ht2);
+        iTween.MoveTo(Camera.main.gameObject, ht2); 
+        Player.instance.HpBar.HPDirty = true;
        // obstacle.enabled = false;
     }
 
@@ -182,6 +183,7 @@ public class Door :SceneTrigger {
             iTween.RotateTo(Camera.main.gameObject, ht1);
             Hashtable ht2 = iTween.Hash("position", origPosition, "easeType", iTween.EaseType.linear, "time", CommonTemp.fromDoorTime);
             iTween.MoveTo(Camera.main.gameObject, ht2);
+            
         }
 
         //void finishPlay() {
@@ -196,7 +198,7 @@ public class Door :SceneTrigger {
             recoverCamera();
             App.sceneManager.onDoorOpened();
             App.input.setJoyEnabled(true);
-
+            Player.instance.HpBar.HPDirty = false;
             door.setFriendsDoorOpen(true);
             
         }

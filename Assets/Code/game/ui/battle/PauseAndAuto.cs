@@ -36,8 +36,9 @@ public class PauseAndAuto
         if (!BattleUI.instance.enable || Player.instance.isDead()) return;
         if (button == auto.gameObject)
         {
-            isAuto = !isAuto;
+            
             Player.instance.resetAuto(!Player.instance.autoFight);
+            isAuto = Player.instance.autoFight;
             if (isAuto) TweenColor.Begin(auto.gameObject, 0.1f, Color.yellow);
             else TweenColor.Begin(auto.gameObject, 0.1f, Color.white);
             

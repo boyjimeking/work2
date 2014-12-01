@@ -15,7 +15,7 @@ public class PetHead
     public Transform petHead;
     private int index;
     private UITexture icon;
-    private UISprite hp, down, die;
+    private UISprite hp, down, die,bg;
     public PetState pState;
     private PetData _data;
     public int sortIndex;//排序
@@ -31,6 +31,7 @@ public class PetHead
         hp = petHead.gameObject.getChild("up").GetComponent<UISprite>();
         down = petHead.gameObject.getChild("down").GetComponent<UISprite>();
         die = petHead.gameObject.getChild("die").GetComponent<UISprite>();
+        bg = petHead.gameObject.getChild("headBg").GetComponent<UISprite>();
         oldlocaly = petHead.localPosition.y;
 
         hp.gameObject.addOnce<ChangeHp>();
@@ -63,17 +64,22 @@ public class PetHead
             petHead.transform.localScale = Vector3.one;
             icon.shader = null;
             die.gameObject.SetActive(false);
+            hp.fillAmount = 1f;
+            bg.gameObject.SetActive(true);
             down.spriteName = "petkuang";
             PetHeads.instance.playHead(this);
         }else if(pstate==PetState.rest){
             petHead.transform.localScale = Vector3.one * 0.8f;
             icon.shader = null;
             die.gameObject.SetActive(false);
+            hp.fillAmount = 0f;
+            bg.gameObject.SetActive(false);
             down.spriteName = "petkuang1";
         }else if(pstate==PetState.die){
             petHead.transform.localScale = Vector3.one;
             icon.shader = App.res.loadObject("Local/Shader/GrayShader") as Shader;
             die.gameObject.SetActive(true);
+            bg.gameObject.SetActive(true);
             down.spriteName = "petkuang";
             PetHeads.instance.playHead(this);
         }

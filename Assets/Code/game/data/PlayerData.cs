@@ -16,8 +16,8 @@ public class PlayerData : BasePlayerData {
         team.teamNo = Naming.TeamPlayer;
         this.team = team;
         hp = maxhp = charDataTemplate.HP;
-
-
+        
+        
         petData = new PetData[2];
         petData[0] = createPetData(5000);
         petData[1] = createPetData(5001);

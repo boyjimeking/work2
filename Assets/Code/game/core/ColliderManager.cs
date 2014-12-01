@@ -40,7 +40,10 @@ public class ColliderManager : IColliderManager {
                 else if (B.data is Weapon) owner = (B.data as Weapon).owner;
                 else if (B.data is ColliderObject) owner = (B.data as ColliderObject).owner;
                 if (owner != Player.instance) return;
-                ExploderManager.instance.exploder(A.gameObject, A.data as ExploderManager.ExploderOptions);
+                ExploderManager.ExploderOptions ee = A.data as ExploderManager.ExploderOptions;
+                A.gameObject.GetComponent<Collider>().enabled = false;
+                ExploderManager.instance.exploder(A.gameObject, ee);
+                
             }
             return;
         } 
@@ -102,7 +105,7 @@ public class ColliderManager : IColliderManager {
                     }
                     co.addHit(fighterA);
 
-                    fighterA.takeDamage(co, co.effect.hitEffect);
+                    fighterA.takeDamage(co, co.effect.hitEffect, co.resName == "man_skill1_la");
 
                     if (co.owner == Player.instance)
                     {
@@ -111,7 +114,7 @@ public class ColliderManager : IColliderManager {
 
                     if (co.resName == "man_skill1_la")//拉怪技能
                     {
-                        App.coroutine.StartCoroutine(laguai(fighterA, co.owner.model.transform));
+                        if (!fighterA.isDead()) App.coroutine.StartCoroutine(laguai(fighterA, co.owner.model.transform));
                     } else {
                         //主角普攻震屏效果
                         if (co.owner == Player.instance) {
@@ -128,7 +131,9 @@ public class ColliderManager : IColliderManager {
      public IEnumerator laguai(FightCharacter fighter, Transform _transform)
      {
          fighter.ai.enabled = false;
+         fighter.agentStop();
          fighter.setObstacleMode(false);
+         fighter.controller.setTrigger(Hash.idleState);
          float distance = Vector3.Distance(fighter.model.transform.position, _transform.position);
          Vector3 targetPosition = Vector3.MoveTowards(fighter.model.transform.position, _transform.position, distance - 1.1f);
          iTween.MoveTo(fighter.model, iTween.Hash("x", targetPosition.x, "z", targetPosition.z, "easeType", iTween.EaseType.easeInExpo, "time", 0.1f));

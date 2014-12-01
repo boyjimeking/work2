@@ -86,6 +86,7 @@ public class BattleUI  {
         FightSkill.instance.clear();
         BossHead.instance.clear();
         Combo.instance.clear();
+        RedScreen.instance.clear();
         enable = true;
     }
     public void setEnabled(bool enable)

@@ -43,6 +43,7 @@ namespace engine {
         public static float bossDieScale;
         public static float bossScaleTime;
         public static float showwindelay;
+        public static int groundcount;
 
         public override void read(XmlElement e) {
             base.read(e);
@@ -98,6 +99,7 @@ namespace engine {
                 bossDieScale = Utility.toFloat(e.GetAttribute("bossDieScale"));
                 bossScaleTime = Utility.toFloat(e.GetAttribute("bossScaleTime"));
                 showwindelay = Utility.toFloat(e.GetAttribute("showwindelay"));
+                groundcount = Utility.toInt(e.GetAttribute("groundcount"));
             }          
         }
     }

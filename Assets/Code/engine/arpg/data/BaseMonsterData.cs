@@ -32,6 +32,8 @@ namespace engine {
                 }
             }
             if (options.Count == 0) return null;
+            //if(learnedSkills.Length > 2)
+            //    return learnedSkills[1];
             return options[Random.Range(0, options.Count)];
 
             

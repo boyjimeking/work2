@@ -13,7 +13,7 @@ public class BossHead{
     private GameObject cdgo;
     private GameObject namego;
     private GameObject bloodgo;
-    private UISprite blood;
+    private UISprite blood, blood1;
     private UILabel mLabelBossName;
     private UILabel mLabelCDTime;
     private int mBossBlood; //boos blood
@@ -33,10 +33,11 @@ public class BossHead{
         cdgo = tweengo.getChild("cd");
         namego = tweengo.getChild("name");
         blood = bloodgo.getChildComponent<UISprite>("blood");
+        blood1 = bloodgo.getChildComponent<UISprite>("blood1");
         mLabelBossName = namego.getChild("LabelBossName").GetComponent<UILabel>();
         mLabelCDTime = cdgo.getChild("LabelCDTime").GetComponent<UILabel>();    
-        bloodw = blood.width;
-        blood.gameObject.addOnce<ChangeHp>();
+        bloodw = blood1.width;
+        blood1.gameObject.addOnce<ChangeHp>();
 
         bloodgo.SetActive(false);
         cdgo.SetActive(true);
@@ -92,19 +93,22 @@ public class BossHead{
     public void setBossBlood(int HP, int maxHP)
     {
         float current,value;
-        if (blood.type == UISprite.Type.Filled)
+        if (blood1.type == UISprite.Type.Filled)
         {
             value = (float)HP / maxHP;
-            current = blood.fillAmount;
+            current = blood1.fillAmount;
+            blood.fillAmount = value;
         }
         else
         {
             value = (int)(((float)HP) / maxHP * bloodw);
-            current = blood.width;
+            current = blood1.width;
+            blood.width = (int)value;
         }
+
         Hashtable ht = iTween.Hash("from", current, "to", value, "time", 0.5f, "easeType",
                iTween.EaseType.easeInCubic, "onupdate", "changeHp");
-        iTween.ValueTo(blood.gameObject, ht);
+        iTween.ValueTo(blood1.gameObject, ht);
     }
 
     /// <summary>

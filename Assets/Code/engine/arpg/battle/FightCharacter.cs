@@ -9,7 +9,7 @@ namespace engine {
 
     //a character with fight ability,common base class for player,fightable pet,monster
     public class FightCharacter : Character, IAttackable {
-
+        public bool deadable=true;//special flag,used for special monsters
         public int atkNo;
         public int localHitNo, globalHitNo;
         private HpBar hpBar;
@@ -108,7 +108,7 @@ namespace engine {
         public float getAttackRange() {
             return data.weaponRange;
         }
-        public bool attack(int skillId) {
+        public  bool attack(int skillId) {
             if (prepareSkill(skillId))
             {
                 if (currentSkillEffect==null || currentSkillEffect.triggerHash != 0) {
@@ -116,6 +116,7 @@ namespace engine {
                 } else {
                     controller.setTrigger(Hash.atkTrigger);
                 }
+                if (controller is HeroController) ((HeroController)controller).changeLookAt();
                 return true;
             }
             return false;
@@ -184,7 +185,7 @@ namespace engine {
         public virtual bool inAttackAnimation() {
             return false;
         }
-        public void takeDamage(ColliderObject co, string particleEffect = null) {
+        public void takeDamage(ColliderObject co, string particleEffect = null,bool laguaibuff = false) {
             FightCharacter attacker = co.owner;
             bool canEVA = !((attacker is Player) && co.effect.id > 4);
             AttackResult result = BattleEngine.controller.calcDamage(attacker, this, canEVA);
@@ -207,7 +208,7 @@ namespace engine {
                 HitState state = BattleEngine.controller.calcHitState(attacker, this, co.effect);
                 applyHitState(state);
             }
-            setBuffState(co.effect);
+            setBuffState(co.effect, laguaibuff);
             addHitEffect();
             Engine.sound.playSound("Local/sound/hurt", transform.position);
         }
@@ -267,7 +268,7 @@ namespace engine {
             Engine.sound.playSound("Local/sound/hurt", transform.position);
         }
 
-        protected void setBuffState(SkillEffectTemplate temp) {
+        protected void setBuffState(SkillEffectTemplate temp,bool laguaibuff = false) {
             if (temp.buffs != null && temp.buffTimes != null && temp.buffs.Length > 0 && temp.buffs.Length == temp.buffTimes.Length) {
                 for (int i = 0; i < temp.buffs.Length; i++) {
                     switch (temp.buffs[i]) {
@@ -280,7 +281,10 @@ namespace engine {
                             CameraManager.shakeCamera(CameraManager.Main, temp.buffTimes[i]);
                             break;
                         case BuffType.netTarget:
-                            setDizzy(temp.buffTimes[i], "Local/prefab/effect/stop");
+                            setDizzy(temp.buffTimes[i], "Local/prefab/effect/stop_end");
+                            break;
+                        case BuffType.fetter:
+                            if (laguaibuff) setDizzy(temp.buffTimes[i], "Local/prefab/effect/skill04_debuff");
                             break;
                         default:
                             break;
@@ -468,7 +472,11 @@ namespace engine {
                  }
                  floatingText.reset(label, damageText);
              }
-             
+
+             if ((this is Monster) && attackResult.state != AttackState.eva)
+             {
+                 BattleEngine.scene.addGround(this);
+             }
         }
         protected void addFloatingText(Vector3 position, string text, FloatingTextFormat format) {
             GameObject prefab = getFloatingTextPrefab();
@@ -508,7 +516,6 @@ namespace engine {
             if (dizzyPath == null)
                 dizzyPath = "Local/prefab/effect/xuanyun";
             else {
-                afterPath = "Local/prefab/effect/stop_end";
                 vec = Vector3.zero;
             }
             GameObject dizzyObj = App.res.createSingle(dizzyPath);           

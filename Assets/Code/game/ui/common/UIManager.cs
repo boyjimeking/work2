@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
         private GameObject uiRoot;
         private bool enable;
-        private bool active;
+        private bool active = true;
         private List<Transform> oldNoActives = new List<Transform>();
 
         public GameObject cameraObject;
