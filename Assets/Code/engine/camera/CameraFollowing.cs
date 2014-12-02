@@ -17,6 +17,7 @@ namespace engine {
         private Vector3 lastPos;
         private Vector3 temp;
         private GameObject lookAtObj;
+        private const float frameRate = 0.012f;
 
         void LateUpdate() {
             if (target == null)
@@ -45,23 +46,29 @@ namespace engine {
             float offsetX = xOffset;
             float offsetY = height;
             float offsetZ = zOffset;
+            float rate = Time.deltaTime/frameRate;
             if (rushDelay <= 0 && notLerp) {
-                offsetX = Mathf.Lerp(transform.position.x - temp.x, xOffset, xzSmooth);
-                offsetY = Mathf.Lerp(transform.position.y - temp.y, height, hightSmooth);
-                offsetZ = Mathf.Lerp(transform.position.z - temp.z, zOffset, xzSmooth);
+                offsetX = Mathf.Lerp(transform.position.x - temp.x, xOffset, xzSmooth * rate);
+                offsetY = Mathf.Lerp(transform.position.y - temp.y, height, hightSmooth*rate);
+                offsetZ = Mathf.Lerp(transform.position.z - temp.z, zOffset, xzSmooth*rate);
             }
             lastPos = temp;
             temp.x = temp.x + offsetX;
             temp.y = temp.y + offsetY;
             temp.z = temp.z + offsetZ;
             if (rushDelay > 0) {
-                rushDelay -= Time.deltaTime;
-                transform.position += (temp - transform.position) * Time.deltaTime / rushDelay;
+                rushDelay -= Time.deltaTime * rate;
+                transform.position += (temp - transform.position) * Time.deltaTime*rate / rushDelay;
             }
             else {
                 transform.position = temp;
                 transform.rotation = lookAtObj.transform.rotation;
                 //transform.LookAt(target.position + Vector3.up*lookHeight);
+            }
+        }
+        public bool Rushing{ 
+            get{
+                return rushDelay>0;
             }
         }
     }

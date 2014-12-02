@@ -12,10 +12,10 @@ public class Door :SceneTrigger {
     //        Player.instance.agent.walkableMask &= ~mask;
     //    }
     //}
-   
 
 
 
+    public delegate void spanMonster();
     public string state;//default state
     private EnterRoomTrigger enterRoomTrigger;
     private Dictionary<FightCharacter, int> triggered=new Dictionary<FightCharacter,int>();
@@ -53,7 +53,11 @@ public class Door :SceneTrigger {
              if ((!Player.instance.isDead() && c == Player.instance) || Player.instance.isDead())
              {
                  t.triggered = true;
-                 App.sceneManager.spawnMonsters();
+                 if (Player.instance.autoFight) {
+                     (Player.instance.controller as HeroController).arriveTrigger(App.sceneManager.spawnMonsters);
+                 }
+                 else
+                    App.sceneManager.spawnMonsters();
              }
         }
         if (triggered.Count >= BattleEngine.scene.getFriends().Count)

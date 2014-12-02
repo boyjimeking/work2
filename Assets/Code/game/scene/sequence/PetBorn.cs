@@ -13,7 +13,7 @@ public class PetBorn {
     private Animation[] anims;
     private Animator[] animators;
     private Pet pet;
-    private WallVisionOutlineEffect wallEffect;
+    //private WallVisionOutlineEffect wallEffect;
 
     public void beginBorn(int index, PetData data) {
         pet = CharFactory.createPet(data, (PetPosition)index, Player.instance.agent.walkableMask);
@@ -46,8 +46,8 @@ public class PetBorn {
         if (CommonTemp.rotates[index])
             summonEffect.transform.rotation = Player.instance.transform.rotation;
         createNewCam();
-        wallEffect = CameraManager.Main.GetComponent<WallVisionOutlineEffect>();
-        wallEffect.enabled = false;
+        //wallEffect = CameraManager.Main.GetComponent<WallVisionOutlineEffect>();
+        //wallEffect.enabled = false;
         App.coroutine.StartCoroutine(blackSceen(CommonTemp.blackTimes[index]));
         App.coroutine.StartCoroutine(playEffect(specialParticle.startDelay, specialParticle.startLifetime));
         App.coroutine.StartCoroutine(beginResolve(CommonTemp.bornTimes[index], pet));
@@ -102,6 +102,7 @@ public class PetBorn {
         //foreach (Animator a in animators) {
         //    a.enabled = false;
         //}
+        CameraManager.shakeCamera(CameraManager.Main, 0.5f, 2);
         App.coroutine.StartCoroutine(removePause(pauseTime));
     }
 
@@ -144,6 +145,6 @@ public class PetBorn {
         if (summonEffect)
             Object.Destroy(summonEffect, 3f);
         yield return new WaitForSeconds(3f);
-        wallEffect.enabled = true;
+        //wallEffect.enabled = true;
     }
 }

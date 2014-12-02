@@ -37,8 +37,8 @@ public class PauseAndAuto
         if (button == auto.gameObject)
         {
             
-            Player.instance.resetAuto(!Player.instance.autoFight);
-            isAuto = Player.instance.autoFight;
+            Player.instance.resetAuto(!Player.instance.origAutoFight);
+            isAuto = Player.instance.origAutoFight;
             if (isAuto) TweenColor.Begin(auto.gameObject, 0.1f, Color.yellow);
             else TweenColor.Begin(auto.gameObject, 0.1f, Color.white);
             

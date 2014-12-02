@@ -163,10 +163,20 @@ namespace engine {
             int length = skinRenderer.materials.Length;
             orignalMaterial = new Material[length];
             originalMainTExture = new Texture[length];
+			Shader behindWallShader = Shader.Find ("BehindWall2");
+            Color c;
+            if (this.team.teamNo == Naming.TeamMonster) {
+                c = new Color(178/255f, 0, 1, 1);
+            } else {
+                c = new Color(1, 1,0, 1);
+            }
             for (int i = 0; i < length; i++) {
                 orignalMaterial[i] = skinRenderer.materials[i];
+				orignalMaterial[i].shader=behindWallShader;
+                orignalMaterial[i].SetColor("_AtmoColor", c);
                 originalMainTExture[i] = orignalMaterial[i].mainTexture;
             }
+
 
             return skinRenderer;
         }
@@ -281,7 +291,7 @@ namespace engine {
                             CameraManager.shakeCamera(CameraManager.Main, temp.buffTimes[i]);
                             break;
                         case BuffType.netTarget:
-                            setDizzy(temp.buffTimes[i], "Local/prefab/effect/stop_end");
+                            setDizzy(temp.buffTimes[i], "Local/prefab/effect/stop");
                             break;
                         case BuffType.fetter:
                             if (laguaibuff) setDizzy(temp.buffTimes[i], "Local/prefab/effect/skill04_debuff");
@@ -343,7 +353,8 @@ namespace engine {
         }
         protected virtual void onDead()
         {
-            animator.ResetTrigger(Hash.skill2Trigger);
+            if(isBoss())
+                animator.ResetTrigger(Hash.skill2Trigger);
             controller.play(Hash.dieState, 0, 0);
             isDying = true;
         }
@@ -499,6 +510,8 @@ namespace engine {
         #endregion
 
         private void setDizzy(float dizzyTime, string dizzyPath = null) {
+            if (isDizzy) //can not overlay
+                return;
             if (isPlayer()) {
                 if (!UIManager.Instance.Enable) //if in dizzy state return
                     return;

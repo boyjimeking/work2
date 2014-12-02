@@ -28,6 +28,6 @@
 	<skill id="10002" animatorTrigger="AttackTrigger" name="火球"/>
 	<!--boss_wolf-->
 	<skill id="20001" animatorTrigger="AttackTrigger" name="BOSS普攻"/>
-	<skill id="20002" animatorTrigger="Skill1Trigger" name="BOSS技能" cd="5"/>
-	<skill id="20003" animatorTrigger="Skill2Trigger" name="BOSS技能2" cd="7"/>
+	<skill id="20002" animatorTrigger="Skill1Trigger" name="BOSS技能" cd="8"/>
+	<skill id="20003" animatorTrigger="Skill2Trigger" name="BOSS技能2" cd="10"/>
 </skills>

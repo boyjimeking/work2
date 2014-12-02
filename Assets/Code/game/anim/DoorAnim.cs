@@ -11,6 +11,7 @@ public class DoorAnim : MonoBehaviour {
     }
 
     void Start() {
+        animator.StopPlayback();
         animator.StartRecording(0);
     }
 

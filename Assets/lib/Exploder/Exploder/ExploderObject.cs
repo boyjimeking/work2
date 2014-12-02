@@ -1048,7 +1048,9 @@ public class ExploderObject : MonoBehaviour
                 {
                     // TODO: for possible improvements change random value to something more sofisticated
                     var randomPlaneNormal = Random.insideUnitSphere;
-
+                    //=======yjc=======================
+                    if (!mesh.transform) continue;
+                    //=======yjc=======================
                     var plane = new Exploder.MeshCutter.Math.Plane(randomPlaneNormal, mesh.transform.TransformPoint(mesh.centroid));
 
                     var triangulateHoles = true;

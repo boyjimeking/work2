@@ -1,4 +1,4 @@
-
+﻿
 <!--rushRange，冲刺范围-->
 <!-- pet : controller:宠物AnimatorController名称 summon:宠物降临特效 summonDelay:宠物降临后进入Animator Summon状态的时间 summonDissolveSpeed: 反向溶解时间, 溶解材质：目前使用model名字-->
 
@@ -10,13 +10,13 @@
 
 
 	<!--pet-->
-	<character id="5000" type='1' name="petfire" controller="petFire" model="pet_fire" weaponRange="4.5" summon="fire_summon" summonDelay="1.3" summonDissolveSpeed="-0.7" moveRange="100" moveSpeed="5" skills="1000,1001,1002" summonSkill="1002"/>
-	<character id="5001"  type='1' name="petthunder" controller="petThunder" model="pet_thunder" weaponRange="1" summon="thunder_summon" summonDelay="2.8" summonDissolveSpeed="-0.35" moveRange="100" moveSpeed="5" skills="1010,1011,1012" summonSkill="1012"/>
+	<character id="5000" type='1' name="petfire" controller="petFire" model="pet_fire" weaponRange="4.5" summon="fire_summon" summonDelay="1.3" summonDissolveSpeed="-0.7" moveRange="100" moveSpeed="4" skills="1000,1001,1002" summonSkill="1002"/>
+	<character id="5001"  type='1' name="petthunder" controller="petThunder" model="pet_thunder" weaponRange="1" summon="thunder_summon" summonDelay="2.8" summonDissolveSpeed="-0.35" moveRange="100" moveSpeed="3" skills="1010,1011,1012" summonSkill="1012"/>
 
 
 	<!--monsters-->
 	<character id="10000"  type='4' name="天腹狼蛛_boss" controller="BossSpiderController" model="BOSS_zhizhu" weaponRange="2" moveRange="100" moveSpeed="1.6" skills="20001,20002,20003"/>
-	<character id="10001"  type='2' name="甲壳虫" controller="chongController" model="chong" weaponRange="1" moveRange="100" moveSpeed="1" skills="10001"/>
-	<character id="10002"  type='2' name="哥布林" controller="gblController" model="gbl" weaponRange="5.5" moveRange="100" moveSpeed="1.5" skills="10002"/>
+	<character id="10001"  type='2' name="甲壳虫" controller="chongController" model="chong" weaponRange="1" moveRange="100" moveSpeed="2" skills="10001"/>
+	<character id="10002"  type='2' name="哥布林" controller="gblController" model="gbl" weaponRange="5.5" moveRange="100" moveSpeed="2.5" skills="10002"/>
     <character id="10003"  type='5' name="哥布林" controller="gblController" model="gbl" moveRange="5" moveSpeed="3" />
 </characters>

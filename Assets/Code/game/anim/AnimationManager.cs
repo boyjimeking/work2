@@ -82,19 +82,23 @@ public class AnimationManager : IAnimEventManager {
     public void playEffect(Binding c, string resName) {
         FightCharacter f = c.data as FightCharacter;
         if (resName.Contains(",")) {
-            string[] effects = Utility.toArray(resName);
-            GameObject effect = App.res.createSingle("Local/prefab/effect/" + effects[0]);
+            string[] effects = Utility.toArray(resName);      
+            Vector3 pos = f.transform.position;
+            if (f.isBoss()) {
+                if (BattleEngine.scene.getFriends().Count == 0)
+                    return;
+                FightCharacter friend = BattleEngine.scene.getFriends()[0];
+                pos.y = friend.Position.y;
+            }
+            GameObject effect = App.res.createObj("Local/prefab/effect/" + effects[0], pos);
             if (effect == null) {
                 Debug.Log("can't load effect:" + effects[0]);
                 return;
             }
             float t = Utility.toFloat(effects[1]);
             if (t == 0) t = 1f;
-            effect.SetActive(false);
-            effect.transform.position = f.transform.position;
             effect.transform.forward = f.transform.forward;
             f.effectBySelf = effect;
-            effect.SetActive(true);
             Object.Destroy(effect, t);
             f.controller.useAnimatorPosition = true;
             return;

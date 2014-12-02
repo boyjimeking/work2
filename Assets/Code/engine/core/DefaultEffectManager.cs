@@ -10,7 +10,9 @@ namespace engine {
                 cameraShaker = Camera.main.gameObject.GetComponent<CameraShake>();
             }
             if (cameraShaker != null) {
-                if (shakingCamera) return;
+                if (shakingCamera ) return;
+                CameraFollowing follow = CameraManager.Main.GetComponent<CameraFollowing>();
+                if (follow.Rushing) return;
                 shakingCamera = true;
                 //cameraShaker.shakeCamera();//magnitude, duration);
                 cameraShaker.shakeCameraLinear();

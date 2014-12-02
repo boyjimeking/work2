@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BattleConfig  {
 
-    public static float scope = 3;
-    public static float everyTime = 0.08f;
+    public static float scope = 5;
+    public static float everyTime = 0.02f;
 
     public static int monsterTestNum;     //怪物测试数量
     public static float viewRange;          //视野范围

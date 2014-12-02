@@ -41,7 +41,8 @@ public class ColliderManager : IColliderManager {
                 else if (B.data is ColliderObject) owner = (B.data as ColliderObject).owner;
                 if (owner != Player.instance) return;
                 ExploderManager.ExploderOptions ee = A.data as ExploderManager.ExploderOptions;
-                A.gameObject.GetComponent<Collider>().enabled = false;
+                if (ee.explodered) return;
+                ee.explodered = true;
                 ExploderManager.instance.exploder(A.gameObject, ee);
                 
             }

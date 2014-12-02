@@ -32,9 +32,9 @@ public class HeroController : AvatarController {
         base.reset(f);
         this.player = f as Player;
 
-
-        requestMove = requestAtk =rushingToTarget=requestedChangeAttackAngle=playSkill=startReceiveCombo =false;
-        targetToAttack = rushTarget = null;
+        requestMove = requestAtk =requestedChangeAttackAngle=playSkill=startReceiveCombo =false;
+        if(!rushingToTarget)
+            targetToAttack = rushTarget = null;
         preAtkState=0;
         showShadow = false;
         player.calcNextPos = true;
@@ -232,10 +232,25 @@ public class HeroController : AvatarController {
         if (requestMove) joystickRotate();
         else adjustAttackAngle();
     }
+
+    public void arriveTrigger(Door.spanMonster callBack = null) {
+        requestMove = false;
+        player.agent.Stop();
+        player.agent.ResetPath();
+        if (callBack != null) {
+            App.coroutine.StartCoroutine(spanMonster(callBack));
+        }
+    }
+
+    private IEnumerator spanMonster(Door.spanMonster callBack) {
+        yield return new WaitForSeconds(1.5f);
+        callBack();
+    }
+
     private void autoFight(int state) {
         bool haveTarget = true;
         if (targetToAttack == null || targetToAttack.isDead()) {
-            checkAttackTarget(100f);
+            targetToAttack = BattleEngine.scene.findNearestTarget(player, player);
             if (targetToAttack == null || targetToAttack.isDead()) {
                 if (player.calcNextPos) {
                     if (BattleEngine.scene.hasNextTrigger(true)) {
@@ -249,8 +264,7 @@ public class HeroController : AvatarController {
                     Vector3 vec = nextTriggerPos;
                     vec.y = player.Position.y;
                     if (Vector3.Distance(player.Position, vec) < player.cc.radius) {
-                        player.agent.Stop();
-                        requestMove = false;
+                        arriveTrigger();                                       
                     }
                     else {
                         requestMove = true;
@@ -260,19 +274,19 @@ public class HeroController : AvatarController {
             }
         }
         if(haveTarget) {
-            checkAttackTarget(100f);
             float distance = Vector3.Distance(player.Position, targetToAttack.Position);
             if (distance <= player.getAttackRange() + 1f) {
                 requestAtk = true;
                 requestMove = false;
                 moveDist = 1.5f;
-                player.lookat(targetToAttack.Position);
+                //player.lookat(targetToAttack.Position);
             }
             else {              
                 if (targetToAttack.isBoss() && (targetToAttack.Position.y - player.Position.y) > 0.1f) {
                     targetToAttack = BattleEngine.scene.findNearestTarget(player, targetToAttack, false);
                     if (targetToAttack == null) {
-                        player.forceIdle();
+                        setBool(Hash.runBool, false);
+                        resetTrigger(Hash.atkTrigger);
                         return;
                     }
                 }
@@ -354,7 +368,7 @@ public class HeroController : AvatarController {
     }
 
     private void checkRushTarget() {
-        FightCharacter enemy = BattleEngine.scene.findNearestTarget(player);
+        FightCharacter enemy = BattleEngine.scene.findNearestTarget(player,null,true,float.MaxValue,true);
         if (enemy == null) return; 
         targetToAttack = enemy;
         float distance = Vector3.Distance(player.transform.position, enemy.transform.position);

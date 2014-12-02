@@ -44,7 +44,7 @@
     <!-- 火BB 技能-->
     <effect id="1001" animatorTrigger="Skill1Trigger" bullet="huo_skill1,5,2,0" hitEffect="firehurt" colliderType="2" knockback="100,0.5" playHit="100" lastTime="3" hurtNum="15" nextEffect="1003"/>
 	<effect id="1002" animatorTrigger="summonTrigger" bullet="huo_sommon,6,10,0" hitEffect="firehurt" colliderType="2" knockback="100,1" playHit="100" lastTime="0.6" hurtNum="6"/>
-	<effect id="1003" hitEffect="firehurt" colliderType="3" collider="fireskill_end" radius="3" lastTime="1" hurtNum="1" />
+	<effect id="1003" hitEffect="firehurt" colliderType="3" collider="fireskill_end" radius="2" lastTime="1" hurtNum="1" />
     
     <!-- 雷BB 普攻-->
     <effect id="1010" animatorTrigger="AttackTrigger" hitEffect="thunder_hurt"/>

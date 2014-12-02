@@ -56,10 +56,6 @@ namespace engine {
         {
             if (_stopUpdate)
                 return;
-            if (Camera.main == null) {
-                setVisible(false);
-                return;
-            }
             if(_owner == null || _owner.model == null ||_owner.isBoss()) {
                 Destroy(Parent);
                 return;
@@ -69,8 +65,8 @@ namespace engine {
                 return;
             }
             //setVisible(true);
-            if(_hpDirty)
-                resetPos();
+            //if(_hpDirty)
+            resetPos();
          
             _hitTime += Time.deltaTime;
         }

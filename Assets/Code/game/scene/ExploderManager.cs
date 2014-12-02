@@ -27,6 +27,8 @@ public class ExploderManager {
         //回调
         public ExploderObject.OnExplosion callback=null;
 
+        public bool explodered = false;
+
     }
 
     public static ExploderManager instance = new ExploderManager();

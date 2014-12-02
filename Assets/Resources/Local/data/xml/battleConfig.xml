@@ -45,11 +45,11 @@ slowCD: 放慢特效cd
 	<common ID="1000000" monsterTestNum="6" viewRange="150" attackRange="2.5" sprintRange="5" minSprintRange="2" sprintCameraDelay="0.5"/>
 	<common ID="1000100" hitEffectTime="0.18" sprintSpeed="24" sprintShadowTime="2" resolveTime="1.5" />
 	<common ID="1000200" upDownRange="0.2" leftRightRange="0.2" frontBackRange="0.2" radiusRange="0.2" zoomSpeed="0.2" zoomToBoss="0.5" zommOutBoss="0.5"/>
-	<common ID="1000300" cameraShakeTime1="0.01" cameraShakeTime2="0.01" cameraShakePoint1="2.5" cameraShakePoint2="0" cameraShakePoint3="2"  cameraNearType="1" cameraNearTime="0.04" cameraFarType="30" cameraFarTime="0.15" farNearRange="2.5" maxFieldOfView="10"/>
+	<common ID="1000300" cameraShakeTime1="0.01" cameraShakeTime2="0.01" cameraShakePoint1="2" cameraShakePoint2="0" cameraShakePoint3="0.7"  cameraNearType="1" cameraNearTime="0.04" cameraFarType="30" cameraFarTime="0.15" farNearRange="2.5" maxFieldOfView="10"/>
 	<common ID="1000400" monsterShakeRange="0.045" monsterShakeNum="0" shakeMFrequency="0.013" hitBackTime="0.14" hitBackType="24" slowTimeScale="0.5" slowDuration="0.03" slowCD="0.04" />
-  <common ID="1000500" hitBackTime1="0.03" hitBackTime2="0.03" hitBackPoint1="1.25" hitBackPoint2="1" hitBackPoint3="1.25"/>
+  <common ID="1000500" hitBackTime1="0.01" hitBackTime2="0.01" hitBackPoint1="1.25" hitBackPoint2="1" hitBackPoint3="1.25"/>
   <common ID="2000000" petPos="2,2" winView="46" winHeight="1" lookPos="1"/>
   <!--pet askhelp/flee-->
-  <common ID="2000001" fleeSuccessStayTime="5" petFriendNumberRate="1" petFleeSpeedRate="1" petHelpSpeedRate="1" petFleeCD="5" petTryHelpTime="10" petFleeDistance="10"/>
+  <common ID="2000001" fleeSuccessStayTime="0" petFriendNumberRate="1" petFleeSpeedRate="1.2" petHelpSpeedRate="1.2" petFleeCD="5" petTryHelpTime="10" petFleeDistance="6"/>
   <common ID="2000002" monsterChangeTargetThreshhold="5"/>
 </CommonConfig>

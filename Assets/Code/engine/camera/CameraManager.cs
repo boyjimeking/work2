@@ -42,14 +42,16 @@ public class CameraManager {
         //iTween.ValueTo(newCamera, ht);
     }
 
-    public static void shakeCamera(Camera camera, float time) {
-        if(hasShake)
-            return;;
-        hasShake = true;     
-        int num = (int)(time / BattleConfig.everyTime);
+    public static void shakeCamera(Camera camera, float time, int num = 0) {
+        //if(hasShake)
+        //    return;;
+        //hasShake = true;
+        int realNum = num;
+        if(realNum == 0)
+            realNum = (int)(time / BattleConfig.everyTime);
         if (origView < 0)
             origView = Main.fieldOfView;
-        App.coroutine.StartCoroutine(beginShake(camera,num));
+        App.coroutine.StartCoroutine(beginShake(camera));
     }
 
     private static void createNewCam(GameObject focus) {
@@ -98,6 +100,18 @@ public class CameraManager {
     private static IEnumerator addCameraFollow() {
         yield return new WaitForSeconds(CommonTemp.tweenNormalTime);
         CameraFollow.enabled = true;
+    }
+
+    private static IEnumerator beginShake(Camera cam) {
+        float range = -BattleConfig.scope;
+        while (cam.fieldOfView > origView + range) {
+            yield return new WaitForSeconds(BattleConfig.everyTime);
+            cam.fieldOfView -= 2f;
+        }
+        while (cam.fieldOfView < origView) {
+            yield return new WaitForSeconds(BattleConfig.everyTime);
+            cam.fieldOfView += 2f;
+        }
     }
 
     private static IEnumerator beginShake( Camera cam, int num) {

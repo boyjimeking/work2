@@ -6,15 +6,100 @@ ModelImporter:
     100000: //RootNode
     100002: chilun
     100004: objpolySurface1324
+    100006: bossfloor_obj
+    100008: bossfloor_obj001
+    100010: bossfloor_obj002
+    100012: bossfloor_obj003
+    100014: bossfloor_obj004
+    100016: bossfloor_obj005
+    100018: bossfloor_obj006
+    100020: bossfloor_obj007
+    100022: chilun001
+    100024: chilun002
+    100026: chilun003
+    100028: chilun004
+    100030: chilun005
+    100032: chilun006
+    100034: chilun007
+    100036: Cylinder001
+    100038: Cylinder009
     400000: //RootNode
     400002: chilun
     400004: objpolySurface1324
+    400006: bossfloor_obj
+    400008: bossfloor_obj001
+    400010: bossfloor_obj002
+    400012: bossfloor_obj003
+    400014: bossfloor_obj004
+    400016: bossfloor_obj005
+    400018: bossfloor_obj006
+    400020: bossfloor_obj007
+    400022: chilun001
+    400024: chilun002
+    400026: chilun003
+    400028: chilun004
+    400030: chilun005
+    400032: chilun006
+    400034: chilun007
+    400036: Cylinder001
+    400038: Cylinder009
     2300000: chilun
     2300002: objpolySurface1324
+    2300004: bossfloor_obj
+    2300006: bossfloor_obj001
+    2300008: bossfloor_obj002
+    2300010: bossfloor_obj003
+    2300012: bossfloor_obj004
+    2300014: bossfloor_obj005
+    2300016: bossfloor_obj006
+    2300018: bossfloor_obj007
+    2300020: chilun001
+    2300022: chilun002
+    2300024: chilun003
+    2300026: chilun004
+    2300028: chilun005
+    2300030: chilun006
+    2300032: chilun007
+    2300034: Cylinder001
+    2300036: Cylinder009
     3300000: chilun
     3300002: objpolySurface1324
+    3300004: bossfloor_obj
+    3300006: bossfloor_obj001
+    3300008: bossfloor_obj002
+    3300010: bossfloor_obj003
+    3300012: bossfloor_obj004
+    3300014: bossfloor_obj005
+    3300016: bossfloor_obj006
+    3300018: bossfloor_obj007
+    3300020: chilun001
+    3300022: chilun002
+    3300024: chilun003
+    3300026: chilun004
+    3300028: chilun005
+    3300030: chilun006
+    3300032: chilun007
+    3300034: Cylinder001
+    3300036: Cylinder009
     4300000: objpolySurface1324
     4300002: chilun
+    4300004: bossfloor_obj
+    4300006: Cylinder001
+    4300008: Cylinder009
+    4300010: bossfloor_obj001
+    4300012: chilun001
+    4300014: bossfloor_obj002
+    4300016: chilun002
+    4300018: bossfloor_obj003
+    4300020: chilun003
+    4300022: bossfloor_obj004
+    4300024: chilun004
+    4300026: bossfloor_obj005
+    4300028: chilun005
+    4300030: bossfloor_obj006
+    4300032: chilun006
+    4300034: bossfloor_obj007
+    4300036: chilun007
     9500000: //RootNode
   materials:
     importMaterials: 0

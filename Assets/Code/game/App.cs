@@ -30,8 +30,8 @@ public class App  {
 
     public static void init(GameObject bootObject) {
 
-        //Application.targetFrameRate = 12;
-        config = new Configuration();
+
+        config = bootObject.addOnce<Configuration>();
 
         input = new InputManager(bootObject.getChild("inputManager"));
 

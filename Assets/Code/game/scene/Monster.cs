@@ -18,7 +18,7 @@ public class Monster : MonsterCharacter {
                appeared = false;
                ai.enabled = true;
                if (cc != null) cc.enabled = true;
-               if (!isBoss())  ArrawManager.instance.addEnemy(this);
+               if (!isBoss() && deadable)  ArrawManager.instance.addEnemy(this);
            }
            return;
        }

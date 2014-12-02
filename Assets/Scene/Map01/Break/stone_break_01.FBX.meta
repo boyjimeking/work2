@@ -19,6 +19,12 @@ ModelImporter:
     400010: break_Bone005
     400012: break_Bone007
     400014: //RootNode
+    2300000: break01
+    2300002: break02
+    2300004: break03
+    3300000: break01
+    3300002: break02
+    3300004: break03
     4300000: break03
     4300002: break01
     4300004: break02
@@ -94,7 +100,7 @@ ModelImporter:
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     weldVertices: 1
@@ -121,6 +127,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 0
   additionalBone: 0
   userData: 

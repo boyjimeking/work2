@@ -168,14 +168,16 @@ namespace engine {
         }
         public void addGround(FightCharacter acter)
         {
-            HurtGround ground = null;
-            if (grounds.Count >= CommonTemp.groundcount){
+			if(App.config.genGroundDecal){
+                HurtGround ground = null;
+                if (grounds.Count >= CommonTemp.groundcount){
                 ground = grounds[0];
                 grounds.Remove(ground);
             }
             else ground = new HurtGround();
             ground.reset(acter);
             grounds.Add(ground);
+            }
         }
         /// <summary>
         /// when a monster is already within attack range,it's in obstacle mode,
@@ -183,7 +185,7 @@ namespace engine {
         /// </summary>
         /// <param name="enemy"></param>
         /// <returns></returns>
-        public FightCharacter findNearestTarget(FightCharacter enemy, FightCharacter oldtarget = null, bool checkNum = true, float distance = float.MaxValue)
+        public FightCharacter findNearestTarget(FightCharacter enemy, FightCharacter oldtarget = null, bool checkNum = true, float distance = float.MaxValue,bool rush=false)
         {
             List<FightCharacter> targetList;
             if (enemy is PetCharacter) {
@@ -199,9 +201,11 @@ namespace engine {
             Vector3 position = enemy.transform.position;
             for (int i = 0, max = targetList.Count; i < max; i++) {
                 FightCharacter fc = targetList[i];
-                if (fc.isDead() || !fc.model.activeSelf || (fc.cc != null && fc.cc.enabled == false) )
+                if (fc.isDead() || !fc.model.activeSelf || (fc.cc != null && fc.cc.enabled == false) || (!rush&&!fc.deadable))
                     continue;
                 if(fc == oldtarget && (!checkNum || (checkNum && targetList.Count > 1)))
+                    continue;
+                if(oldtarget == enemy && !fc.deadable)
                     continue;
                 float temp=Vector3.Distance(fc.transform.position, position);
                 if (temp < distance) {

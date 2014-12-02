@@ -171,35 +171,78 @@ public class LoadingManager : IProgressListener{
     List<string> prefabNames;
     public void checkUsePrefab()
     {
-        prefabNames = new List<string>();
-        Dictionary<int, SkillEffectTemplate> skilleffects = App.template.getTemps<SkillEffectTemplate>();
-        foreach (SkillEffectTemplate st in skilleffects.Values){
-            if (st.bulletPrefab != null) prefabNames.Add(Naming.ColliderPath + st.bulletPrefab);
-            if (st.hitEffect != null) prefabNames.Add(Naming.EffectPath + st.hitEffect);
-        }
-        prefabNames.Add(Naming.EffectPath + "hurt");
-        prefabNames.Add(Naming.EffectPath + "boss_atk");
-        prefabNames.Add(Naming.EffectPath + "boss_skill");
-        prefabNames.Add(Naming.EffectPath + "fireball");
-        prefabNames.Add(Naming.EffectPath + "firepet_atk");
-        prefabNames.Add(Naming.EffectPath + "firepet_ex");
-        prefabNames.Add(Naming.EffectPath + "firepet_skill");
-        prefabNames.Add(Naming.EffectPath + "firepet_skillstart");
-        prefabNames.Add(Naming.EffectPath + "firepet_summon");
-        prefabNames.Add(Naming.EffectPath + "montser_chong_atk");
-        prefabNames.Add(Naming.EffectPath + "montser_magicball");
-        prefabNames.Add(Naming.EffectPath + "skill04_debuff");
-        prefabNames.Add(Naming.EffectPath + "skill04_new");
-        prefabNames.Add(Naming.EffectPath + "thunder_atk");
-        prefabNames.Add(Naming.EffectPath + "thunder_ex");
-        prefabNames.Add(Naming.EffectPath + "thunder_skill");
-        prefabNames.Add(Naming.EffectPath + "thunder_skillstart");
-        prefabNames.Add(Naming.EffectPath + "thunder_summon");
+         prefabNames = new List<string>();
+        //effect
+         prefabNames.Add(Naming.EffectPath + "boss_atk");
+         prefabNames.Add(Naming.EffectPath + "boss_hurt");
+         prefabNames.Add(Naming.EffectPath + "boss_skill");
+         prefabNames.Add(Naming.EffectPath + "BOSS_spider_atk");
+         prefabNames.Add(Naming.EffectPath + "BOSS_spider_skill01");
+         prefabNames.Add(Naming.EffectPath + "BOSS_spider_skill01start");
+         prefabNames.Add(Naming.EffectPath + "BOSS_spider_skill02");
+         prefabNames.Add(Naming.EffectPath + "BOSS_spider_skill02atk");
+         prefabNames.Add(Naming.EffectPath + "BOSS_spider_skill02start");
+         prefabNames.Add(Naming.EffectPath + "bug_appear");
+         prefabNames.Add(Naming.EffectPath + "dg01");
+         prefabNames.Add(Naming.EffectPath + "dg02");
+         prefabNames.Add(Naming.EffectPath + "dg03");
+         prefabNames.Add(Naming.EffectPath + "dg04");
+         prefabNames.Add(Naming.EffectPath + "door");
+         prefabNames.Add(Naming.EffectPath + "fireball");
+         prefabNames.Add(Naming.EffectPath + "firehurt");
+         prefabNames.Add(Naming.EffectPath + "firepet_atk");
+         prefabNames.Add(Naming.EffectPath + "firepet_ex");
+         prefabNames.Add(Naming.EffectPath + "firepet_skillstart");
+         prefabNames.Add(Naming.EffectPath + "fireskill_end");
+         prefabNames.Add(Naming.EffectPath + "fireskill_start");
+         prefabNames.Add(Naming.EffectPath + "fire_summon");
+         prefabNames.Add(Naming.EffectPath + "goblin_appear");
+         prefabNames.Add(Naming.EffectPath + "hurt");
+         prefabNames.Add(Naming.EffectPath + "hurt_ground");
+         prefabNames.Add(Naming.EffectPath + "monster_appear");
+         prefabNames.Add(Naming.EffectPath + "monster_chong_atk");
+         prefabNames.Add(Naming.EffectPath + "monster_chong_hurt");
+         prefabNames.Add(Naming.EffectPath + "monster_disappear");
+         prefabNames.Add(Naming.EffectPath + "monster_magicball");
+         prefabNames.Add(Naming.EffectPath + "monster_magic_hurt");
+         prefabNames.Add(Naming.EffectPath + "move");
+         prefabNames.Add(Naming.EffectPath + "skill04_debuff");
+         prefabNames.Add(Naming.EffectPath + "skill04_hurt");
+         prefabNames.Add(Naming.EffectPath + "skill04_new");
+         prefabNames.Add(Naming.EffectPath + "stop");
+         prefabNames.Add(Naming.EffectPath + "stop_end");
+         prefabNames.Add(Naming.EffectPath + "s_lightning");
+         prefabNames.Add(Naming.EffectPath + "thunderpet_skill");
+         prefabNames.Add(Naming.EffectPath + "thunderpet_skillstart");
+         prefabNames.Add(Naming.EffectPath + "thunder_atk");
+         prefabNames.Add(Naming.EffectPath + "thunder_hurt");
+         prefabNames.Add(Naming.EffectPath + "thunder_summon");
+         prefabNames.Add(Naming.EffectPath + "xuanyun");
+
+        //collider
+         prefabNames.Add(Naming.ColliderPath + "atk3");
+         prefabNames.Add(Naming.ColliderPath + "chong_atk");
+         prefabNames.Add(Naming.ColliderPath + "gbl_atk");
+         prefabNames.Add(Naming.ColliderPath + "huo_atk1");
+         prefabNames.Add(Naming.ColliderPath + "huo_skill1");
+         prefabNames.Add(Naming.ColliderPath + "huo_sommon");
+         prefabNames.Add(Naming.ColliderPath + "kulou");
+         prefabNames.Add(Naming.ColliderPath + "lang_atk1");
+         prefabNames.Add(Naming.ColliderPath + "lang_skill1");
+         prefabNames.Add(Naming.ColliderPath + "lei_atk1");
+         prefabNames.Add(Naming.ColliderPath + "lei_skill1");
+         prefabNames.Add(Naming.ColliderPath + "man_skill1_dam");
+         prefabNames.Add(Naming.ColliderPath + "man_skill1_la");
+         prefabNames.Add(Naming.ColliderPath + "spider_atk");
+         prefabNames.Add(Naming.ColliderPath + "spider_skill1");
+         prefabNames.Add(Naming.ColliderPath + "spider_skill2");
+
+       
+
         //avatar
         prefabNames.Add(Naming.AvatarPath + "BOSS_zhizhu");
         prefabNames.Add(Naming.AvatarPath + "chong");
         prefabNames.Add(Naming.AvatarPath + "gbl");
-        prefabNames.Add(Naming.AvatarPath + "gbl_jin");
         prefabNames.Add(Naming.AvatarPath + "man");
         prefabNames.Add(Naming.AvatarPath + "pet_fire");
         prefabNames.Add(Naming.AvatarPath + "pet_thunder");
@@ -225,7 +268,7 @@ public class LoadingManager : IProgressListener{
             yield return 2;
         }
         //shaders
-        string[] shaders = new string[] { "BeHit2", "Custom/Dissolve", "Particles / Additive" };
+		string[] shaders = new string[] { "BeHit2", "Custom/Dissolve", "BehindWall2","Particles / Additive" };
         foreach (string name in shaders) {
             Shader.Find(name);
         }

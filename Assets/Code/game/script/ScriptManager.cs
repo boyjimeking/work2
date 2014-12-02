@@ -167,6 +167,14 @@ public class ScriptManager {
     {
         UIManager.Instance.Active = false;
         CameraManager.Main.gameObject.SetActive(false);
+        foreach (FightCharacter c in BattleEngine.scene.getFriends())
+        {
+            c.HpBar.Parent.SetActive(false);
+        }
+        foreach (FightCharacter c in BattleEngine.scene.getEnemies())
+        {
+            c.HpBar.Parent.SetActive(false);
+        }
         ui.SetActive(true);
         state.nextStep(true);
         updateData();
@@ -178,7 +186,14 @@ public class ScriptManager {
         UIManager.Instance.Active = true;
         ui.SetActive(false);
         CameraManager.Main.gameObject.SetActive(true);
-
+        foreach (FightCharacter c in BattleEngine.scene.getFriends())
+        {
+            c.HpBar.Parent.SetActive(true);
+        }
+        foreach (FightCharacter c in BattleEngine.scene.getEnemies())
+        {
+            c.HpBar.Parent.SetActive(true);
+        }
         BattleEngine.scene.pause(false);
 
         //BattleEngine.scene.shieldCharacter(false);

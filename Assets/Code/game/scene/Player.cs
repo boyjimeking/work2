@@ -8,7 +8,7 @@ public class Player : PlayerCharacter {
     public bool canMove = true;
     public bool autoFight = false;
     public bool calcNextPos = false;
-    private bool origAutoFight = false;
+    public bool origAutoFight = false;
 
     private HeroController playerController;
     public override void reset(GameObject model, CharData data,AI ai) {
