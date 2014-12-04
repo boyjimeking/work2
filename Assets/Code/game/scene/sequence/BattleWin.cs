@@ -15,7 +15,7 @@ public class BattleWin : MonoBehaviour {
     private bool windialogshowed;
 
     void Awake() {  
-        battleWin = Instantiate(Resources.Load("Local/UI/bossUI/bossBorn")) as GameObject;
+        battleWin = App.res.createSingle("Local/UI/bossUI/bossBorn");
         winCamera = battleWin.T("Camera");
         uiCamera = battleWin.T("UI/Camera").gameObject;
         uiCamera.SetActive(false);

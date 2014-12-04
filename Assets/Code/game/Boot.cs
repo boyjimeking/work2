@@ -6,6 +6,8 @@ using engine;
 public class Boot : MonoBehaviour{
    
     private string preSceneName;
+    public Shader[] shaders;
+
     void Awake() {
         App.init(this.gameObject);
         DontDestroyOnLoad(this.gameObject);

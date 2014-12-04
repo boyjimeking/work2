@@ -111,14 +111,14 @@ namespace engine {
             ds.Clear();
             vs.Add(_fieldOfView);
             vs.Add(_fieldOfView - BattleConfig.cameraShakePoint1);
-            vs.Add(_fieldOfView - BattleConfig.cameraShakePoint2);
-            vs.Add(_fieldOfView - BattleConfig.cameraShakePoint3);
+            //vs.Add(_fieldOfView - BattleConfig.cameraShakePoint2);
+            //vs.Add(_fieldOfView - BattleConfig.cameraShakePoint3);
             vs.Add(_fieldOfView);
 
             ds.Add(BattleConfig.cameraShakeTime1 / 2);
             ds.Add(BattleConfig.cameraShakeTime1 / 2);
-            ds.Add(BattleConfig.cameraShakeTime2 / 2);
-            ds.Add(BattleConfig.cameraShakeTime2 / 2);
+            //ds.Add(BattleConfig.cameraShakeTime2 / 2);
+            //ds.Add(BattleConfig.cameraShakeTime2 / 2);
 
             linearDelta = 0f;
             index = 0;

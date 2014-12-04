@@ -35,8 +35,9 @@ public class Weapon  {
             Rigidbody body = model.addOnce<Rigidbody>();
             body.useGravity = false;
             body.isKinematic = true;
+            body.collisionDetectionMode = CollisionDetectionMode.Continuous;
         }
-       
+        getMeshRenderer();
        
     }
     public void enableCollider(bool v) {
@@ -45,6 +46,28 @@ public class Weapon  {
                 c.enabled = v;
             }
         }
+    }
+    public MeshRenderer renderer;
+    public Material[] orignalMaterial;
+    public Texture[] originalMainTExture;
+    public MeshRenderer getMeshRenderer()
+    {
+        if (renderer != null) return renderer;
+        renderer = model.GetComponentInChildren<MeshRenderer>();
+        if (renderer == null) return null;
+        int length = renderer.materials.Length;
+        orignalMaterial = new Material[length];
+        originalMainTExture = new Texture[length];
+        Shader behindWallShader = Shader.Find("BehindWall2");
+        Color c = new Color(1, 1, 0, 1);
+        for (int i = 0; i < length; i++)
+        {
+            orignalMaterial[i] = renderer.materials[i];
+            orignalMaterial[i].shader = behindWallShader;
+            orignalMaterial[i].SetColor("_AtmoColor", c);
+            originalMainTExture[i] = orignalMaterial[i].mainTexture;
+        }
+        return renderer;
     }
 }
 }

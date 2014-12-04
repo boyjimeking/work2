@@ -1552,13 +1552,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: .552699268
-        functionName: NewEvent
-        data: 1000
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 4
-        messageOptions: 0
       - time: 0
         functionName: NewEvent
         data: fireskill_start,5
@@ -1566,19 +1559,26 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: .550964177
-        functionName: NewEvent
-        data: skill_1000
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 3
-        messageOptions: 0
-      - time: .578454316
+      - time: .495505005
         functionName: NewEvent
         data: 1001
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 112
+        messageOptions: 0
+      - time: .550964177
+        functionName: NewEvent
+        data: skill_1001
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 3
+        messageOptions: 0
+      - time: .552699268
+        functionName: NewEvent
+        data: 1000
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 4
         messageOptions: 0
       transformMask:
       - path: 

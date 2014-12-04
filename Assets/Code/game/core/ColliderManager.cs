@@ -132,9 +132,7 @@ public class ColliderManager : IColliderManager {
      public IEnumerator laguai(FightCharacter fighter, Transform _transform)
      {
          fighter.ai.enabled = false;
-         fighter.agentStop();
          fighter.setObstacleMode(false);
-         fighter.controller.setTrigger(Hash.idleState);
          float distance = Vector3.Distance(fighter.model.transform.position, _transform.position);
          Vector3 targetPosition = Vector3.MoveTowards(fighter.model.transform.position, _transform.position, distance - 1.1f);
          iTween.MoveTo(fighter.model, iTween.Hash("x", targetPosition.x, "z", targetPosition.z, "easeType", iTween.EaseType.easeInExpo, "time", 0.1f));

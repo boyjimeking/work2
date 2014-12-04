@@ -44,6 +44,7 @@ namespace engine {
         public static float bossScaleTime;
         public static float showwindelay;
         public static int groundcount;
+        public static Color selfhit, enemyhit;
 
         public override void read(XmlElement e) {
             base.read(e);
@@ -100,6 +101,11 @@ namespace engine {
                 bossScaleTime = Utility.toFloat(e.GetAttribute("bossScaleTime"));
                 showwindelay = Utility.toFloat(e.GetAttribute("showwindelay"));
                 groundcount = Utility.toInt(e.GetAttribute("groundcount"));
+
+                string hitcolor = e.GetAttribute("hitcolor");
+                string[] hs = hitcolor.Split(',');
+                selfhit = Utility.valueOfColor(hs[0]);
+                enemyhit = Utility.valueOfColor(hs[1]);
             }          
         }
     }

@@ -77,6 +77,15 @@ namespace engine {
                 return true;
             return rate > UnityEngine.Random.Range(0, 100);
         }
+
+        public static Color valueOfColor(String hex)
+        {
+            int r = Convert.ToInt32(hex.Substring(0, 2), 16);
+            int g = Convert.ToInt32(hex.Substring(2, 2), 16);
+            int b = Convert.ToInt32(hex.Substring(4, 2), 16);
+            int a = hex.Length != 8 ? 255 : Convert.ToInt32(hex.Substring(6, 2), 16);
+            return new Color(r / 255f, g / 255f, b / 255f, a / 255f);
+        }
     }
 
 }

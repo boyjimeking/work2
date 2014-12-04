@@ -2945,19 +2945,19 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: .866510689
-        functionName: NewEvent
-        data: 20003
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 112
-        messageOptions: 0
-      - time: .561712921
+      - time: .503632069
         functionName: NewEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 9
+        messageOptions: 0
+      - time: .52135843
+        functionName: NewEvent
+        data: BOSS_spider_skill02atk,4,1
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: .856749356
         functionName: NewEvent
@@ -2966,12 +2966,12 @@ ModelImporter:
         floatParameter: 0
         intParameter: 3
         messageOptions: 0
-      - time: .579439223
+      - time: .866510689
         functionName: NewEvent
-        data: BOSS_spider_skill02atk,4,1
+        data: 20003
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 1
+        intParameter: 112
         messageOptions: 0
       transformMask:
       - path: 

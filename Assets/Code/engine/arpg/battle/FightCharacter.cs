@@ -50,6 +50,13 @@ namespace engine {
             if (ai != null) ai.reset(this);
             suspendAnimator = false;
             suspendAI = false;
+
+            initSkinnedMeshRenderer();
+        }
+
+        public virtual void initSkinnedMeshRenderer()
+        {
+            getSkinnedMeshRenderer();
         }
 
         protected void resetStats() {
@@ -317,10 +324,10 @@ namespace engine {
         protected void addHitEffect() {
             if (hitEffect == null) {
                 HitEffect effect = new HitEffect();
-                effect.reset(this, BattleConfig.hitEffectTime, Color.white);
+                effect.reset(this, BattleConfig.hitEffectTime, this is Monster?CommonTemp.enemyhit:CommonTemp.selfhit);
                 hitEffect = effect;
             } else {
-                hitEffect.reset(this, BattleConfig.hitEffectTime, Color.white);
+                hitEffect.reset(this, BattleConfig.hitEffectTime, this is Monster ? CommonTemp.enemyhit : CommonTemp.selfhit);
             }
         }
 
@@ -535,7 +542,7 @@ namespace engine {
             dizzyObj.transform.parent = trans.parent;
             dizzyObj.transform.localPosition = vec;
             suspendAI = true;
-            //agent.enabled = false;
+            agent.enabled = false;
             animator.SetBool(Hash.runBool, false);
             animator.Play(Hash.idleState);
             isDizzy = true;
@@ -552,7 +559,7 @@ namespace engine {
                 Player.instance.resetAuto(true, true);
             suspendAI = false;
             isDizzy = false;
-            //agent.enabled = true;
+            agent.enabled = true;
             Object.Destroy(dizzyObj);
             if (afterPath != null) {
                 GameObject obj = App.res.createSingle(afterPath);
@@ -705,8 +712,7 @@ namespace engine {
         public HpBar HpBar {
             get {
                 if (hpBar == null) {
-                    Object temp = Resources.Load("Local/UI/HP_UI/head_board");
-                    GameObject obj = Object.Instantiate(temp, Vector3.zero, Quaternion.identity) as GameObject;
+                    GameObject obj = App.res.createSingle("Local/UI/HP_UI/head_board");
                     obj.transform.localPosition = new Vector3(0, 1.4f, 0);
                     hpBar = obj.transform.FindChild("ui_hp_bar").GetComponent<HpBar>();
                     hpBar.Owner = this;

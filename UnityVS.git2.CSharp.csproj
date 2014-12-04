@@ -76,6 +76,7 @@
     <Compile Include="Assets\Code\engine\arpg\battle\FightCharacter.cs" />
     <Compile Include="Assets\Code\engine\arpg\battle\HitState.cs" />
     <Compile Include="Assets\Code\engine\arpg\battle\HpBar.cs" />
+    <Compile Include="Assets\Code\engine\arpg\battle\HurtGround.cs" />
     <Compile Include="Assets\Code\engine\arpg\battle\MonsterCharacter.cs" />
     <Compile Include="Assets\Code\engine\arpg\battle\PetCharacter.cs" />
     <Compile Include="Assets\Code\engine\arpg\battle\PlayerCharacter.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Assets\Code\game\Easing.cs" />
     <Compile Include="Assets\Code\game\MessageHandler.cs" />
     <Compile Include="Assets\Code\game\Naming.cs" />
+    <Compile Include="Assets\Code\game\ai\SpecialMonsterAI.cs" />
     <Compile Include="Assets\Code\game\anim\AnimationManager.cs" />
     <Compile Include="Assets\Code\game\anim\DoorAnim.cs" />
     <Compile Include="Assets\Code\game\core\BattleController.cs" />
@@ -211,6 +213,7 @@
     <Compile Include="Assets\Code\game\scene\PlayerGhost.cs" />
     <Compile Include="Assets\Code\game\scene\RenderAngle.cs" />
     <Compile Include="Assets\Code\game\scene\SceneManager.cs" />
+    <Compile Include="Assets\Code\game\scene\SpecialMonster.cs" />
     <Compile Include="Assets\Code\game\scene\sequence\BattleWin.cs" />
     <Compile Include="Assets\Code\game\scene\sequence\BossBorn.cs" />
     <Compile Include="Assets\Code\game\scene\sequence\PetBorn.cs" />

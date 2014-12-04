@@ -230,7 +230,13 @@ public class HeroController : AvatarController {
     public void changeLookAt()
     {
         if (requestMove) joystickRotate();
-        else adjustAttackAngle();
+        else{
+            if (targetToAttack == null || targetToAttack.isDead()) checkAttackTarget();
+            if (targetToAttack != null && !targetToAttack.isDead()){
+                changeAttackAngle = true;
+                f.lookat(targetToAttack);
+            }else targetToAttack = null;
+        }
     }
 
     public void arriveTrigger(Door.spanMonster callBack = null) {

@@ -247,6 +247,50 @@ public class LoadingManager : IProgressListener{
         prefabNames.Add(Naming.AvatarPath + "pet_fire");
         prefabNames.Add(Naming.AvatarPath + "pet_thunder");
 
+
+        //other prefab
+        prefabNames.Add("Local/sequence/bornSEQ");
+        prefabNames.Add("Local/UI/bossUI/bossBorn");
+        prefabNames.Add("Local/UI/bossUI/bossBorn");
+        prefabNames.Add("Local/UI/HP_UI/head_board");
+        prefabNames.Add("Local/sequence/scriptClip/script11/Sequence");
+        prefabNames.Add("Local/prefab/arraw/monsterArraw");
+        prefabNames.Add("Local/prefab/floatingtext/FloatTextPlayer");
+        prefabNames.Add("Local/prefab/floatingtext/EffectNormal");
+        prefabNames.Add("Local/prefab/floatingtext/EffectCritical");
+        prefabNames.Add("Local/prefab/floatingtext/EffectEva");
+        prefabNames.Add("Local/prefab/floatingtext/FloatTextEnemy");
+        prefabNames.Add("Local/prefab/mogu/Coin");
+        prefabNames.Add("Local/prefab/arraw/Point");
+
+        //sound
+        App.res.loadSound("Local/sound/gblstar");
+        App.res.loadSound("Local/sound/skill_10002");
+        App.res.loadSound("Local/sound/hurt");
+        App.res.loadSound("Local/sound/guaiwupg");
+        App.res.loadSound("Local/sound/attack1");
+        App.res.loadSound("Local/sound/attack2");
+        App.res.loadSound("Local/sound/attack3");
+        App.res.loadSound("Local/sound/skill_1000");
+        App.res.loadSound("Local/sound/skill_1001");
+        App.res.loadSound("Local/sound/skill_1011");
+        App.res.loadSound("Local/sound/BOSS_bg");
+        App.res.loadSound("Local/sound/bosspg");
+
+        //controller
+        App.res.loadObject("Local/controller/chongController");
+        App.res.loadObject("Local/controller/gblController");
+        App.res.loadObject("Local/controller/petFire");
+        App.res.loadObject("Local/controller/petThunder");
+        App.res.loadObject("Local/controller/BossSpiderController");
+        App.res.loadObject("Local/material/pet_fire");
+        App.res.loadObject("Local/material/pet_thunder");
+        App.res.loadObject("Local/material/pet_fire");
+
+        //texture
+        Resources.Load("Local/picture/dissolve");
+        
+
         currentIndex = 0;
     }
     public void load()
@@ -260,18 +304,27 @@ public class LoadingManager : IProgressListener{
     {
         showtip(LoadingState.prefab);
         checkUsePrefab();
+        Vector3 initPos = new Vector3(0f, -1000f, 0f);
         yield return 2;
         while (currentIndex < prefabNames.Count) {
             App.res.loadPrefab(prefabNames[currentIndex++]);
-            float progress = (float)currentIndex / prefabNames.Count;
+            //GameObject prefab = App.res.createObj(prefabNames[currentIndex++], initPos);
+            //Object.Destroy(prefab, 0.2f);
+            float progress = (float)currentIndex / prefabNames.Count;         
             onProgress(progress, 1f);
             yield return 2;
         }
-        //shaders
-		string[] shaders = new string[] { "BeHit2", "Custom/Dissolve", "BehindWall2","Particles / Additive" };
-        foreach (string name in shaders) {
-            Shader.Find(name);
-        }
+        ////shaders
+        //string[] shaders = new string[] {
+        //    "BeHit2", "Custom/Dissolve", "BehindWall2","Particles/Additive" ,"Particles/Alpha Blended", "Particles/Alpha Blended 100",
+        //    "Particles/Alpha Blended_sky", "Particles/Alpha Blended_sky", "effect/distortadd", "Transparent/Diffuse","Transparent/Specular",
+        //    "echoLogin/Light/10-Fastest","echoLogin/Light/10-Fastest", "Transparent/Cutout/Diffuse","Xffect/heat_distortion","Mobile/Particles/Alpha Blened",
+        //    "RimLightSpce", "echoLogin/Additive/FX/RimLit-1Color","echoLogin/Additive/FX/RimLit-Tex","echoLogin/Additive/21-Color"
+        //};
+        //foreach (string name in shaders) {
+        //    Shader.Find(name);
+        //}
+        Shader.WarmupAllShaders();
         prefabNames.Clear();
         yield return 2;
         RedScreen.instance.createRedTexture();
@@ -298,5 +351,8 @@ public class LoadingManager : IProgressListener{
 
     public void finishload(){
         go.SetActive(false);
+        GameObject obj = new GameObject();
+        obj.AddComponent<ExploderObject>();
+        Object.Destroy(obj, 1f);
     }
 }

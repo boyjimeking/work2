@@ -5,7 +5,7 @@
 	<skill id='3' name="剑士普攻3" icon="zhanshi_zhongzhan" ></skill>
 	<skill id='4' name="剑士普攻4" icon="zhanshi_zhongzhan" ></skill>
 
-	<skill id="50" name="拉怪" icon="skill1" cd="1"  ></skill>
+	<skill id="50" name="拉怪" icon="skill1" cd="10"  ></skill>
 
     <!-- 火BB 普攻-->
 	<skill id="1000" cd="2" animatorTrigger="AttackTrigger" atkRange="5" moveRange="10"/>

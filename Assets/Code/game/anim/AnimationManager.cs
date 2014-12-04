@@ -166,6 +166,14 @@ public class AnimationManager : IAnimEventManager {
         MeshRenderer render = colliderObject.GetComponentInChildren<MeshRenderer>();
         render.enabled = false;
 
+        Rigidbody r = colliderObject.addOnce<Rigidbody>();
+        r.useGravity = false;
+        r.isKinematic = true;
+        //TODO 
+        if(resName.StartsWith("man_skill1")){
+            r.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        }
+       
         colliderObject.resetLocalTransform();
         if (target != null) {
             colliderObject.transform.position = target.transform.position;

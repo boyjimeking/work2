@@ -8,6 +8,11 @@ public class Monster : MonsterCharacter {
     public bool actived;
     public bool appeared;
 
+    public override void initSkinnedMeshRenderer()
+    {
+        if (actived) getSkinnedMeshRenderer();
+    }
+
     public override void update()
     {
       
@@ -19,6 +24,7 @@ public class Monster : MonsterCharacter {
                ai.enabled = true;
                if (cc != null) cc.enabled = true;
                if (!isBoss() && deadable)  ArrawManager.instance.addEnemy(this);
+               getSkinnedMeshRenderer();
            }
            return;
        }

@@ -31,12 +31,14 @@ namespace engine {
                 }
             }
             for(int i=0;i<m.Length;i++){
-                 m[i].SetColor("_Color", Color.white);
+                m[i].SetColor("_Color", color);
             }
             renderer.materials=m;
-           
-            
-            r = g = b = 1;
+
+            r = color.a;
+            g = color.g;
+            b = color.b;
+
             speed = (255-100)/255f / (duration*(1-0.2f));//fade out in half duration
 
             highlightTime = duration;

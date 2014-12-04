@@ -14,7 +14,6 @@ public class Player : PlayerCharacter {
     public override void reset(GameObject model, CharData data,AI ai) {
         base.reset(model, data, ai);
         playerController = controller as HeroController;
-        getSkinnedMeshRenderer();
         calcNextPos = true;
         //skinRenderer.material.shader = Shader.Find("BehindWall2");
 
@@ -69,7 +68,7 @@ public class Player : PlayerCharacter {
      }
 
      public override void onBorn() {
-         GameObject obj = Object.Instantiate(Resources.Load("Local/sequence/bornSEQ")) as GameObject;
+         GameObject obj = App.res.createSingle("Local/sequence/bornSEQ");
          PlayerBorn pb = obj.transform.Find("Camera").GetComponent<PlayerBorn>();
          pb.onBegin(model.transform);
      }

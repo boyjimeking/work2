@@ -124,4 +124,5 @@ Shader "BehindWall2" {
  } 
   
  } 
+ Fallback "Mobile/Diffuse"
 }

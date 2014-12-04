@@ -72,7 +72,12 @@ namespace engine {
            return Resources.Load<TextAsset>(name).text;
         }
         public AudioClip loadSound(string name) {
-            return Resources.Load<AudioClip>(name);
+            if (loadedPrefabs.ContainsKey(name)) {
+                return loadedPrefabs[name] as AudioClip;
+            }
+            AudioClip a = Resources.Load<AudioClip>(name);
+            loadedPrefabs[name] = a;
+            return a;
         }
         public DefaultResourceManager(BundleManager bundleManager) {
             BundleObjectPool.bundleManager = bundleManager;

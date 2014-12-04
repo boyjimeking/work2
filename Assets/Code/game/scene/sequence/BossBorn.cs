@@ -45,7 +45,7 @@ public class BossBorn : MonoBehaviour {
         nameTime = CommonTemp.nameT;
         finalTime = CommonTemp.finalT;
 
-        bossBorn = Instantiate(Resources.Load("Local/UI/bossUI/bossBorn")) as GameObject;
+        bossBorn = App.res.createSingle("Local/UI/bossUI/bossBorn");
         bossCamera = bossBorn.T("Camera");
         top = bossBorn.T("UI/Camera/top");
         bottom = bossBorn.T("UI/Camera/bottom");

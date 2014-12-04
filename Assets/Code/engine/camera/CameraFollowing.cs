@@ -46,6 +46,8 @@ namespace engine {
             float offsetX = xOffset;
             float offsetY = height;
             float offsetZ = zOffset;
+            
+
             float rate = Time.deltaTime/frameRate;
             if (rushDelay <= 0 && notLerp) {
                 offsetX = Mathf.Lerp(transform.position.x - temp.x, xOffset, xzSmooth * rate);
@@ -56,19 +58,23 @@ namespace engine {
             temp.x = temp.x + offsetX;
             temp.y = temp.y + offsetY;
             temp.z = temp.z + offsetZ;
-            if (rushDelay > 0) {
+
+            float checkTime = rushDelay - Time.deltaTime * rate;
+            if (checkTime > 0.0001)
+            {
                 rushDelay -= Time.deltaTime * rate;
-                transform.position += (temp - transform.position) * Time.deltaTime*rate / rushDelay;
+                transform.position += (temp - transform.position) * Time.deltaTime * rate / rushDelay;                                      
             }
             else {
+                rushDelay = -1;
                 transform.position = temp;
                 transform.rotation = lookAtObj.transform.rotation;
                 //transform.LookAt(target.position + Vector3.up*lookHeight);
-            }
+            }          
         }
         public bool Rushing{ 
             get{
-                return rushDelay>0;
+                return rushDelay>0.001;
             }
         }
     }

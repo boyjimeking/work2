@@ -295,7 +295,7 @@ public class DungeonScene : BattleScene {
                 c.agent.walkableMask = playerAgentWalkableMask;
             }
             delay += 1f;
-            Debug.Log("monsters:" + enemies.Count);
+            //Debug.Log("monsters:" + enemies.Count);
         }
 
         if (hasBoss)

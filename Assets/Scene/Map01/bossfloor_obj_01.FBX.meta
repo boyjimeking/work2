@@ -23,6 +23,7 @@ ModelImporter:
     100034: chilun007
     100036: Cylinder001
     100038: Cylinder009
+    100040: objpolySurface1181
     400000: //RootNode
     400002: chilun
     400004: objpolySurface1324
@@ -43,6 +44,7 @@ ModelImporter:
     400034: chilun007
     400036: Cylinder001
     400038: Cylinder009
+    400040: objpolySurface1181
     2300000: chilun
     2300002: objpolySurface1324
     2300004: bossfloor_obj
@@ -62,6 +64,7 @@ ModelImporter:
     2300032: chilun007
     2300034: Cylinder001
     2300036: Cylinder009
+    2300038: objpolySurface1181
     3300000: chilun
     3300002: objpolySurface1324
     3300004: bossfloor_obj
@@ -81,6 +84,7 @@ ModelImporter:
     3300032: chilun007
     3300034: Cylinder001
     3300036: Cylinder009
+    3300038: objpolySurface1181
     4300000: objpolySurface1324
     4300002: chilun
     4300004: bossfloor_obj
@@ -100,6 +104,7 @@ ModelImporter:
     4300032: chilun006
     4300034: bossfloor_obj007
     4300036: chilun007
+    4300038: objpolySurface1181
     9500000: //RootNode
   materials:
     importMaterials: 0

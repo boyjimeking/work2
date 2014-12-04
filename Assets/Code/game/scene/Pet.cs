@@ -42,8 +42,6 @@ public class Pet : PetCharacter {
         if (!string.IsNullOrEmpty(charTemplate.summonEffect)) {
             isInSummon = true;
             summonTriggered = false;
-       
-            getSkinnedMeshRenderer();
            
             //currently dissolve material name is using model name.
             Material m = Engine.res.loadObject("Local/material/" + charTemplate.model) as Material;
