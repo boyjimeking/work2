@@ -26,10 +26,24 @@ using System.Collections.Generic;
             {
                 cameraObject = t.gameObject;
                 uiCamera = cameraObject.camera;
+                int v = uiCamera.eventMask;
             }
                 
         }
 
+        public void hideUI(bool show, string path = null)
+        {
+            foreach (Transform t in RootTrans)
+            {
+                if (t.name != "Camera" && t.name != "loadingPanel(Clone)" && t.name != path)
+                {
+                    Debug.LogError(t.name);
+                    t.gameObject.SetActive(show);
+                }
+            }
+        }
+
+      
         public static UIManager Instance {
             get {
                 if(instance == null)

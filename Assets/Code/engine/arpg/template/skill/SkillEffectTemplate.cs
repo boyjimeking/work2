@@ -18,7 +18,7 @@ namespace engine {
     public class SkillEffectTemplate : BaseTemp {
         public SkillTemplate skillTemplate;//for easy access
         public string animName;
-        public string hitEffect;//击中目标效果
+        public string hitEffect;//击中目标效果        
         public int triggerHash;//animator controller param name hash value.
         public string[] launchSounds;//skill launch sound effect.
         public string bulletPrefab;//bullet prefab name
@@ -41,6 +41,8 @@ namespace engine {
         public float[] buffTimes;
         public int bulletmode;
         public int nextEffect;
+        public float cameraShakeCon;//每个动作震屏倍数
+        public int strength;
 
         public SkillEffectTemplate[] effects;//sub effects,when subEffectIds is null,use itself as sub effect.
         public int[] animNameHash;
@@ -96,6 +98,8 @@ namespace engine {
             subEffectIds = Utility.toIntArray(subeffects, ',');
             nextEffect = Utility.toInt(e.GetAttribute("nextEffect"));
             bulletmode = Utility.toInt(e.GetAttribute("bulletmode"));
+            cameraShakeCon = Utility.toFloat(e.GetAttribute("cameraShakeCon"));
+            strength = Utility.toInt(e.GetAttribute("strength"));
         }
         public void postRead(Templates manager) {
             if (subEffectIds == null) {

@@ -5,6 +5,13 @@ using System.Xml;
 namespace engine {
     //non combo skills can combine into a combo skill template.
     public class SkillTemplate:BaseTemp {
+        //special skill flags
+        public static int Strength_0 = 0;
+        public static int Strength_1 = 1;//施放过程中不会被击退，会被受击、击倒等状态打断
+        public static int Strength_2 = 2;//施放过程中不会被击退、受击，会被击倒打断
+        public static int Strength_3 = 3;//施放过程中不会被击退、受击、击倒
+        public static int Strength_4 = 4;//无法进入眩晕状态
+
         public static int CommonMonstAttackId = 10000;
 
         public SkillEffectTemplate effect;

@@ -249,17 +249,16 @@ public class LoadingManager : IProgressListener{
 
 
         //other prefab
-        prefabNames.Add("Local/sequence/bornSEQ");
-        prefabNames.Add("Local/UI/bossUI/bossBorn");
-        prefabNames.Add("Local/UI/bossUI/bossBorn");
-        prefabNames.Add("Local/UI/HP_UI/head_board");
-        prefabNames.Add("Local/sequence/scriptClip/script11/Sequence");
+		App.res.loadPrefab("Local/sequence/bornSEQ");
+		App.res.loadPrefab("Local/UI/bossUI/bossBorn");
+		App.res.loadPrefab("Local/UI/HP_UI/head_board");
+		App.res.loadPrefab("Local/sequence/scriptClip/script11/Sequence");
         prefabNames.Add("Local/prefab/arraw/monsterArraw");
-        prefabNames.Add("Local/prefab/floatingtext/FloatTextPlayer");
-        prefabNames.Add("Local/prefab/floatingtext/EffectNormal");
-        prefabNames.Add("Local/prefab/floatingtext/EffectCritical");
-        prefabNames.Add("Local/prefab/floatingtext/EffectEva");
-        prefabNames.Add("Local/prefab/floatingtext/FloatTextEnemy");
+		prefabNames.Add("Local/prefab/floatingtext/FloatTextPlayer");
+		prefabNames.Add("Local/prefab/floatingtext/EffectNormal");
+		prefabNames.Add("Local/prefab/floatingtext/EffectCritical");
+		prefabNames.Add("Local/prefab/floatingtext/EffectEva");
+		prefabNames.Add("Local/prefab/floatingtext/FloatTextEnemy");
         prefabNames.Add("Local/prefab/mogu/Coin");
         prefabNames.Add("Local/prefab/arraw/Point");
 
@@ -304,7 +303,7 @@ public class LoadingManager : IProgressListener{
     {
         showtip(LoadingState.prefab);
         checkUsePrefab();
-        Vector3 initPos = new Vector3(0f, -1000f, 0f);
+        Vector3 initPos = new Vector3(2000f, -1000f, 2000f);
         yield return 2;
         while (currentIndex < prefabNames.Count) {
             App.res.loadPrefab(prefabNames[currentIndex++]);
@@ -315,19 +314,20 @@ public class LoadingManager : IProgressListener{
             yield return 2;
         }
         ////shaders
-        //string[] shaders = new string[] {
-        //    "BeHit2", "Custom/Dissolve", "BehindWall2","Particles/Additive" ,"Particles/Alpha Blended", "Particles/Alpha Blended 100",
-        //    "Particles/Alpha Blended_sky", "Particles/Alpha Blended_sky", "effect/distortadd", "Transparent/Diffuse","Transparent/Specular",
-        //    "echoLogin/Light/10-Fastest","echoLogin/Light/10-Fastest", "Transparent/Cutout/Diffuse","Xffect/heat_distortion","Mobile/Particles/Alpha Blened",
-        //    "RimLightSpce", "echoLogin/Additive/FX/RimLit-1Color","echoLogin/Additive/FX/RimLit-Tex","echoLogin/Additive/21-Color"
-        //};
-        //foreach (string name in shaders) {
-        //    Shader.Find(name);
-        //}
-        Shader.WarmupAllShaders();
+//        string[] shaders = new string[] {
+//            "BeHit2", "Custom/Dissolve", "BehindWall2","Particles/Additive" ,"Particles/Alpha Blended", "Particles/Alpha Blended 100",
+//            "Particles/Alpha Blended_sky", "Particles/Alpha Blended_sky", "effect/distortadd", "Transparent/Diffuse","Transparent/Specular",
+//            "echoLogin/Light/10-Fastest","echoLogin/Light/10-Fastest", "Transparent/Cutout/Diffuse","Xffect/heat_distortion","Mobile/Particles/Alpha Blened",
+//            "RimLightSpce", "echoLogin/Additive/FX/RimLit-1Color","echoLogin/Additive/FX/RimLit-Tex","echoLogin/Additive/21-Color"
+//        };
+//        foreach (string name in shaders) {
+//            Shader.Find(name);
+//        }
+        //Shader.WarmupAllShaders();
         prefabNames.Clear();
         yield return 2;
         RedScreen.instance.createRedTexture();
+        PetBorn.preLoad();
         yield return 2;
         App.coroutine.StartCoroutine(loadScene());
         App.coroutine.StartCoroutine(onSceneProgress());
@@ -349,7 +349,16 @@ public class LoadingManager : IProgressListener{
     }
     
 
-    public void finishload(){
+	public void finishload(Shader[] shaders){
+		foreach (Shader shader in shaders) {
+			Material m = new Material(shader);
+			GameObject o = GameObject.CreatePrimitive(PrimitiveType.Cube);
+			MeshRenderer r = o.GetComponent<MeshRenderer>();
+			o.transform.position = new Vector3(0, -1000, 0);
+			r.material = m;
+            Object.Destroy(o, 1f);
+		}
+		Shader.WarmupAllShaders ();
         go.SetActive(false);
         GameObject obj = new GameObject();
         obj.AddComponent<ExploderObject>();

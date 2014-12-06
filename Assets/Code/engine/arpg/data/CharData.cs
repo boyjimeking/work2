@@ -3,7 +3,7 @@ using System.Collections;
 namespace engine {
     public class CharData {
         public int id;//instance id
-        public string name = "闫继昌";
+        public string name = "艾斯";
         public CharTemplate charTemplate;
         public CharDataTemplate charDataTemplate;
         public Team team;

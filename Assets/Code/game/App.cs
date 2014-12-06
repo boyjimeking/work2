@@ -3,6 +3,7 @@ using System.Collections;
 using engine;
 public class App  {
     //managers for easy access
+    public static GameObject boot;
     public static BundleManager bundle;
     public static MonoBehaviour coroutine;
     public static InputManager input;
@@ -25,12 +26,12 @@ public class App  {
 
     public static AnimationManager animEventManager;
 
-
+    public static Shader[] shaders;
     public static Configuration config;
 
-    public static void init(GameObject bootObject) {
-
-
+    public static void init(GameObject bootObject, Shader[] shaders) {
+        boot = bootObject;
+        App.shaders = shaders;
         config = bootObject.addOnce<Configuration>();
 
         input = new InputManager(bootObject.getChild("inputManager"));
@@ -75,6 +76,14 @@ public class App  {
             BattleUI.instance.update();
         }
         effect.update();
+    }
+
+    public static Shader getShader(string name) {
+        foreach (Shader shader in shaders) {
+            if (shader.name.Equals(name))
+                return shader;
+        }
+        return Shader.Find(name);
     }
 
     //public static void initInput(bool enableJoystick=false) {

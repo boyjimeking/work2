@@ -15,7 +15,7 @@ namespace engine {
                 // Save the current shader
                 m_OldShader = renderer.material.shader;
                 m_OldColor = renderer.material.color;
-                renderer.material.shader = Shader.Find("Transparent/Diffuse");
+				renderer.material.shader = App.getShader("Transparent/Diffuse"); //Shader.Find("Transparent/Diffuse");
             }
 
             Color C = renderer.material.color;

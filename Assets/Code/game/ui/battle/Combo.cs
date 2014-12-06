@@ -8,7 +8,7 @@ public class Combo{
 
     private GameObject go;
     private GameObject bg;
-    private UISprite combo1,mask;
+    private UISprite combo1,mask,combonum,flynum;
     private UILabel[] combos;
     private UILabel[] flyCombos;
     private int hitcount;
@@ -21,21 +21,22 @@ public class Combo{
         bg = transform.FindChild("bg").gameObject;
         combo1 = transform.FindChild("begin").GetComponent<UISprite>();
         mask = transform.FindChild("mask").GetComponent<UISprite>();
+        combonum = transform.FindChild("combonum").GetComponent<UISprite>();
+        flynum = (GameObject.Instantiate(combonum.gameObject) as GameObject).GetComponent<UISprite>();
         combos = new UILabel[3];
         flyCombos = new UILabel[3];
         for (int i = 0; i < 3; i++)
         {
-           combos[i] = transform.FindChild("combonum"+(i+1)).GetComponent<UILabel>();
-           GameObject combogo = GameObject.Instantiate(combos[i].gameObject) as GameObject;
-           flyCombos[i] = combogo.GetComponent<UILabel>();
+           combos[i] = combonum.transform.FindChild("combonum" + (i + 1)).GetComponent<UILabel>();
+           flyCombos[i] = flynum.transform.FindChild("combonum" + (i + 1)).GetComponent<UILabel>();
            flyCombos[i].gameObject.SetActive(false);
         }
-        
+        flynum.transform.parent = transform;
         showed = false;
         life = 5f;
         flyLife = 0.15f;
         mask.fillAmount = 0;
-        mask.transform.position = combo1.transform.position;
+        mask.transform.localPosition = combo1.transform.localPosition;
 
         go.SetActive(false);
     }
@@ -65,84 +66,68 @@ public class Combo{
         }
         currentLife = 0;
         mask.fillAmount = 0;
+       
         for(int i=0;i<combos.Length;i++){
             flyCombos[i].text = combos[i].text;
             flyCombos[i].fontSize = combos[i].fontSize;
-            bool isActive = combos[i].gameObject.active;
-            flyCombos[i].gameObject.SetActive(isActive);
-            if (isActive)
-            {
-                flyCombos[i].transform.position = combos[i].transform.position;
-                iTween.MoveTo(flyCombos[i].gameObject, iTween.Hash("x", flyCombos[i].transform.position.x + 0.2f * Random.Range(-1f,1f), "y", flyCombos[i].transform.position.y + 0.3f, "easeType", iTween.EaseType.easeInCirc, "time", flyLife));
-                Hashtable ht = iTween.Hash("rotation", NGUITools.RandomRange(0, 360), "easeType", iTween.EaseType.linear, "time", flyLife);
-                iTween.RotateTo(flyCombos[i].gameObject, ht);
-            }
+            flyCombos[i].gameObject.SetActive(combos[i].gameObject.activeSelf);
         }
-       
-        combo1.transform.position = mask.transform.position;
-        if (hitcount > 0) iTween.MoveFrom(combo1.gameObject, iTween.Hash("x", combo1.transform.position.x - 0.2f, "y", combo1.transform.position.y-0.1f, "easeType", iTween.EaseType.easeInOutBack, "time", 0.1f));
-        Hashtable scaleht = iTween.Hash("scale", Vector3.one*0.8f, "easeType", iTween.EaseType.easeInExpo, "time", 0.1f);
+        //数字
+        flynum.transform.localPosition = combonum.transform.localPosition;
+        flynum.gameObject.SetActive(true);
+        iTween.MoveTo(flynum.gameObject, iTween.Hash("x", flynum.transform.localPosition.x + 0.2f * Random.Range(-50f, 50f), "y", flynum.transform.localPosition.y + 10f, "easeType", iTween.EaseType.easeInCirc, "time", flyLife, "local", true));
+
+        Hashtable scaletl = iTween.Hash("scale", Vector3.one * 0.6f, "easeType", iTween.EaseType.easeInExpo, "time", 0.1f);
+        //combo
+        combo1.transform.localScale = Vector3.one*0.7f;
+        iTween.ScaleFrom(combo1.gameObject, scaletl);
+        //背景
         bg.transform.localScale = Vector3.one * 0.7f;
-        iTween.ScaleFrom(bg, scaleht);
+        iTween.ScaleFrom(bg, scaletl);
         
         hitcount++;
+        if (hitcount > 1000) hitcount = 1;
+        setComboText();
+    }
+    public void setComboText()
+    {
+        combos[1].gameObject.SetActive(true);
+        combos[0].gameObject.SetActive(hitcount >= 10);
+        combos[2].gameObject.SetActive(hitcount >= 100);
         if (hitcount < 10)
         {
-            combos[0].gameObject.SetActive(false);
-            combos[1].gameObject.SetActive(true);
-            combos[2].gameObject.SetActive(false);
             combos[1].fontSize = 21;
             combos[1].text = hitcount.ToString();
         }
         else if (hitcount < 100)
         {
-            combos[0].gameObject.SetActive(true);
-            combos[1].gameObject.SetActive(true);
-            combos[2].gameObject.SetActive(false);
             combos[1].fontSize = 18;
             combos[0].text = (hitcount / 10).ToString();
             combos[1].text = (hitcount % 10).ToString();
         }
-        else if (hitcount < 1000)
+        else
         {
-            combos[0].gameObject.SetActive(true);
-            combos[1].gameObject.SetActive(true);
-            combos[2].gameObject.SetActive(true);
             combos[1].fontSize = 18;
             int c = hitcount % 100;
             combos[0].text = (hitcount / 100).ToString();
             combos[1].text = (c / 10).ToString();
             combos[2].text = (c % 10).ToString();
         }
-        else
-        {
-            hitcount = 1;
-            combos[0].gameObject.SetActive(false);
-            combos[1].gameObject.SetActive(true);
-            combos[2].gameObject.SetActive(false);
-            combos[1].fontSize = 30;
-            combos[1].text = hitcount.ToString();
-        }
     }
-  
+
+
     public void update()
     {
         if (!showed) return;
         currentLife += Time.deltaTime;
         if (currentLife >= flyLife)
         {
-            foreach (UILabel fly in flyCombos)
-            {
-                fly.gameObject.SetActive(false);
-            }
+            flynum.gameObject.SetActive(false);
         }
         if (currentLife >= life)
         {
             go.SetActive(false);
-            foreach (UILabel fly in flyCombos)
-            {
-                fly.gameObject.SetActive(false);
-            }
+            flynum.gameObject.SetActive(false);
             hitcount = 0;
             showed = false;
         }
@@ -156,9 +141,6 @@ public class Combo{
     {
         if (!showed || value) return;
         go.SetActive(value);
-        foreach (UILabel fly in flyCombos)
-        {
-            fly.gameObject.SetActive(false);
-        }
+        flynum.gameObject.SetActive(false);
     }
 }

@@ -9,12 +9,14 @@ public class Boot : MonoBehaviour{
     public Shader[] shaders;
 
     void Awake() {
-        App.init(this.gameObject);
+        CameraManager.Main = Camera.main;
+		App.init(this.gameObject, shaders);
         DontDestroyOnLoad(this.gameObject);
+        UIManager.Instance.init(transform.Find("uiRoot"));
     }
     void Start() {
         createInputManager();
-        UIManager.Instance.init(transform.Find("uiRoot"));
+        
         
         LoadingManager.instance.load();
     }
@@ -27,9 +29,8 @@ public class Boot : MonoBehaviour{
         //dispose pre scene bundle
         App.bundle.disposePrevSceneBundle(preSceneName);
         preSceneName = Application.loadedLevelName;
-        CameraManager.Main = Camera.main;
         App.sceneManager.onSceneLoaded(Application.loadedLevelName);
-        LoadingManager.instance.finishload();
+        LoadingManager.instance.finishload(shaders);
     }
 
     void Update() {

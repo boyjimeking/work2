@@ -18,5 +18,5 @@
 	<character id="10000"  type='4' name="天腹狼蛛_boss" controller="BossSpiderController" model="BOSS_zhizhu" weaponRange="2" moveRange="100" moveSpeed="1.6" skills="20001,20002,20003"/>
 	<character id="10001"  type='2' name="甲壳虫" controller="chongController" model="chong" weaponRange="1" moveRange="100" moveSpeed="2" skills="10001"/>
 	<character id="10002"  type='2' name="哥布林" controller="gblController" model="gbl" weaponRange="5.5" moveRange="100" moveSpeed="2.5" skills="10002"/>
-    <character id="10003"  type='5' name="哥布林" controller="gblController" model="gbl" moveRange="5" moveSpeed="3" />
+    <character id="10003"  type='5' name="哥布林" controller="gblController" model="gbl_green" moveRange="5" moveSpeed="3" />
 </characters>

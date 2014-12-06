@@ -161,6 +161,7 @@ public class HeroController : AvatarController {
                     if (!checkRush()) {
                         adjustAttackAngle();
                         setTrigger(Hash.atkTrigger);
+
                     }
                 } else {
                     changeLookAt();

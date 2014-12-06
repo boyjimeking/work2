@@ -26,7 +26,7 @@ namespace engine {
             if (m == null) {
                 m = new Material[owner.originalMainTExture.Length];
                 for(int i=0;i<m.Length;i++){
-                    m[i]=new Material(Shader.Find("BeHit2"));
+					m[i]=new Material(App.getShader("BeHit2")); //Shader.Find("BeHit2"));
                     m[i].mainTexture = owner.originalMainTExture[i];
                 }
             }

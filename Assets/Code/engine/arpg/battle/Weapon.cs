@@ -58,7 +58,7 @@ public class Weapon  {
         int length = renderer.materials.Length;
         orignalMaterial = new Material[length];
         originalMainTExture = new Texture[length];
-        Shader behindWallShader = Shader.Find("BehindWall2");
+		Shader behindWallShader = App.getShader ("BehindWall2"); //Shader.Find("BehindWall2");
         Color c = new Color(1, 1, 0, 1);
         for (int i = 0; i < length; i++)
         {

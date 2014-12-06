@@ -1,4 +1,4 @@
-
+﻿
 <!--HP:生命；ATT:攻击；DEF:防御；EVA:闪避率；CRI:暴击率；BeatBack:击退率（百分比）；BackDistance:击退距离；BeHit:受击率（百分比）；BeDown击倒率（百分比）-->
 <!--DEMO公式：基础伤害=Max(Int(（攻击方攻击-防御方防御）*Random(0.95,1.05)),1)  暴击伤害=基础伤害*2 -->
 

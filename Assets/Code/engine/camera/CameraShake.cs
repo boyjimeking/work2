@@ -106,11 +106,24 @@ namespace engine {
         private bool linearEnd;
         private float linearDelta;
         private int index;
-        public void shakeCameraLinear(){
+        public void shakeCameraLinear(object co = null)
+        {
             vs.Clear();
             ds.Clear();
             vs.Add(_fieldOfView);
-            vs.Add(_fieldOfView - BattleConfig.cameraShakePoint1);
+            float cameraShakeCon = 1.0f;
+            if(co!=null)
+            {
+                float v = 0;
+                if (co is SkillEffectTemplate)
+                {
+                    SkillEffectTemplate skillTemp = (SkillEffectTemplate)co;
+                    v = skillTemp.cameraShakeCon;
+                }
+               
+                cameraShakeCon = v<=0.0001?1.0f:v;
+            }
+            vs.Add(_fieldOfView - BattleConfig.cameraShakePoint1 * cameraShakeCon);
             //vs.Add(_fieldOfView - BattleConfig.cameraShakePoint2);
             //vs.Add(_fieldOfView - BattleConfig.cameraShakePoint3);
             vs.Add(_fieldOfView);

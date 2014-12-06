@@ -10,6 +10,7 @@ public class ColliderManager : IColliderManager {
 
         if (A.data == Player.instance) {
             if (B.data is SceneTrigger) {
+                //剧情
                 App.sceneManager.onSceneTrigger(Player.instance, B.data as SceneTrigger);
                 return;
             }
@@ -88,7 +89,16 @@ public class ColliderManager : IColliderManager {
                     }
                     fighterA.takeDamage(fighterB);
                     if (fighterB == Player.instance) {
-                        App.effect.shakeCamera(0.3f, 0.5f);
+                        if (fighterB.currentSkillEffect != null)
+                        {
+                            SkillEffectTemplate template = App.template.getTemp<SkillEffectTemplate>(fighterB.currentSkillEffect.id);
+                            App.effect.shakeCamera(template/*0.3f, 0.5f*/);
+                        }
+                        else
+                        {
+                            App.effect.shakeCamera();
+                        }
+
                         Combo.instance.playHit();
                         if (!fighterA.isBoss() || !fighterA.isDead())
                             App.effect.checkSlowTimeScale();
@@ -105,7 +115,6 @@ public class ColliderManager : IColliderManager {
                         return;
                     }
                     co.addHit(fighterA);
-
                     fighterA.takeDamage(co, co.effect.hitEffect, co.resName == "man_skill1_la");
 
                     if (co.owner == Player.instance)
@@ -115,11 +124,11 @@ public class ColliderManager : IColliderManager {
 
                     if (co.resName == "man_skill1_la")//拉怪技能
                     {
-                        if (!fighterA.isDead()) App.coroutine.StartCoroutine(laguai(fighterA, co.owner.model.transform));
+                        if (!fighterA.isDead() && fighterA.currentSkillStrength < SkillTemplate.Strength_4) App.coroutine.StartCoroutine(laguai(fighterA, co.owner.model.transform));
                     } else {
                         //主角普攻震屏效果
                         if (co.owner == Player.instance) {
-                            App.effect.shakeCamera(0.3f, 0.5f);
+                            App.effect.shakeCamera(co.effect);
                             if (!fighterA.isBoss() || !fighterA.isDead())
                                 App.effect.checkSlowTimeScale();
                         }
@@ -138,6 +147,7 @@ public class ColliderManager : IColliderManager {
          iTween.MoveTo(fighter.model, iTween.Hash("x", targetPosition.x, "z", targetPosition.z, "easeType", iTween.EaseType.easeInExpo, "time", 0.1f));
          yield return new WaitForSeconds(0.15f);
          fighter.ai.enabled = true;
+         fighter.setObstacleMode(true);
      }
     //private IEnumerator calResult(FightCharacter c, Bullet b, int num, float t) {
     //    for (int i = 0; i < num; i++) {

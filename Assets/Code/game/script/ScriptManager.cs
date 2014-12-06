@@ -7,10 +7,11 @@ public class ScriptState
 {
     public Script script;
     public int currStep = 0;
+    public int talkID = 0;
     public int currSingle = 0;
     public GameObject currShot;
     public Camera camera;
-
+    public PlayBornSript pb;
     public void reset(Script script)
     {
         this.script = script;
@@ -20,8 +21,12 @@ public class ScriptState
 
     public string getTalkContent()
     {
+        if (currStep >= script.steps.Count)
+            return "";
         ScriptStep step = script.steps[currStep];
         if (step == null) return "";
+        if (currSingle >= step.talks.Count)
+            return "";
         ScriptStepSingle single = step.talks[currSingle];
         return single != null ? single.talk : "";
     }
@@ -62,45 +67,42 @@ public class ScriptState
 
     public bool nextStep(bool first)
     {
-        if(!first){
-            currStep++;
-            if (currStep >= script.steps.Count)
-            {
+        
+//         if(!first){
+//             currStep++;
+//             if (currStep >= script.steps.Count)
+//             {
+//                 //剧情结束
+//                 if (pb != null)
+//                 {
+//                     pb.OnPalyEnd();
+//                 }
+//                return false;
+//             }
+//             currSingle = 0;
+//         }
 
-                camera.gameObject.SetActive(false);
-                GameObject.Destroy(currShot);
-                GameObject.Destroy(camera);
-                currShot = null;
-                return false;
-            }
-            currSingle = 0;
-        }
-
-        if (currShot != null)
+        if (pb != null)
         {
-            camera.gameObject.SetActive(false);
-            GameObject.Destroy(currShot);
+            pb.OnPalyEnd();
         }
         
+        
         BattleEngine.scene.pause(true);
-        //BattleEngine.scene.shieldCharacter();
        
-        playCurrShot();
+        playCurrShot2(currStep);
         return true;
     }
 
-    private void playCurrShot() {
+    public void playCurrShot2(int value)
+    {
         ScriptStep step = script.steps[currStep];
-        currShot = App.res.createSingle("Local/sequence/scriptClip/" + step.prefab + "/Sequence");
-        USTimelineContainer container = currShot.getChild("Container").GetComponent<USTimelineContainer>();
-        USTimelineObjectPath path = currShot.getChild("Container/path").GetComponent<USTimelineObjectPath>();
-        USLookAtObjectEvent lookAtEvent = currShot.getChild("Container/Timeline/USLookAtObjectEvent").GetComponent<USLookAtObjectEvent>();
-        USSequencer seq = currShot.GetComponent<USSequencer>();
-        camera = currShot.T("Camera").GetComponent<Camera>();
-        container.AffectedObject = camera.transform;
+        currShot = App.res.createSingle("Local/prefab/Movie/" + step.prefab);
+        pb = currShot.transform.Find("Moviecamera/movieCamera").GetComponent<PlayBornSript>();
+        pb.onBegin(CameraManager.CameraFollow.target.transform);
         FightCharacter c = null;
-        if (step.charId == 0) {//主角
-            lookAtEvent.objectToLookAt = CameraManager.CameraFollow.target.gameObject;
+        if (step.charId == 0)
+        {
             if (Player.instance.isDead())
             {
                 foreach (FightCharacter cc in BattleEngine.scene.getFriends())
@@ -113,15 +115,53 @@ public class ScriptState
                 }
             }
             else c = Player.instance;
-        } else {
+        }
+        else
+        {
             c = BattleEngine.scene.getEmemy(step.charId);
-            lookAtEvent.objectToLookAt = c.model;
+        }
+
+        if (c != null)
+        {
+            c.model.SetActive(true);
+            c.pauseAnimator(false);
         }
         
-        c.model.SetActive(true);
-        c.pauseAnimator(false);
-        seq.Play();
     }
+
+    //private void playCurrShot() {
+    //    ScriptStep step = script.steps[currStep];
+    //    currShot = App.res.createSingle("Local/sequence/scriptClip/" + step.prefab + "/Sequence");
+    //    USTimelineContainer container = currShot.getChild("Container").GetComponent<USTimelineContainer>();
+    //    USTimelineObjectPath path = currShot.getChild("Container/path").GetComponent<USTimelineObjectPath>();
+    //    USLookAtObjectEvent lookAtEvent = currShot.getChild("Container/Timeline/USLookAtObjectEvent").GetComponent<USLookAtObjectEvent>();
+    //    USSequencer seq = currShot.GetComponent<USSequencer>();
+    //    camera = currShot.T("Camera").GetComponent<Camera>();
+    //    container.AffectedObject = camera.transform;
+    //    FightCharacter c = null;
+    //    if (step.charId == 0) {//主角
+    //        lookAtEvent.objectToLookAt = CameraManager.CameraFollow.target.gameObject;
+    //        if (Player.instance.isDead())
+    //        {
+    //            foreach (FightCharacter cc in BattleEngine.scene.getFriends())
+    //            {
+    //                if (cc.model == CameraManager.CameraFollow.target.gameObject)
+    //                {
+    //                    c = cc;
+    //                    break;
+    //                }
+    //            }
+    //        }
+    //        else c = Player.instance;
+    //    } else {
+    //        c = BattleEngine.scene.getEmemy(step.charId);
+    //        lookAtEvent.objectToLookAt = c.model;
+    //    }
+        
+    //    c.model.SetActive(true);
+    //    c.pauseAnimator(false);
+    //    seq.Play();
+    //}
 }
 
 public class ScriptManager {
@@ -134,11 +174,25 @@ public class ScriptManager {
     public ScriptState state;
     public bool scripting;
 
-
+   
     //complete callback
     public delegate void OnComplete();
     public OnComplete onComplete;
 
+    public void RoomTrigger(int roomID)
+    {
+        if (roomID == 1)
+        {
+            trigger(2);
+        }
+        else if (roomID == 2)
+        {
+            if (onComplete != null)
+                onComplete();
+            onComplete = null;
+            return;
+        }
+    }
     public void trigger(int scriptId) {
         //auto fight, dead status not play scenario
         if (Player.instance == null || Player.instance.autoFight || Player.instance.isDead()) {
@@ -157,7 +211,7 @@ public class ScriptManager {
             talkName = ui.getChildComponent<UILabel>("talkName");
             talkContent = ui.getChildComponent<UILabel>("talkContent");
             clickObject = ui.getChildComponent<UIWidget>("clickObject").gameObject;
-            Click.set(clickObject.gameObject, onClick);
+            //Click.set(clickObject.gameObject, onClick);
         }
 
         start();
@@ -175,9 +229,9 @@ public class ScriptManager {
         {
             c.HpBar.Parent.SetActive(false);
         }
-        ui.SetActive(true);
+        //ui.SetActive(true);
         state.nextStep(true);
-        updateData();
+        //updateData();
     }
 
     private void end()
@@ -185,20 +239,21 @@ public class ScriptManager {
         scripting = false;
         UIManager.Instance.Active = true;
         ui.SetActive(false);
-        CameraManager.Main.gameObject.SetActive(true);
-        foreach (FightCharacter c in BattleEngine.scene.getFriends())
-        {
-            c.HpBar.Parent.SetActive(true);
-        }
-        foreach (FightCharacter c in BattleEngine.scene.getEnemies())
-        {
-            c.HpBar.Parent.SetActive(true);
-        }
+//         CameraManager.Main.gameObject.SetActive(true);
+//         foreach (FightCharacter c in BattleEngine.scene.getFriends())
+//         {
+//             c.HpBar.Parent.SetActive(true);
+//         }
+//         foreach (FightCharacter c in BattleEngine.scene.getEnemies())
+//         {
+//             c.HpBar.Parent.SetActive(true);
+//         }
         BattleEngine.scene.pause(false);
 
         //BattleEngine.scene.shieldCharacter(false);
 
-        if (onComplete != null) {
+        if (onComplete != null)
+        {
             OnComplete cb = this.onComplete;
             this.onComplete = null;
             cb();
@@ -207,12 +262,31 @@ public class ScriptManager {
 
     private void updateData()
     {
+        if (state.getTalkName().Equals(""))
+        {
+           
+        }
         talkName.text = state.getTalkName()+"：";
         talkContent.text = state.getTalkContent();
     }
 
     public void onClick(GameObject go) {
-        if (state.next()) updateData();
-        else end();
+
+        //if (state.next())
+        //    updateData();
+        //else end();
     }
+
+    public void showNextDilage(int talkSingle)
+    {
+        ui.SetActive(true);
+        state.currSingle = talkSingle;
+        updateData();
+    }
+
+    public void CloseScript()
+    {
+        end();
+    }
+
 }

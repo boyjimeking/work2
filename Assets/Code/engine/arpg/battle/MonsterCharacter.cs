@@ -74,7 +74,7 @@ namespace engine {
                 App.coroutine.StartCoroutine(playWin());
             }
             else {
-                DropManager.instance.dropGold(transform, Random.Range(1,5));
+                //DropManager.instance.dropGold(transform, Random.Range(1,5));
             }
         }
         protected IEnumerator playWin()

@@ -11,10 +11,12 @@ public class ScriptStepSingle
 {
     public string type;
     public string talk;
+    public int num;
 
     public void read(XmlElement e) {
         type = e.GetAttribute("type");
         talk = e.GetAttribute("talk");
+        num  = Utility.toInt(e.GetAttribute("num"));
     }
 }
 

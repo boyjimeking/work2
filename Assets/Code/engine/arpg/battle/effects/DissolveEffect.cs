@@ -22,7 +22,7 @@ namespace engine {
             {
                 for (int i = 0; i < sr.materials.Length; i++)
                 {
-                    sr.materials[i].shader = Shader.Find("Custom/Dissolve");
+					sr.materials[i].shader = App.getShader("Custom/Dissolve");//Shader.Find("Custom/Dissolve");
                     Texture2D tex = Resources.Load("Local/picture/dissolve") as Texture2D;
                     sr.materials[i].SetTexture("_DissolveSrc", tex);
                     sr.materials[i].SetColor("_SpecColor", new Color(1f, 1f, 1f));

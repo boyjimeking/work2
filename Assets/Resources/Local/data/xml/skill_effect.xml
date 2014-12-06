@@ -27,38 +27,38 @@
 	
 	
 	<!-- 剑士 普攻-->
-	<effect id="1" subeffects="-1,-2" knockback="100,0.8" knockdown="0" playHit="0" hitEffect=""/>
-	<effect id="2" subeffects="-3,-4" knockback="100,0.7" knockdown="0" playHit="0"  hitEffect=""/>
-	<effect id="3" subeffects="-5,-6" knockback="100,0.5" knockdown="0" playHit="30"  hitEffect=""/>
-	<effect id="4" subeffects="-7,-8" knockback="100,1" knockdown="30" playHit="15"  hitEffect=""/>
+	<effect id="1" subeffects="-1,-2" knockback="100,0.8" knockdown="0" playHit="0" hitEffect="" cameraShakeCon="1.5"/>
+	<effect id="2" subeffects="-3,-4" knockback="100,0.5" knockdown="0" playHit="0" hitEffect="" cameraShakeCon="0.8"/>
+	<effect id="3" subeffects="-5,-6" knockback="100,1.2" knockdown="0" playHit="30" hitEffect="" cameraShakeCon="2"/>
+	<effect id="4" subeffects="-7,-8" knockback="100,0.7" knockdown="30" playHit="15" hitEffect="" cameraShakeCon="1.3"/>
 	
 
 	<!-- 剑士 技能-->
-	<effect id="50" animatorTrigger="Skill1Trigger"  colliderLife="3" knockback="0,0" knockdown="0" playHit="100" colliderType="1" hitEffect="skill04_hurt" buff="4" buffTime="2"/>
+	<effect id="50" animatorTrigger="Skill1Trigger" colliderLife="3" knockback="0,0" knockdown="0" playHit="100" colliderType="1" hitEffect="skill04_hurt" buff="4" buffTime="2" cameraShakeCon="2" strength="3"/>
 	
 	
 
     <!-- 火BB 普攻-->
-	<effect id="1000" animatorTrigger="AttackTrigger" colliderType="2" bullet="huo_atk1,15,10,0" hitEffect="firehurt"  bulletmode="1"/>
+	<effect id="1000" animatorTrigger="AttackTrigger" colliderType="2" bullet="huo_atk1,15,10,0" hitEffect="firehurt" bulletmode="1" strength="1"/>
 	
     <!-- 火BB 技能-->
-    <effect id="1001" animatorTrigger="Skill1Trigger" bullet="huo_skill1,5,2,0" hitEffect="firehurt" colliderType="2" knockback="100,0.5" playHit="100" lastTime="3" hurtNum="15" nextEffect="1003"/>
-	<effect id="1002" animatorTrigger="summonTrigger" bullet="huo_sommon,6,10,0" hitEffect="firehurt" colliderType="2" knockback="100,1" playHit="100" lastTime="0.6" hurtNum="6"/>
+    <effect id="1001" animatorTrigger="Skill1Trigger" bullet="huo_skill1,5,2,0" hitEffect="firehurt" colliderType="2" knockback="100,0.5" playHit="100" lastTime="3" hurtNum="15" nextEffect="1003" strength="2"/>
+	<effect id="1002" animatorTrigger="summonTrigger" bullet="huo_sommon,6,10,0" hitEffect="firehurt" colliderType="2" knockback="100,1" playHit="100" lastTime="0.6" hurtNum="6" strength="3"/>
 	<effect id="1003" hitEffect="firehurt" colliderType="3" collider="fireskill_end" radius="2" lastTime="1" hurtNum="1" />
     
     <!-- 雷BB 普攻-->
-    <effect id="1010" animatorTrigger="AttackTrigger" hitEffect="thunder_hurt"/>
+    <effect id="1010" animatorTrigger="AttackTrigger" hitEffect="thunder_hurt" strength="1"/>
     
     <!-- 雷BB 技能-->   
-    <effect id="1011" animatorTrigger="Skill1Trigger" hitEffect="thunder_hurt" knockback="100,0.5" playHit="100" colliderType="4" radius="3" angle="100" lastTime="1" hurtNum="2"/>
-	<effect id="1012" animatorTrigger="summonTrigger" hitEffect="thunder_hurt" colliderType="3" radius="4" lastTime="2" hurtNum="2" buff="1,2" buffTime="3,0.5"/>
+    <effect id="1011" animatorTrigger="Skill1Trigger" hitEffect="thunder_hurt" knockback="100,0.5" playHit="100" colliderType="4" radius="3" angle="100" lastTime="1" hurtNum="2" strength="2"/>
+	<effect id="1012" animatorTrigger="summonTrigger" hitEffect="thunder_hurt" colliderType="3" radius="4" lastTime="2" hurtNum="2" buff="1,2" buffTime="3,0.5" strength="3"/>
     
 	<!--monsters-->
-	<effect id="10001" anim="attack1" hitEffect="monster_chong_hurt"/>	
-	<effect id="10002" anim="attack1" colliderType="2" bullet="gbl_atk,12,10,0" hitEffect="monster_magic_hurt" buff="" buffTime="" bulletmode="1"/>
+	<effect id="10001" anim="attack1" hitEffect="monster_chong_hurt" strength="0"/>	
+	<effect id="10002" anim="attack1" colliderType="2" bullet="gbl_atk,12,10,0" hitEffect="monster_magic_hurt" buff="" buffTime="" bulletmode="1" strength="0"/>
 
 	<!--蜘蛛_wolf -->
-	<effect id="20001" animatorTrigger="AttackTrigger" hitEffect="boss_hurt"/>
-	<effect id="20002" animatorTrigger="Skill1Trigger" hitEffect="boss_hurt" colliderType="5" colliderLife="5" collider="spider_skill1" lastTime="5" hurtNum="1"  buff="3" buffTime="3"/>
-	<effect id="20003" animatorTrigger="Skill2Trigger" hitEffect="boss_hurt" colliderType="1" collider="spider_skill2" colliderLife="0.1" knockdown="999"/>
+	<effect id="20001" animatorTrigger="AttackTrigger" hitEffect="boss_hurt" strength="1"/>
+	<effect id="20002" animatorTrigger="Skill1Trigger" hitEffect="boss_hurt" colliderType="5" colliderLife="5" collider="spider_skill1" lastTime="5" hurtNum="1" buff="3" buffTime="3" strength="3"/>
+	<effect id="20003" animatorTrigger="Skill2Trigger" hitEffect="boss_hurt" colliderType="1" collider="spider_skill2" colliderLife="0.1" knockdown="999" strength="4"/>
 </skillEffects>

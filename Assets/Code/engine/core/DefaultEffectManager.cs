@@ -5,7 +5,8 @@ namespace engine {
         public bool shakingCamera;
         public CameraShake cameraShaker;
         public float shakingY;
-        public void shakeCamera(float magnitude, float duration) {
+        public void shakeCamera(object efffect = null/*float magnitude, float duration*/)
+        {
             if (cameraShaker == null) {
                 cameraShaker = Camera.main.gameObject.GetComponent<CameraShake>();
             }
@@ -15,7 +16,7 @@ namespace engine {
                 if (follow.Rushing) return;
                 shakingCamera = true;
                 //cameraShaker.shakeCamera();//magnitude, duration);
-                cameraShaker.shakeCameraLinear();
+                cameraShaker.shakeCameraLinear(efffect);
             }
         }
 

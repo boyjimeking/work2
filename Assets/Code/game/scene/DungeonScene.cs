@@ -109,7 +109,7 @@ public class DungeonScene : BattleScene {
 
         createContent();
 
-        App.sceneManager.changeBgSound(data.template.sound);
+        //App.sceneManager.changeBgSound(data.template.sound);
     }
     private void createContent() {
         if (App.config.USE_BUNDLE) {
@@ -234,9 +234,14 @@ public class DungeonScene : BattleScene {
             }
             c.transform.position = position;
             addEnemy(c);
-            BossBorn bb = c.model.AddComponent<BossBorn>();
-            bb.onBegin(monsterIds, group, team);
-            bb.callBack = bossBornComplete;
+            //BossBorn bb = c.model.AddComponent<BossBorn>();
+            //bb.onBegin(monsterIds, group, team);
+            //bb.callBack = bossBornComplete;
+            this.script_monsterIds = monsterIds;
+            this.script_group = group;
+            this.script_team = team;
+            ScriptManager.instance.onComplete = scriptComplete;
+            ScriptManager.instance.trigger(3);
             boss = c;
             App.sceneManager.changeBgSound("BOSS_bg");
         }
@@ -248,13 +253,13 @@ public class DungeonScene : BattleScene {
     private int[] script_monsterIds;
     private DungeonTemplate.SpawnGroup script_group;
     private Team script_team;
-    private void bossBornComplete(int[] monsterIds, DungeonTemplate.SpawnGroup group, Team team)
+    public void bossBornComplete(int[] monsterIds, DungeonTemplate.SpawnGroup group, Team team)
     {
         this.script_monsterIds = monsterIds;
         this.script_group = group;
         this.script_team = team;
         ScriptManager.instance.onComplete = scriptComplete;
-        ScriptManager.instance.trigger(2);
+        ScriptManager.instance.trigger(3);
         //BossHead.instance.reset(boss);
     }
     private void scriptComplete() {
@@ -301,7 +306,7 @@ public class DungeonScene : BattleScene {
         if (hasBoss)
         {
 
-            ScriptManager.instance.trigger(2);
+            ScriptManager.instance.trigger(3);
         }
         //foreach (FightCharacter c in enemies) {
         //     c.ai.enabled = true;
@@ -314,9 +319,14 @@ public class DungeonScene : BattleScene {
         
         if (!base.nextGroup()) {
             if (dungeonData.hasNextRoom()) {
-                specialMonsters.Clear();
+               
                 int roomIndex = dungeonData.currentRoomIndex + 1;
                 if (!dungeonData.roomStates[roomIndex].doorOpened) {
+                    if (roomIndex == 1) {
+                        spawnSpecialMonster(10003);
+                    } else {
+                        specialMonsters.Clear();
+                    }
                     DungeonTemplate.DungeonRoom room = dungeonData.template.rooms[roomIndex];
                     foreach (Door d in doorList) {
                         if (d.room == room) {
@@ -358,18 +368,23 @@ public class DungeonScene : BattleScene {
         c.deadable = false;
         c.model.SetActive(true);
       
-        DungeonTemplate.DungeonRoom room = dungeonData.template.rooms[dungeonData.currentRoomIndex];
-        DungeonTemplate.SpawnGroup group = room.groups[dungeonData.currentGroupIndex];
-        Vector2 random2d = Random.insideUnitCircle * group.radius;
-        Vector3 tempPosition = new Vector3(group.x + random2d.x, group.y, group.z + random2d.y);
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(tempPosition, out hit, 100, 1)) {
-            tempPosition = hit.position;
-        }
-        c.transform.position = tempPosition;
+        //DungeonTemplate.DungeonRoom room = dungeonData.template.rooms[dungeonData.currentRoomIndex];
+        //DungeonTemplate.SpawnGroup group = room.groups[dungeonData.currentGroupIndex];
+        //Vector2 random2d = Random.insideUnitCircle * group.radius;
+        //Vector3 tempPosition = new Vector3(group.x + random2d.x, group.y, group.z + random2d.y);
+        //NavMeshHit hit;
+        //if (NavMesh.SamplePosition(tempPosition, out hit, 100, 1)) {
+        //    tempPosition = hit.position;
+        //}
+        c.transform.position = new Vector3(22f,-3f,14.5f);
         addEnemy(c);
         specialMonsters.Add(c);
         c.agent.walkableMask = Player.instance.agent.walkableMask;
+    }
+    public void enableSpecialMonsterAI() {
+        foreach (SpecialMonster m in specialMonsters) {
+            (m.ai as SpecialMonsterAI).playerEnteredRoom = true;
+        }
     }
 
 }

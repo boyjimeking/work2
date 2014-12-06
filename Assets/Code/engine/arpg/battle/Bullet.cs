@@ -44,7 +44,7 @@ namespace engine {
                     //TODO opt
                     Rigidbody body = c.gameObject.addOnce<Rigidbody>();
                     body.useGravity = false;
-                    body.collisionDetectionMode = CollisionDetectionMode.Continuous;
+                    //body.collisionDetectionMode = CollisionDetectionMode.Continuous;
                 }
             }
             else

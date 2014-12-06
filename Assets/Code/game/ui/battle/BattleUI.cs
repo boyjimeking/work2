@@ -23,6 +23,7 @@ public class BattleUI  {
 
         
     }
+
     private void doInit()
     {
         PetHeads.instance.init();
@@ -31,7 +32,7 @@ public class BattleUI  {
         BossHead.instance.init();
 		Combo.instance.init();
         PauseAndAuto.instance.init();
-
+        BattleUI.instance.setActive(false);
         enable = true;
         actived = true;
         //for (int i = 0; i < 2; i++)
@@ -71,6 +72,7 @@ public class BattleUI  {
 
     public void setActive(bool value)
     {
+        if (!inited) return;
         actived = value;
         PetHeads.instance.setActive(value);
         HeadController.instance.setActive(value);

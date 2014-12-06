@@ -92,6 +92,7 @@ namespace engine {
         private Weapon weapon,atkWeapon,currentWeapon;
         public LearnedSkill currentSkill;
         public SkillEffectTemplate currentSkillEffect;
+        public int currentSkillStrength;
 
         public void setWeapons(Weapon idleWeapon, Weapon atkWeapon, Weapon current) {
             this.weapon = idleWeapon;
@@ -118,11 +119,12 @@ namespace engine {
         public  bool attack(int skillId) {
             if (prepareSkill(skillId))
             {
-                if (currentSkillEffect==null || currentSkillEffect.triggerHash != 0) {
+                if (currentSkillEffect!=null && currentSkillEffect.triggerHash != 0) {
                     controller.setTrigger(currentSkillEffect.triggerHash);
                 } else {
                     controller.setTrigger(Hash.atkTrigger);
                 }
+                if (currentSkillEffect != null) currentSkillStrength = currentSkillEffect.strength;
                 if (controller is HeroController) ((HeroController)controller).changeLookAt();
                 return true;
             }
@@ -136,6 +138,7 @@ namespace engine {
             currentSkill = learnedSkill;
             currentSkill.cdTime = Time.time;
             currentSkillEffect = currentSkill.template.effect;
+            currentSkillStrength = currentSkillEffect.strength;
             return true;
         }
         #endregion
@@ -170,7 +173,7 @@ namespace engine {
             int length = skinRenderer.materials.Length;
             orignalMaterial = new Material[length];
             originalMainTExture = new Texture[length];
-			Shader behindWallShader = Shader.Find ("BehindWall2");
+			Shader behindWallShader = App.getShader ("BehindWall2"); //Shader.Find ("BehindWall2");
             Color c;
             if (this.team.teamNo == Naming.TeamMonster) {
                 c = new Color(178/255f, 0, 1, 1);
@@ -339,16 +342,16 @@ namespace engine {
         protected bool quickDown, quickHurt, quickDie;
         protected virtual void applyHitState(HitState state) {
             if (state.hitdown) {
-                if (!isHitDown) {
+                if (!isHitDown && currentSkillStrength<SkillTemplate.Strength_3) {
                     quickDown = true;
                 }
             } else if (state.hitback) {
                 //if (!isHitDown) 
                 playHitBack(state.attacker, state.hitbackDistance);
-                quickHurt = state.playHit && !isPlayHit;
-
+                if (currentSkillStrength < SkillTemplate.Strength_2) quickHurt = state.playHit && !isPlayHit;
             } else if (state.playHit && !isPlayHit) {
-                if (!isPlayHit) {
+                if (!isPlayHit && currentSkillStrength < SkillTemplate.Strength_2)
+                {
                     quickHurt = true;
                 }
             }
@@ -367,9 +370,10 @@ namespace engine {
         }
        
         public void playHitBack(FightCharacter attacker, float force) {
+            if (currentSkillStrength > SkillTemplate.Strength_0) return;
             if (isBoss()) {
                 AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
-                if (info.nameHash == Hash.skill02State) {
+                if (info.nameHash == Hash.skill02State || animator.IsInTransition(0)) {
                     return;
                 }
             }
@@ -516,7 +520,8 @@ namespace engine {
         }
         #endregion
 
-        private void setDizzy(float dizzyTime, string dizzyPath = null) {
+        public void setDizzy(float dizzyTime, string dizzyPath = null) {
+            if (currentSkillStrength > SkillTemplate.Strength_3) return;
             if (isDizzy) //can not overlay
                 return;
             if (isPlayer()) {
@@ -542,7 +547,8 @@ namespace engine {
             dizzyObj.transform.parent = trans.parent;
             dizzyObj.transform.localPosition = vec;
             suspendAI = true;
-            agent.enabled = false;
+            agentStop();
+            setObstacleMode(true);
             animator.SetBool(Hash.runBool, false);
             animator.Play(Hash.idleState);
             isDizzy = true;
@@ -559,7 +565,7 @@ namespace engine {
                 Player.instance.resetAuto(true, true);
             suspendAI = false;
             isDizzy = false;
-            agent.enabled = true;
+            setObstacleMode(false);
             Object.Destroy(dizzyObj);
             if (afterPath != null) {
                 GameObject obj = App.res.createSingle(afterPath);
@@ -623,13 +629,21 @@ namespace engine {
 
             isIdle = stateInfo.nameHash == Hash.idleState;
 
+
         }
-       
+        public bool inNormalState(){
+            int state = stateInfo.nameHash;
+            return !animator.IsInTransition(0)&&(state == Hash.idleState || state == Hash.runState);
+        }
         protected virtual void updateAnimatorState() {
             controller.useAnimatorPosition = false;
             controller.useAnimatorRotation = false;
             binding.canTrigger = true;
             int state = stateInfo.nameHash;
+            if (currentSkillStrength != SkillTemplate.Strength_0 && inNormalState())
+            {
+                currentSkillStrength = SkillTemplate.Strength_0;
+            }
             if (isBoss() && state == Hash.skill02State) {
                 controller.useAnimatorPosition = true;
                 binding.canTrigger = false;

@@ -8,35 +8,63 @@
     single   镜头中的一次说话
 -->
 <scripts>
+  <script id="0" >
+    <step charId="0" prefab="Movie_DEMO_1">
+      <single num="1" talk="泰坦遗址…囚禁潘多拉的禁地就是这个样子…" ></single>
+      <single num="2" talk="想不到伟大的时空城，就是为了看守这地方而建，真是讽刺…" ></single>
+      <single num="3" talk="警报没有出错，封印已经松动了…" ></single>
+      <single num="4" talk="…以圣堂猎手之名，宣布此处彻底沦陷，准许执行净化，露亚！" ></single>
+    </step>
+  </script>
+  
 	<script id="1" >
-		<step charId="0" prefab="script11">
-			<single talk="泰坦遗址…囚禁潘多拉的禁地就是这个样子…" ></single>
-			<single talk="想不到伟大的时空城，就是为了看守这地方而建，真是讽刺…" ></single>
-			<single talk="警报没有出错，封印已经松动了…" ></single>
-			<single talk="…以圣堂猎手之名，宣布此处彻底沦陷，准许执行净化，露亚！" ></single>
+		<step charId="0" prefab="Movie_DEMO_2">
+      <single num="1" talk="泰坦遗址…囚禁潘多拉的禁地就是这个样子…" ></single>
+      <single num="2" talk="想不到伟大的时空城，就是为了看守这地方而建，真是讽刺…" ></single>
+      <single num="3" talk="警报没有出错，封印已经松动了…" ></single>
+      <single num="4" talk="…以圣堂猎手之名，宣布此处彻底沦陷，准许执行净化，露亚！" ></single>
 		</step>
 	</script>
 
   <script id="2" >
-  <step charId="10000" prefab="script13">
-      <single talk="是谁阻挠主人越狱？嘶！" ></single>
+    <step charId="0" prefab="Movie_DEMO_3">
+      <single num="1" talk="泰坦遗址…囚禁潘多拉的禁地就是这个样子…" ></single>
+      <single num="2" talk="想不到伟大的时空城，就是为了看守这地方而建，真是讽刺…" ></single>
+      <single num="3" talk="警报没有出错，封印已经松动了…" ></single>
+      <single num="4" talk="…以圣堂猎手之名，宣布此处彻底沦陷，准许执行净化，露亚！" ></single>
+    </step>
+  </script>
+
+  <script id="3" >
+    <step charId="0" prefab="Movie_DEMO_4">
+      <single num="1" talk="泰坦遗址…囚禁潘多拉的禁地就是这个样子…" ></single>
+      <single num="2" talk="想不到伟大的时空城，就是为了看守这地方而建，真是讽刺…" ></single>
+      <single num="3" talk="警报没有出错，封印已经松动了…" ></single>
+      <single num="4" talk="…以圣堂猎手之名，宣布此处彻底沦陷，准许执行净化，露亚！" ></single>
+    </step>
+  </script>
+    
+  <script id="4" > 
+  <step charId="10000" prefab="Movie_DEMO_3">
+      <single num="1" talk="是谁阻挠主人越狱？嘶！" ></single>
     </step>
   
-    <step charId="0" prefab="script12">
+    <step charId="0" prefab="Movie_DEMO_3">
       <single talk="灵力制作的恶魔投影？难道泰坦魔神潘多拉…醒了？" ></single>
       <single talk="这可是大事件！得尽快回报给时空城！" ></single>
     </step>
-
-  <step charId="10000" prefab="script13">
+    
+  <step charId="10000" prefab="Movie_DEMO_4">
       <single talk="嘶！我要把你们…一网打尽！" ></single>
     </step>
   
-   <step charId="0" prefab="script12">
+   <step charId="0" prefab="Movie_DEMO_2">
       <single talk="可恶的畜生！以圣堂猎手之名，赐尔等净化，露亚！" ></single>
     </step>
 	
-    <step charId="10000" prefab="script13">
+    <step charId="10000" prefab="Movie_DEMO_4">
       <single talk="嘶！！！" ></single>
     </step>
   </script>
+  
 </scripts>

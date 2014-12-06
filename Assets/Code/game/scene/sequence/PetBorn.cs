@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Linq;
+using BehaviourMachine;
 using engine;
 using UnityEngine;
 
 public class PetBorn {
-    private GameObject blackObj;
-    private GameObject newCamera;
+    private static GameObject blackObj;
+    private static GameObject newCamera;
     private Vector3 origRotate;
     private GameObject summonEffect;
     private ParticleSystem[] allParticles;
@@ -60,7 +61,7 @@ public class PetBorn {
         //App.coroutine.StartCoroutine(playSkill(CommonTemp.hurtTimes[index],CommonTemp.skillIDs[index]));
     }
 
-    private void createNewCam() {
+    public static void preLoad() {
         newCamera = new GameObject();
         newCamera.transform.position = CameraManager.Main.transform.position;
         newCamera.transform.rotation = CameraManager.Main.transform.rotation;
@@ -73,12 +74,9 @@ public class PetBorn {
         m.clearFlags = CameraClearFlags.Depth;
         m.depth = 10;
         m.cullingMask = 1 << LayerMask.NameToLayer("Special");
-    }
+        Object.DontDestroyOnLoad(newCamera);
+        newCamera.SetActive(false);
 
-
-    private IEnumerator blackSceen(float time) {
-        yield return new WaitForSeconds(time);
-        BattleEngine.scene.pause(true);
         blackObj = new GameObject("black");
         float alpha = CommonTemp.blackAlpha;
         if (Application.platform == RuntimePlatform.IPhonePlayer)
@@ -87,6 +85,44 @@ public class PetBorn {
         blackObj.AddComponent<GUITexture>();
         blackObj.guiTexture.texture = iTween.CameraTexture(Color.black);
         blackObj.guiTexture.color = new Color(.5f, .5f, .5f, alpha);
+        Object.DontDestroyOnLoad(blackObj);
+        blackObj.SetActive(false);
+    }
+
+    private void createNewCam() {
+        newCamera.SetActive(true);
+        newCamera.transform.position = CameraManager.Main.transform.position;
+        newCamera.transform.rotation = CameraManager.Main.transform.rotation;
+        newCamera.transform.localScale = CameraManager.Main.transform.localScale;
+        Camera m = newCamera.GetComponent<Camera>();
+        m.cullingMask = 1 << LayerMask.NameToLayer("Special");
+        //newCamera = new GameObject();
+        //newCamera.transform.position = CameraManager.Main.transform.position;
+        //newCamera.transform.rotation = CameraManager.Main.transform.rotation;
+        //newCamera.transform.localScale = CameraManager.Main.transform.localScale;
+        //newCamera.name = "newCamera";
+        //Camera m = newCamera.AddComponent<Camera>();
+        //m.fieldOfView = CameraManager.Main.fieldOfView;
+        //m.nearClipPlane = CameraManager.Main.nearClipPlane;
+        //m.farClipPlane = CameraManager.Main.farClipPlane;
+        //m.clearFlags = CameraClearFlags.Depth;
+        //m.depth = 10;
+        //m.cullingMask = 1 << LayerMask.NameToLayer("Special");
+    }
+
+
+    private IEnumerator blackSceen(float time) {
+        yield return new WaitForSeconds(time);
+        BattleEngine.scene.pause(true);
+        blackObj.SetActive(true);
+        //blackObj = new GameObject("black");
+        //float alpha = CommonTemp.blackAlpha;
+        //if (Application.platform == RuntimePlatform.IPhonePlayer)
+        //    alpha = CommonTemp.blackAlphaIOS;
+        //blackObj.transform.position = new Vector3(.5f, .5f, 1000);
+        //blackObj.AddComponent<GUITexture>();
+        //blackObj.guiTexture.texture = iTween.CameraTexture(Color.black);
+        //blackObj.guiTexture.color = new Color(.5f, .5f, .5f, alpha);
     }
 
     private IEnumerator playEffect(float time, float pauseTime) {
@@ -120,14 +156,17 @@ public class PetBorn {
         //foreach (Animator a in animators) {
         //    a.enabled = true;
         //}
-        if (blackObj)
-            Object.Destroy(blackObj);
+        if (blackObj) {
+            blackObj.SetActive(false);
+            //Object.Destroy(blackObj);
+        }
         if (summonEffect != null)
             CameraManager.setLayerRecursively(summonEffect, summonEffect.layer = LayerMask.NameToLayer("Avatars"));
         CameraManager.setLayerRecursively(Player.instance.model, Player.instance.model.layer = LayerMask.NameToLayer("Avatars"));
         UIManager.Instance.Enable = true;
         BattleEngine.scene.pause(false);
-        Object.Destroy(newCamera);
+        newCamera.SetActive(false);
+        //Object.Destroy(newCamera);
         foreach (FightCharacter c in BattleEngine.scene.getFriends()) {
             c.HpBar.setVisible(true);
         }
@@ -142,6 +181,11 @@ public class PetBorn {
         pet.model.SetActive(true);
         pet.playSummon();
         pet.startReverseDissolve();
+        GameObject foot = App.res.createSingle("Local/prefab/arraw/Pet_ring");
+        foot.transform.parent = pet.model.transform;
+        foot.transform.localPosition = Vector3.zero;
+        foot.transform.localRotation = Quaternion.identity;
+        foot.transform.localScale = Vector3.one;
         if (summonEffect)
             Object.Destroy(summonEffect, 3f);
         yield return new WaitForSeconds(3f);

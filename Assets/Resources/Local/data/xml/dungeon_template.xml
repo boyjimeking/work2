@@ -19,7 +19,7 @@ MonsterTrigger1 怪的碰撞盒
 		<box id="20007" name="Box7" appRate="0" wait="stone_break_01" preTrigger="1"/>
 
 		<room id="1">
-			<monster pos="9,0,-13" radius="4" monster="10001:3,10002:2"/>
+			<monster pos="12,0,-8" radius="4" monster="10001:3,10002:2"/>
 			<monster pos="18.5,0,-8" radius="3" monster="10001:3,10002:3"/>
 			<triggers>
 				<trigger name="door1" state="open" enterRoom="enter1" type="0" animation="" effect="" sequence="1"/>
@@ -33,7 +33,7 @@ MonsterTrigger1 怪的碰撞盒
 			</triggers>
 		</room>
 		<room id="3">
-			<monster pos="68,3,16" radius="5.5" monster="10000:1,10001:5,10002:3" bossID="10000" bossPos="71,3,16"/>
+			<monster pos="68,3,16" radius="5.5" monster="10000:1,10001:4,10002:4" bossID="10000" bossPos="71,3,16"/>
             <triggers>
 				<trigger name="door3" state="close" enterRoom="enter3" type="0" animation="" effect="" sequence="3"/>
 			</triggers>

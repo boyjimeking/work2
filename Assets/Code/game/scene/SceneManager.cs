@@ -67,7 +67,7 @@ public class SceneManager  {
         if (firstEnterDungeon) {
             ScriptManager.instance.onComplete = doSpawnMonsters;
             ScriptManager.instance.trigger(1);
-        } else {
+        } else {            
             doSpawnMonsters();  
         }
     }
@@ -75,12 +75,12 @@ public class SceneManager  {
         if (firstEnterDungeon) {
             firstEnterDungeon = false;
             current.prepareRoom();
-           // current.spawnSpecialMonster(10003);
+            //current.spawnSpecialMonster(10003);
         } else {
             current.nextRoom();
             ArrawManager.instance.hideCopyArraw();
             if (current.dungeonData.currentRoomIndex == 1) {
-                current.spawnSpecialMonster(10003);
+                current.enableSpecialMonsterAI();
             }
         }
         current.checkMonsterGroup = true;

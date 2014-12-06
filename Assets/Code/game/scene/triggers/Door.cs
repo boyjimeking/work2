@@ -19,11 +19,17 @@ public class Door :SceneTrigger {
     public string state;//default state
     private EnterRoomTrigger enterRoomTrigger;
     private Dictionary<FightCharacter, int> triggered=new Dictionary<FightCharacter,int>();
+    public GameObject stairs;
+    public bool onTriggered;
     public override void reset(GameObject go,DungeonTemplate.DungeonTrigger trigger) {
         base.reset(go, trigger);
         state = trigger.state;
 
         triggered.Clear();
+
+        onTriggered = false;
+        stairs = model.getChild("boss stairs");
+        if (stairs != null) stairs.SetActive(false);
     }
     public void setEnterRoomTriggerPrefab(GameObject enterRoomTriggerObject) {
         //enter room trigger
@@ -36,6 +42,8 @@ public class Door :SceneTrigger {
     }
    
     public override void onTrigger() {
+        if (onTriggered) return;
+        onTriggered = true;
         UIManager.Instance.Enable = false;
         CameraManager.CameraFollow.enabled = false;
         beginRotate();
@@ -79,10 +87,20 @@ public class Door :SceneTrigger {
     public void initFriendsDoorState() {
         if (state == "open") {
             setFriendsDoorOpen(true);
-            model.SetActive(false);
+            setActive(false);
         } else {
             setFriendsDoorOpen(false);
         }
+    }
+    private void setActive(bool value = false){
+       if (stairs != null){
+            int count = model.transform.childCount;
+            for (int i = 0; i < count; i++){
+                Transform tform = model.transform.GetChild(i);
+                if (tform != stairs.transform) tform.gameObject.SetActive(value);
+            }
+        }
+       else model.SetActive(value);
     }
     private void setFriendsDoorOpen(bool open) {
         int mask = 1 << NavMesh.GetNavMeshLayerFromName(this.name);
@@ -100,7 +118,7 @@ public class Door :SceneTrigger {
 
     public void close() {
         //setFriendsDoorOpen(false);
-        model.SetActive(true);
+        setActive(true);
         DoorAnim[] anims = model.GetComponentsInChildren<DoorAnim>();
         if (anims != null && anims.Length > 0) {
             foreach (DoorAnim anim in anims) {
@@ -140,7 +158,7 @@ public class Door :SceneTrigger {
         tween.origPosition = Camera.main.transform.position;
         return obj;
     }
-
+    public static int flag = 0;
     public class TweenDoor:MonoBehaviour {
         public Door door;
         public GameObject model;
@@ -177,18 +195,45 @@ public class Door :SceneTrigger {
                         effectTime = p.startLifetime;
                 }
             }
+            GameObject stairs = door.stairs;
+            if (stairs != null){
+                stairs.SetActive(true);
+                int count = stairs.transform.childCount;
+                for(int i=0;i<count;i++){
+                    Transform tform = stairs.transform.GetChild(i);
+                    Delay delay = tform.GetComponent<Delay>();
+                    float dtime = delay==null?0:delay.delayTime;
+                    ParticleSystem[] ps = tform.gameObject.GetComponentsInChildren<ParticleSystem>();
+                    if(ps!=null){
+                        foreach(ParticleSystem p in ps){
+                            if(p.startLifetime+dtime > effectTime) effectTime = p.startLifetime + dtime;
+                            
+                        }
+                    }
+                }
+            }
             StartCoroutine(endPlay());
         }
 
         IEnumerator endPlay() {
             yield return new WaitForSeconds(effectTime);
-            Hashtable ht1 = iTween.Hash("rotation", origRotate, "easeType", iTween.EaseType.linear, "oncomplete", "recover", "time", CommonTemp.fromDoorTime,
-                "oncompletetarget", gameObject);
-            iTween.RotateTo(Camera.main.gameObject, ht1);
-            Hashtable ht2 = iTween.Hash("position", origPosition, "easeType", iTween.EaseType.linear, "time", CommonTemp.fromDoorTime);
-            iTween.MoveTo(Camera.main.gameObject, ht2);
+            flag++;
+            if (flag==2)
+            {
+                ScriptManager.instance.onComplete = recover;
+                ScriptManager.instance.RoomTrigger(BattleEngine.scene.dungeonData.currentRoomIndex);
+            }           
+            else
+            {
+                Hashtable ht1 = iTween.Hash("rotation", origRotate, "easeType", iTween.EaseType.linear, "oncomplete", "recover", "time", CommonTemp.fromDoorTime,
+                    "oncompletetarget", gameObject);
+                iTween.RotateTo(Camera.main.gameObject, ht1);
+                Hashtable ht2 = iTween.Hash("position", origPosition, "easeType", iTween.EaseType.linear, "time", CommonTemp.fromDoorTime);
+                iTween.MoveTo(Camera.main.gameObject, ht2);
+            }
             
         }
+
 
         //void finishPlay() {
         //    Hashtable ht1 = iTween.Hash("rotation", origRotate, "easeType", iTween.EaseType.linear, "oncomplete", "recover", "time", 1f,
@@ -211,12 +256,13 @@ public class Door :SceneTrigger {
             UIManager.Instance.Enable = true;
             CameraManager.CameraFollow.enabled = true;
             Destroy(gameObject);
-            model.SetActive(false);
+            door.setActive(false);
             BattleEngine.scene.pauseAI(false);
             BattleEngine.scene.dungeonData.currentTriggerIndex++;
             Player.instance.calcNextPos = true;
             BattleEngine.scene.dungeonData.clearCount = BattleEngine.scene.getFriends().Count;
             //Destroy(model);
         }
+
     }
 }

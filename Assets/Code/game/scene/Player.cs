@@ -68,9 +68,15 @@ public class Player : PlayerCharacter {
      }
 
      public override void onBorn() {
-         GameObject obj = App.res.createSingle("Local/sequence/bornSEQ");
-         PlayerBorn pb = obj.transform.Find("Camera").GetComponent<PlayerBorn>();
-         pb.onBegin(model.transform);
+//           GameObject obj = App.res.createSingle("Local/sequence/bornSEQ");
+//           PlayerBorn pb = obj.transform.Find("Camera").GetComponent<PlayerBorn>();
+//           pb.onBegin(model.transform);
+
+         //新的开场动画   
+            GameObject obj = App.res.createSingle("Local/prefab/Movie/Movie_DEMO_1");
+            PlayBornSript pb = obj.transform.Find("Moviecamera/movieCamera").GetComponent<PlayBornSript>();
+            pb.onBegin(model.transform, true);
+
      }
 
      protected override void onDead() {

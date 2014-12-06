@@ -166,7 +166,8 @@ public class PetHeads {
     }
     public void setActive(bool value)
     {
-        headContainer.SetActive(value);
+		if(headContainer != null)
+        	headContainer.SetActive(value);
     }
 
     public void playHead(PetHead head)

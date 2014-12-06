@@ -25,18 +25,19 @@ public class PlayerGhost {
         model.name = "__PlayerGhost";
         model.SetActive(false);
         ps = model.getChildComponent<ParticleSystem>("sudu");
-        follow = CameraManager.Main.GetComponent<CameraFollowing>();
+		if(CameraManager.Main != null)
+        	follow = CameraManager.Main.GetComponent<CameraFollowing>();
         
     }
 
     public void reset(GameObject model, GameObject weapon) {
         this.model = model;
         this.weapon = weapon;
-        model.name = "__PlayerGhost";
+        model.name = "__PlayerGhost"; 
         firstTime = true;
         
 
-        Shader newShader = Shader.Find("Particles/Additive");
+		Shader newShader = App.getShader("Particles/Additive"); //Shader.Find("Particles/Additive");
         Color tintColor = new Color(9 / 255f, 141 / 255f, 4 / 255f, 8 / 255f);
         Material[] m = model.GetComponentInChildren<SkinnedMeshRenderer>().materials;
         for (int i = 0; i < m.Length; i++) {
